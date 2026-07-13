@@ -1,0 +1,19 @@
+meta {
+  name: delete
+  type: http
+  seq: 2
+}
+
+delete {
+  url: localhost:8080/api/user/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: 1
+}
+
+settings {
+  encodeUrl: true
+}

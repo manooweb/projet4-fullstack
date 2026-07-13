@@ -1,0 +1,25 @@
+meta {
+  name: create
+  type: http
+  seq: 3
+}
+
+post {
+  url: localhost:8080/api/session
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "name": "session 1",
+      "date": "2012-01-01",
+      "teacher_id": 5,
+      "users": null,
+      "description": "my description"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

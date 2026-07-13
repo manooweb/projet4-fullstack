@@ -1,0 +1,29 @@
+meta {
+  name: update
+  type: http
+  seq: 4
+}
+
+put {
+  url: localhost:8080/api/session/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 2
+}
+
+body:json {
+  {
+      "name": "session 1",
+      "date": "2012-01-01T00:00:00.000+00:00",
+      "teacher_id": 1,
+      "description": "my description",
+      "users": []
+  }
+}
+
+settings {
+  encodeUrl: true
+}

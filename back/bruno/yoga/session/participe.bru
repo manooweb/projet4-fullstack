@@ -1,0 +1,20 @@
+meta {
+  name: participe
+  type: http
+  seq: 6
+}
+
+post {
+  url: localhost:8080/api/session/:id/participate/:userId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: 1
+  userId: 2
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,19 @@
+meta {
+  name: find by id
+  type: http
+  seq: 1
+}
+
+get {
+  url: localhost:8080/api/user/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: 2
+}
+
+settings {
+  encodeUrl: true
+}
