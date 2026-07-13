@@ -5,7 +5,7 @@ meta {
 }
 
 post {
-  url: localhost:8080/api/session/:id/participate/:userId
+  url: {{baseUrl}}/api/session/:id/participate/:userId
   body: none
   auth: inherit
 }
@@ -17,4 +17,5 @@ params:path {
 
 settings {
   encodeUrl: true
+  timeout: 0
 }

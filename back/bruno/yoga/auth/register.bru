@@ -5,7 +5,7 @@ meta {
 }
 
 post {
-  url: localhost:8080/api/auth/register
+  url: {{baseUrl}}/api/auth/register
   body: json
   auth: inherit
 }
@@ -21,4 +21,5 @@ body:json {
 
 settings {
   encodeUrl: true
+  timeout: 0
 }

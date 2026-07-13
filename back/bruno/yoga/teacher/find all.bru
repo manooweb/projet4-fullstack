@@ -5,11 +5,12 @@ meta {
 }
 
 get {
-  url: localhost:8080/api/teacher
+  url: {{baseUrl}}/api/teacher
   body: none
   auth: inherit
 }
 
 settings {
   encodeUrl: true
+  timeout: 0
 }

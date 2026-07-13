@@ -5,7 +5,7 @@ meta {
 }
 
 get {
-  url: localhost:8080/api/user/:id
+  url: {{baseUrl}}/api/user/:id
   body: none
   auth: inherit
 }
@@ -16,4 +16,5 @@ params:path {
 
 settings {
   encodeUrl: true
+  timeout: 0
 }
