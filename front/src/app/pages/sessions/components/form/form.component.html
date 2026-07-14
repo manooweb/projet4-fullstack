@@ -26,9 +26,11 @@
         <mat-form-field appearance="outline">
           <mat-label>Teacher</mat-label>
           <mat-select ngDefaultControl formControlName="teacher_id">
-            <mat-option *ngFor="let teacher of teachers$ | async" [value]="teacher.id">
-              {{teacher.firstName}} {{teacher.lastName}}
-            </mat-option>
+            @for(teacher of teachers$ | async; track teacher.id){
+              <mat-option [value]="teacher.id">
+                {{teacher.firstName}} {{teacher.lastName}}
+              </mat-option>
+            }
           </mat-select>
         </mat-form-field>
         <mat-form-field appearance="outline" fxFlex>
