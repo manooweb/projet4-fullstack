@@ -20,7 +20,9 @@
         "plugin:@angular-eslint/template/process-inline-templates"
       ],
       "rules": {
+        "@typescript-eslint/no-floating-promises": "error",
         "@typescript-eslint/no-explicit-any": "error",
+        "@typescript-eslint/no-unused-private-class-members": "error",
         "@angular-eslint/directive-selector": [
           "error",
           {
