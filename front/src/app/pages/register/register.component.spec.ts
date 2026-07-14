@@ -16,7 +16,6 @@ describe('RegisterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [RegisterComponent],
       imports: [
         BrowserAnimationsModule,
         HttpClientModule,
@@ -24,7 +23,8 @@ describe('RegisterComponent', () => {
         MatCardModule,
         MatFormFieldModule,
         MatIconModule,
-        MatInputModule
+        MatInputModule,
+        RegisterComponent
       ]
     })
       .compileComponents();

@@ -19,8 +19,12 @@ describe('ListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ListComponent],
-      imports: [HttpClientModule, MatCardModule, MatIconModule],
+      imports: [
+        HttpClientModule,
+        MatCardModule,
+        MatIconModule,
+        ListComponent
+      ],
       providers: [{ provide: SessionService, useValue: mockSessionService }]
     })
       .compileComponents();

@@ -38,13 +38,13 @@ describe('FormComponent', () => {
         ReactiveFormsModule,
         MatSnackBarModule,
         MatSelectModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        FormComponent
       ],
       providers: [
         { provide: SessionService, useValue: mockSessionService },
         SessionApiService
       ],
-      declarations: [FormComponent]
     })
       .compileComponents();
 
