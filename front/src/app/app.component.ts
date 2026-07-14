@@ -21,6 +21,6 @@ export class AppComponent {
 
   public logout(): void {
     this.sessionService.logOut();
-    this.router.navigate([''])
+    void this.router.navigate([''])
   }
 }
