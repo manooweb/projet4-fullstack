@@ -6,6 +6,7 @@ import { expect } from '@jest/globals';
 import { SessionService } from 'src/app/core/service/session.service';
 
 import { ListComponent } from './list.component';
+import { ActivatedRoute } from '@angular/router';
 
 describe('ListComponent', () => {
   let component: ListComponent;
@@ -25,7 +26,9 @@ describe('ListComponent', () => {
         MatIconModule,
         ListComponent
       ],
-      providers: [{ provide: SessionService, useValue: mockSessionService }]
+      providers: [
+        { provide: ActivatedRoute, useValue: {} },
+        { provide: SessionService, useValue: mockSessionService }]
     })
       .compileComponents();
 
