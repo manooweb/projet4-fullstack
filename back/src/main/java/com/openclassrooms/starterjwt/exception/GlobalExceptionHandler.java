@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 import com.openclassrooms.starterjwt.exception.dto.ApiErrorResponse;
 
@@ -19,7 +20,19 @@ public class GlobalExceptionHandler {
                 .body(errorResponse(
                 HttpStatus.BAD_REQUEST,
                 "Bad Request",
-                "The provided parameter must be a valid number.",
+                "A parameter has an invalid value.",
+                request.getRequestURI()
+        ));
+    }
+
+    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
+    public ResponseEntity<ApiErrorResponse> handleMethodArgumentTypeMismatchException(MethodArgumentTypeMismatchException ex, HttpServletRequest request) {
+        return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
+                .body(errorResponse(
+                HttpStatus.BAD_REQUEST,
+                "Bad Request",
+                "The parameter '%s' has an invalid value.".formatted(ex.getName()),
                 request.getRequestURI()
         ));
     }
