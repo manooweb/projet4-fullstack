@@ -10,7 +10,7 @@ import org.testcontainers.mysql.MySQLContainer;
 
 @Testcontainers
 @SpringBootTest(properties = {
-        "oc.app.jwtSecret=test-secret-key-test-secret-key-test-secret-key-test-secret-key",
+        "oc.app.jwtSecret=B05rhIFhM+X6AeloFsPDBWdau6FuUwXK7sk08rjUN1lKEUdpXWHkOBHzXO8xYHyc98L2z78uu6h+W3+urd2Nlw==",
         "spring.docker.compose.enabled=false"
 })
 class SpringBootSecurityJwtApplicationTests {

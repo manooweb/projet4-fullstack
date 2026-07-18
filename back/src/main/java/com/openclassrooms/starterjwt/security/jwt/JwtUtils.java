@@ -4,9 +4,10 @@ import com.openclassrooms.starterjwt.security.services.UserDetailsImpl;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.MalformedJwtException;
-import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.SignatureException;
 import io.jsonwebtoken.UnsupportedJwtException;
+import io.jsonwebtoken.io.Decoders;
+import io.jsonwebtoken.security.Keys;
+import io.jsonwebtoken.security.SignatureException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
@@ -14,34 +15,41 @@ import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
+import javax.crypto.SecretKey;
+
 @Slf4j
 @Component
 public class JwtUtils {
-    @Value("${oc.app.jwtSecret}")
-    private String jwtSecret;
+    private final SecretKey signingKey;
+    private final int jwtExpirationMs;
 
-    @Value("${oc.app.jwtExpirationMs}")
-    private int jwtExpirationMs;
+    public JwtUtils(
+            @Value("${oc.app.jwtSecret}") String jwtSecret,
+            @Value("${oc.app.jwtExpirationMs}") int jwtExpirationMs) {
+        this.signingKey = Keys.hmacShaKeyFor(
+                Decoders.BASE64.decode(jwtSecret));
+        this.jwtExpirationMs = jwtExpirationMs;
+    }
 
     public String generateJwtToken(Authentication authentication) {
 
         UserDetailsImpl userPrincipal = (UserDetailsImpl) authentication.getPrincipal();
 
         return Jwts.builder()
-                .setSubject((userPrincipal.getUsername()))
-                .setIssuedAt(new Date())
-                .setExpiration(new Date((new Date()).getTime() + jwtExpirationMs))
-                .signWith(SignatureAlgorithm.HS512, jwtSecret)
+                .subject((userPrincipal.getUsername()))
+                .issuedAt(new Date())
+                .expiration(new Date((new Date()).getTime() + jwtExpirationMs))
+                .signWith(signingKey, Jwts.SIG.HS512)
                 .compact();
     }
 
     public String getUserNameFromJwtToken(String token) {
-        return Jwts.parser().setSigningKey(jwtSecret).build().parseClaimsJws(token).getBody().getSubject();
+        return Jwts.parser().verifyWith(signingKey).build().parseSignedClaims(token).getPayload().getSubject();
     }
 
     public boolean validateJwtToken(String authToken) {
         try {
-            Jwts.parser().setSigningKey(jwtSecret).build().parseClaimsJws(authToken);
+            Jwts.parser().verifyWith(signingKey).build().parseSignedClaims(authToken);
             return true;
         } catch (SignatureException e) {
             log.error("Invalid JWT signature: {}", e.getMessage());
