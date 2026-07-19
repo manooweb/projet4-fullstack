@@ -31,6 +31,8 @@ public class SessionService {
     }
 
     public void delete(Long id) {
+        this.sessionRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException(sessionNotFoundMessage(id)));
         this.sessionRepository.deleteById(id);
     }
 
