@@ -1,8 +1,8 @@
 package com.openclassrooms.starterjwt.exception;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
@@ -14,39 +14,47 @@ import jakarta.servlet.http.HttpServletRequest;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(NumberFormatException.class)
-    public ResponseEntity<ApiErrorResponse> handleNumberFormatException(NumberFormatException ex, HttpServletRequest request) {
-        return ResponseEntity
-                .status(HttpStatus.BAD_REQUEST)
-                .body(errorResponse(
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ApiErrorResponse handleNumberFormatException(NumberFormatException ex, HttpServletRequest request) {
+        return errorResponse(
                 HttpStatus.BAD_REQUEST,
                 "Bad Request",
                 "A parameter has an invalid value.",
                 request.getRequestURI()
-        ));
+        );
+    }
+
+    @ExceptionHandler(NotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ApiErrorResponse handleNotFoundException(NotFoundException ex, HttpServletRequest request) {
+        return errorResponse(
+                HttpStatus.NOT_FOUND,
+                "Not Found",
+                ex.getMessage(),
+                request.getRequestURI()
+        );
     }
 
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
-    public ResponseEntity<ApiErrorResponse> handleMethodArgumentTypeMismatchException(MethodArgumentTypeMismatchException ex, HttpServletRequest request) {
-        return ResponseEntity
-                .status(HttpStatus.BAD_REQUEST)
-                .body(errorResponse(
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ApiErrorResponse handleMethodArgumentTypeMismatchException(MethodArgumentTypeMismatchException ex, HttpServletRequest request) {
+        return errorResponse(
                 HttpStatus.BAD_REQUEST,
                 "Bad Request",
                 "The parameter '%s' has an invalid value.".formatted(ex.getName()),
                 request.getRequestURI()
-        ));
+        );
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<ApiErrorResponse> handleException(Exception ex, HttpServletRequest request) {
-        return ResponseEntity
-                .status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .body(errorResponse(
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public ApiErrorResponse handleException(Exception ex, HttpServletRequest request) {
+        return errorResponse(
                 HttpStatus.INTERNAL_SERVER_ERROR,
                 "Internal Server Error",
                 "An unexpected error occurred",
                 request.getRequestURI()
-        ));
+        );
     }
 
     private ApiErrorResponse errorResponse(HttpStatus status, String error, String message, String path) {
