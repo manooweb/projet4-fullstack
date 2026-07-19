@@ -57,7 +57,7 @@ public class SessionService {
 
         boolean alreadyParticipate = session.getUsers().stream().anyMatch(o -> o.getId().equals(userId));
         if (alreadyParticipate) {
-            throw new BadRequestException();
+            throw new BadRequestException("User with id %d already participate to the session with id %d.".formatted(userId, id));
         }
 
         session.getUsers().add(user);
@@ -71,7 +71,7 @@ public class SessionService {
 
         boolean alreadyParticipate = session.getUsers().stream().anyMatch(o -> o.getId().equals(userId));
         if (!alreadyParticipate) {
-            throw new BadRequestException();
+            throw new BadRequestException("User with id %d is not participating in the session with id %d.".formatted(userId, id));
         }
 
         session.setUsers(
