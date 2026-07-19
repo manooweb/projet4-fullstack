@@ -46,6 +46,17 @@ public class GlobalExceptionHandler {
         );
     }
 
+    @ExceptionHandler(ForbiddenException.class)
+    @ResponseStatus(HttpStatus.FORBIDDEN)
+    public ApiErrorResponse handleForbiddenException(ForbiddenException ex, HttpServletRequest request) {
+        return errorResponse(
+                HttpStatus.FORBIDDEN,
+                "Forbidden",
+                ex.getMessage(),
+                request.getRequestURI()
+        );
+    }
+
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ApiErrorResponse handleException(Exception ex, HttpServletRequest request) {
