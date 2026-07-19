@@ -13,9 +13,9 @@ import jakarta.servlet.http.HttpServletRequest;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(NumberFormatException.class)
+    @ExceptionHandler(BadRequestException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ApiErrorResponse handleNumberFormatException(NumberFormatException ex, HttpServletRequest request) {
+    public ApiErrorResponse handleBadRequestException(BadRequestException ex, HttpServletRequest request) {
         return errorResponse(
                 HttpStatus.BAD_REQUEST,
                 "Bad Request",
