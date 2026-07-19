@@ -19,7 +19,7 @@ public class GlobalExceptionHandler {
         return errorResponse(
                 HttpStatus.BAD_REQUEST,
                 "Bad Request",
-                "A parameter has an invalid value.",
+                ex.getMessage(),
                 request.getRequestURI()
         );
     }
