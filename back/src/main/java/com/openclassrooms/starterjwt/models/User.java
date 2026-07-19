@@ -65,7 +65,6 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @NonNull
     private boolean admin;
 
     @CreatedDate
