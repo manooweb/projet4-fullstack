@@ -4,7 +4,9 @@ yoga:
       bad-request: Bad Request
       not-found: Not Found
       forbidden: Forbidden
+      unauthorized: Unauthorized
       internal-server-error: Internal Server Error
+      invalid-credentials: Invalid credentials.
       invalid-parameter: "The parameter '%s' has an invalid value."
       invalid-request: The request contains an invalid value.
       unexpected: An unexpected error occurred

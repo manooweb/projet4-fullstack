@@ -1,7 +1,7 @@
 package com.openclassrooms.starterjwt.services;
 
+import com.openclassrooms.starterjwt.configuration.properties.YogaProperties;
 import com.openclassrooms.starterjwt.exception.ForbiddenException;
-import com.openclassrooms.starterjwt.configuration.YogaProperties;
 import com.openclassrooms.starterjwt.exception.NotFoundException;
 import com.openclassrooms.starterjwt.models.User;
 import com.openclassrooms.starterjwt.repository.UserRepository;

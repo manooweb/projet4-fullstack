@@ -1,7 +1,6 @@
 package com.openclassrooms.starterjwt.controllers;
 
-
-import com.openclassrooms.starterjwt.configuration.YogaProperties;
+import com.openclassrooms.starterjwt.configuration.properties.YogaProperties;
 import com.openclassrooms.starterjwt.models.User;
 import com.openclassrooms.starterjwt.payload.request.LoginRequest;
 import com.openclassrooms.starterjwt.payload.request.SignupRequest;
@@ -32,10 +31,10 @@ public class AuthController {
     private final YogaProperties yogaProperties;
 
     public AuthController(AuthenticationManager authenticationManager,
-                   PasswordEncoder passwordEncoder,
-                   JwtUtils jwtUtils,
-                   UserRepository userRepository,
-                   YogaProperties yogaProperties) {
+            PasswordEncoder passwordEncoder,
+            JwtUtils jwtUtils,
+            UserRepository userRepository,
+            YogaProperties yogaProperties) {
         this.authenticationManager = authenticationManager;
         this.jwtUtils = jwtUtils;
         this.passwordEncoder = passwordEncoder;

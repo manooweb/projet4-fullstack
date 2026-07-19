@@ -1,13 +1,14 @@
 package com.openclassrooms.starterjwt.exception;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
+import com.openclassrooms.starterjwt.configuration.properties.YogaProperties;
 import com.openclassrooms.starterjwt.exception.dto.ApiErrorResponse;
-import com.openclassrooms.starterjwt.configuration.YogaProperties;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -61,6 +62,17 @@ public class GlobalExceptionHandler {
                 HttpStatus.FORBIDDEN,
                 yogaProperties.getMessages().getErrors().getForbidden(),
                 ex.getMessage(),
+                request.getRequestURI()
+        );
+    }
+
+    @ExceptionHandler(BadCredentialsException.class)
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    public ApiErrorResponse handleBadCredentialsException(BadCredentialsException ex, HttpServletRequest request) {
+        return errorResponse(
+                HttpStatus.UNAUTHORIZED,
+                yogaProperties.getMessages().getErrors().getUnauthorized(),
+                yogaProperties.getMessages().getErrors().getInvalidCredentials(),
                 request.getRequestURI()
         );
     }

@@ -1,4 +1,4 @@
-package com.openclassrooms.starterjwt.configuration;
+package com.openclassrooms.starterjwt.configuration.properties;
 
 import org.springframework.stereotype.Component;
 

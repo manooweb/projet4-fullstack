@@ -1,4 +1,4 @@
-package com.openclassrooms.starterjwt.configuration;
+package com.openclassrooms.starterjwt.configuration.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
@@ -18,6 +18,8 @@ public class YogaMessagesProperties {
         private String badRequest;
         private String notFound;
         private String forbidden;
+        private String unauthorized;
+        private String invalidCredentials;
         private String internalServerError;
         private String invalidParameter;
         private String invalidRequest;
