@@ -3,6 +3,8 @@ oc:
     jwtExpirationMs: 86400000
     jwtSecret: ${TOKEN_SECRET}
 spring:
+  config:
+    import: classpath:yoga.yml
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: ${DB_USER}

@@ -1,0 +1,19 @@
+yoga:
+  messages:
+    errors:
+      bad-request: Bad Request
+      not-found: Not Found
+      forbidden: Forbidden
+      internal-server-error: Internal Server Error
+      invalid-parameter: "The parameter '%s' has an invalid value."
+      invalid-request: The request contains an invalid value.
+      unexpected: An unexpected error occurred
+      session-not-found: Session with id %d was not found.
+      user-not-found: User with id %d was not found.
+      teacher-not-found: Teacher with id %d was not found.
+      already-participating: User with id %d already participate to the session with id %d.
+      not-participating: User with id %d is not participating in the session with id %d.
+      user-deletion-forbidden: You are not allowed to delete this user.
+      email-already-taken: "Error: Email is already taken!"
+    success:
+      user-registered: User registered successfully!

@@ -7,19 +7,27 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 import com.openclassrooms.starterjwt.exception.dto.ApiErrorResponse;
+import com.openclassrooms.starterjwt.configuration.YogaProperties;
 
 import jakarta.servlet.http.HttpServletRequest;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
+    private final YogaProperties yogaProperties;
+
+    public GlobalExceptionHandler(YogaProperties yogaProperties) {
+        this.yogaProperties = yogaProperties;
+    }
 
     @ExceptionHandler(BadRequestException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ApiErrorResponse handleBadRequestException(BadRequestException ex, HttpServletRequest request) {
         return errorResponse(
                 HttpStatus.BAD_REQUEST,
-                "Bad Request",
-                ex.getMessage(),
+                yogaProperties.getMessages().getErrors().getBadRequest(),
+                ex.getMessage() != null
+                        ? ex.getMessage()
+                        : yogaProperties.getMessages().getErrors().getInvalidRequest(),
                 request.getRequestURI()
         );
     }
@@ -29,7 +37,7 @@ public class GlobalExceptionHandler {
     public ApiErrorResponse handleNotFoundException(NotFoundException ex, HttpServletRequest request) {
         return errorResponse(
                 HttpStatus.NOT_FOUND,
-                "Not Found",
+                yogaProperties.getMessages().getErrors().getNotFound(),
                 ex.getMessage(),
                 request.getRequestURI()
         );
@@ -40,8 +48,8 @@ public class GlobalExceptionHandler {
     public ApiErrorResponse handleMethodArgumentTypeMismatchException(MethodArgumentTypeMismatchException ex, HttpServletRequest request) {
         return errorResponse(
                 HttpStatus.BAD_REQUEST,
-                "Bad Request",
-                "The parameter '%s' has an invalid value.".formatted(ex.getName()),
+                yogaProperties.getMessages().getErrors().getBadRequest(),
+                yogaProperties.getMessages().getErrors().getInvalidParameter().formatted(ex.getName()),
                 request.getRequestURI()
         );
     }
@@ -51,7 +59,7 @@ public class GlobalExceptionHandler {
     public ApiErrorResponse handleForbiddenException(ForbiddenException ex, HttpServletRequest request) {
         return errorResponse(
                 HttpStatus.FORBIDDEN,
-                "Forbidden",
+                yogaProperties.getMessages().getErrors().getForbidden(),
                 ex.getMessage(),
                 request.getRequestURI()
         );
@@ -62,8 +70,8 @@ public class GlobalExceptionHandler {
     public ApiErrorResponse handleException(Exception ex, HttpServletRequest request) {
         return errorResponse(
                 HttpStatus.INTERNAL_SERVER_ERROR,
-                "Internal Server Error",
-                "An unexpected error occurred",
+                yogaProperties.getMessages().getErrors().getInternalServerError(),
+                yogaProperties.getMessages().getErrors().getUnexpected(),
                 request.getRequestURI()
         );
     }

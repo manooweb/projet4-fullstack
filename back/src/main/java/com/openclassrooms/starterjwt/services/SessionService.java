@@ -1,6 +1,7 @@
 package com.openclassrooms.starterjwt.services;
 
 import com.openclassrooms.starterjwt.exception.BadRequestException;
+import com.openclassrooms.starterjwt.configuration.YogaProperties;
 import com.openclassrooms.starterjwt.exception.NotFoundException;
 import com.openclassrooms.starterjwt.models.Session;
 import com.openclassrooms.starterjwt.models.User;
@@ -16,10 +17,13 @@ public class SessionService {
     private final SessionRepository sessionRepository;
 
     private final UserRepository userRepository;
+    private final YogaProperties yogaProperties;
 
-    public SessionService(SessionRepository sessionRepository, UserRepository userRepository) {
+    public SessionService(SessionRepository sessionRepository, UserRepository userRepository,
+            YogaProperties yogaProperties) {
         this.sessionRepository = sessionRepository;
         this.userRepository = userRepository;
+        this.yogaProperties = yogaProperties;
     }
 
     public Session create(Session session) {
@@ -36,13 +40,13 @@ public class SessionService {
 
     public Session getById(Long id) {
         return this.sessionRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException("Session with id %d was not found.".formatted(id)));
+                .orElseThrow(() -> new NotFoundException(sessionNotFoundMessage(id)));
     }
 
     public Session update(Long id, Session session) {
         sessionRepository.findById(id)
             .orElseThrow(() -> new NotFoundException(
-                    "Session with id %d was not found.".formatted(id)
+                    sessionNotFoundMessage(id)
             ));
 
         session.setId(id);
@@ -51,13 +55,15 @@ public class SessionService {
 
     public void participate(Long id, Long userId) {
         Session session = this.sessionRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException("Session with id %d was not found.".formatted(id)));
+                .orElseThrow(() -> new NotFoundException(sessionNotFoundMessage(id)));
         User user = this.userRepository.findById(userId)
-                .orElseThrow(() -> new NotFoundException("User with id %d was not found.".formatted(userId)));
+                .orElseThrow(() -> new NotFoundException(
+                        yogaProperties.getMessages().getErrors().getUserNotFound().formatted(userId)));
 
         boolean alreadyParticipate = session.getUsers().stream().anyMatch(o -> o.getId().equals(userId));
         if (alreadyParticipate) {
-            throw new BadRequestException("User with id %d already participate to the session with id %d.".formatted(userId, id));
+            throw new BadRequestException(
+                    yogaProperties.getMessages().getErrors().getAlreadyParticipating().formatted(userId, id));
         }
 
         session.getUsers().add(user);
@@ -67,16 +73,21 @@ public class SessionService {
 
     public void noLongerParticipate(Long id, Long userId) {
         Session session = this.sessionRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException("Session with id %d was not found.".formatted(id)));
+                .orElseThrow(() -> new NotFoundException(sessionNotFoundMessage(id)));
 
         boolean alreadyParticipate = session.getUsers().stream().anyMatch(o -> o.getId().equals(userId));
         if (!alreadyParticipate) {
-            throw new BadRequestException("User with id %d is not participating in the session with id %d.".formatted(userId, id));
+            throw new BadRequestException(
+                    yogaProperties.getMessages().getErrors().getNotParticipating().formatted(userId, id));
         }
 
         session.setUsers(
                 session.getUsers().stream().filter(user -> !user.getId().equals(userId)).collect(Collectors.toList()));
 
         this.sessionRepository.save(session);
+    }
+
+    private String sessionNotFoundMessage(Long id) {
+        return yogaProperties.getMessages().getErrors().getSessionNotFound().formatted(id);
     }
 }

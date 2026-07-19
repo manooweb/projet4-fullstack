@@ -1,6 +1,7 @@
 package com.openclassrooms.starterjwt.controllers;
 
 
+import com.openclassrooms.starterjwt.configuration.YogaProperties;
 import com.openclassrooms.starterjwt.models.User;
 import com.openclassrooms.starterjwt.payload.request.LoginRequest;
 import com.openclassrooms.starterjwt.payload.request.SignupRequest;
@@ -28,15 +29,18 @@ public class AuthController {
     private final JwtUtils jwtUtils;
     private final PasswordEncoder passwordEncoder;
     private final UserRepository userRepository;
+    private final YogaProperties yogaProperties;
 
     public AuthController(AuthenticationManager authenticationManager,
                    PasswordEncoder passwordEncoder,
                    JwtUtils jwtUtils,
-                   UserRepository userRepository) {
+                   UserRepository userRepository,
+                   YogaProperties yogaProperties) {
         this.authenticationManager = authenticationManager;
         this.jwtUtils = jwtUtils;
         this.passwordEncoder = passwordEncoder;
         this.userRepository = userRepository;
+        this.yogaProperties = yogaProperties;
     }
 
     @PostMapping("/login")
@@ -68,7 +72,7 @@ public class AuthController {
         if (userRepository.existsByEmail(signUpRequest.getEmail())) {
             return ResponseEntity
                     .badRequest()
-                    .body(new MessageResponse("Error: Email is already taken!"));
+                    .body(new MessageResponse(yogaProperties.getMessages().getErrors().getEmailAlreadyTaken()));
         }
 
         // Create new user's account
@@ -80,6 +84,6 @@ public class AuthController {
 
         userRepository.save(user);
 
-        return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
+        return ResponseEntity.ok(new MessageResponse(yogaProperties.getMessages().getSuccess().getUserRegistered()));
     }
 }
