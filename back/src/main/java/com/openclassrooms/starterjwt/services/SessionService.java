@@ -40,6 +40,11 @@ public class SessionService {
     }
 
     public Session update(Long id, Session session) {
+        sessionRepository.findById(id)
+            .orElseThrow(() -> new NotFoundException(
+                    "Session with id %d was not found.".formatted(id)
+            ));
+
         session.setId(id);
         return this.sessionRepository.save(session);
     }
