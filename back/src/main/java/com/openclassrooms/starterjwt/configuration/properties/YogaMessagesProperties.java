@@ -19,6 +19,7 @@ public class YogaMessagesProperties {
         private String notFound;
         private String forbidden;
         private String unauthorized;
+        private String notAuthorized;
         private String invalidCredentials;
         private String internalServerError;
         private String invalidParameter;

@@ -5,6 +5,7 @@ yoga:
       not-found: Not Found
       forbidden: Forbidden
       unauthorized: Unauthorized
+      not-authorized: This user is not authorized.
       internal-server-error: Internal Server Error
       invalid-credentials: Invalid credentials.
       invalid-parameter: "The parameter '%s' has an invalid value."

@@ -2,8 +2,8 @@ package com.openclassrooms.starterjwt.security;
 
 import com.openclassrooms.starterjwt.security.jwt.AuthTokenFilter;
 import com.openclassrooms.starterjwt.security.jwt.JwtUtils;
+import com.openclassrooms.starterjwt.security.handler.ApiAuthenticationEntryPoint;
 import com.openclassrooms.starterjwt.security.services.UserDetailsServiceImpl;
-import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -23,10 +23,15 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class WebSecurityConfig {
     private final JwtUtils jwtUtils;
     private final UserDetailsServiceImpl userDetailsService;
+    private final ApiAuthenticationEntryPoint apiAuthenticationEntryPoint;
 
-    public WebSecurityConfig(JwtUtils jwtUtils, UserDetailsServiceImpl userDetailsService) {
+    public WebSecurityConfig(
+            JwtUtils jwtUtils,
+            UserDetailsServiceImpl userDetailsService,
+            ApiAuthenticationEntryPoint apiAuthenticationEntryPoint) {
         this.jwtUtils = jwtUtils;
         this.userDetailsService = userDetailsService;
+        this.apiAuthenticationEntryPoint = apiAuthenticationEntryPoint;
     }
 
     @Bean
@@ -36,7 +41,7 @@ public class WebSecurityConfig {
 
     @Bean
     public AuthTokenFilter authenticationJwtTokenFilter() {
-        return new AuthTokenFilter(jwtUtils, userDetailsService);
+        return new AuthTokenFilter(jwtUtils, userDetailsService, apiAuthenticationEntryPoint);
     }
 
     @Bean
@@ -65,8 +70,8 @@ public class WebSecurityConfig {
                         .requestMatchers("/api/**").authenticated()
                         .anyRequest().authenticated())
                 .addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class)
-                .exceptionHandling(exceptionHandling -> exceptionHandling.authenticationEntryPoint(
-                        (request, response, exception) -> response.sendError(HttpServletResponse.SC_UNAUTHORIZED,exception.getMessage())));
+                .exceptionHandling(exceptionHandling ->
+                        exceptionHandling.authenticationEntryPoint(apiAuthenticationEntryPoint));
         return http.build();
     }
 }
