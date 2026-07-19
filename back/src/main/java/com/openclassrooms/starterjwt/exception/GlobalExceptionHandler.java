@@ -1,8 +1,10 @@
 package com.openclassrooms.starterjwt.exception;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
@@ -72,6 +74,26 @@ public class GlobalExceptionHandler {
                 HttpStatus.UNAUTHORIZED,
                 yogaProperties.getMessages().getErrors().getUnauthorized(),
                 yogaProperties.getMessages().getErrors().getInvalidCredentials(),
+                request.getRequestURI());
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ApiErrorResponse handleMethodArgumentNotValidException(HttpServletRequest request) {
+        return errorResponse(
+                HttpStatus.BAD_REQUEST,
+                yogaProperties.getMessages().getErrors().getBadRequest(),
+                yogaProperties.getMessages().getErrors().getInvalidRequest(),
+                request.getRequestURI());
+    }
+
+    @ExceptionHandler(HttpMessageNotReadableException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ApiErrorResponse handleHttpMessageNotReadableException(HttpServletRequest request) {
+        return errorResponse(
+                HttpStatus.BAD_REQUEST,
+                yogaProperties.getMessages().getErrors().getBadRequest(),
+                yogaProperties.getMessages().getErrors().getInvalidRequest(),
                 request.getRequestURI());
     }
 
