@@ -11,7 +11,9 @@ import com.openclassrooms.starterjwt.configuration.properties.YogaProperties;
 import com.openclassrooms.starterjwt.exception.dto.ApiErrorResponse;
 
 import jakarta.servlet.http.HttpServletRequest;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHandler {
     private final YogaProperties yogaProperties;
@@ -29,8 +31,7 @@ public class GlobalExceptionHandler {
                 ex.getMessage() != null
                         ? ex.getMessage()
                         : yogaProperties.getMessages().getErrors().getInvalidRequest(),
-                request.getRequestURI()
-        );
+                request.getRequestURI());
     }
 
     @ExceptionHandler(NotFoundException.class)
@@ -40,19 +41,18 @@ public class GlobalExceptionHandler {
                 HttpStatus.NOT_FOUND,
                 yogaProperties.getMessages().getErrors().getNotFound(),
                 ex.getMessage(),
-                request.getRequestURI()
-        );
+                request.getRequestURI());
     }
 
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ApiErrorResponse handleMethodArgumentTypeMismatchException(MethodArgumentTypeMismatchException ex, HttpServletRequest request) {
+    public ApiErrorResponse handleMethodArgumentTypeMismatchException(MethodArgumentTypeMismatchException ex,
+            HttpServletRequest request) {
         return errorResponse(
                 HttpStatus.BAD_REQUEST,
                 yogaProperties.getMessages().getErrors().getBadRequest(),
                 yogaProperties.getMessages().getErrors().getInvalidParameter().formatted(ex.getName()),
-                request.getRequestURI()
-        );
+                request.getRequestURI());
     }
 
     @ExceptionHandler(ForbiddenException.class)
@@ -62,8 +62,7 @@ public class GlobalExceptionHandler {
                 HttpStatus.FORBIDDEN,
                 yogaProperties.getMessages().getErrors().getForbidden(),
                 ex.getMessage(),
-                request.getRequestURI()
-        );
+                request.getRequestURI());
     }
 
     @ExceptionHandler(BadCredentialsException.class)
@@ -73,19 +72,21 @@ public class GlobalExceptionHandler {
                 HttpStatus.UNAUTHORIZED,
                 yogaProperties.getMessages().getErrors().getUnauthorized(),
                 yogaProperties.getMessages().getErrors().getInvalidCredentials(),
-                request.getRequestURI()
-        );
+                request.getRequestURI());
     }
 
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ApiErrorResponse handleException(Exception ex, HttpServletRequest request) {
+        log.error(
+                "Unexpected error while processing request {}",
+                request.getRequestURI(),
+                ex);
         return errorResponse(
                 HttpStatus.INTERNAL_SERVER_ERROR,
                 yogaProperties.getMessages().getErrors().getInternalServerError(),
                 yogaProperties.getMessages().getErrors().getUnexpected(),
-                request.getRequestURI()
-        );
+                request.getRequestURI());
     }
 
     private ApiErrorResponse errorResponse(HttpStatus status, String error, String message, String path) {
