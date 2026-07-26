@@ -61,7 +61,7 @@ class TeacherServiceTest {
     }
 
     @Nested
-    @DisplayName("Given that an existiing teacher")
+    @DisplayName("Given that an existing teacher")
     class ExistingTeacher {
 
         @DisplayName("When requested by id, then the teacher is returned")
