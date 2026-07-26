@@ -1,23 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">yoga-app</a> &gt; <a href="index.source.html" class="el_package">com.openclassrooms.starterjwt.services</a> &gt; <span class="el_source">UserService.java</span></div><h1>UserService.java</h1><pre class="source lang-java linenums">package com.openclassrooms.starterjwt.services;
 
+import com.openclassrooms.starterjwt.configuration.properties.YogaProperties;
+import com.openclassrooms.starterjwt.exception.ForbiddenException;
+import com.openclassrooms.starterjwt.exception.NotFoundException;
 import com.openclassrooms.starterjwt.models.User;
 import com.openclassrooms.starterjwt.repository.UserRepository;
+
+import java.util.Objects;
+
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
     private final UserRepository userRepository;
+    private final YogaProperties yogaProperties;
 
-<span class="fc" id="L11">    public UserService(UserRepository userRepository) {</span>
-<span class="fc" id="L12">        this.userRepository = userRepository;</span>
-<span class="fc" id="L13">    }</span>
+<span class="fc" id="L20">    public UserService(UserRepository userRepository, YogaProperties yogaProperties) {</span>
+<span class="fc" id="L21">        this.userRepository = userRepository;</span>
+<span class="fc" id="L22">        this.yogaProperties = yogaProperties;</span>
+<span class="fc" id="L23">    }</span>
 
     public void delete(Long id) {
-<span class="nc" id="L16">        this.userRepository.deleteById(id);</span>
-<span class="nc" id="L17">    }</span>
+<span class="nc" id="L26">        User user = findById(id);</span>
+
+<span class="nc" id="L28">        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();</span>
+
+<span class="nc bnc" id="L30" title="All 2 branches missed.">        if (!Objects.equals(userDetails.getUsername(), user.getEmail())) {</span>
+<span class="nc" id="L31">            throw new ForbiddenException(</span>
+<span class="nc" id="L32">                    yogaProperties.getMessages().getErrors().getUserDeletionForbidden());</span>
+        }
+<span class="nc" id="L34">        this.userRepository.deleteById(id);</span>
+<span class="nc" id="L35">    }</span>
 
     public User findById(Long id) {
-<span class="nc" id="L20">        return this.userRepository.findById(id).orElse(null);</span>
+<span class="nc" id="L38">        return this.userRepository.findById(id)</span>
+<span class="nc" id="L39">                .orElseThrow(() -&gt; new NotFoundException(</span>
+<span class="nc" id="L40">                        yogaProperties.getMessages().getErrors().getUserNotFound().formatted(id)));</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

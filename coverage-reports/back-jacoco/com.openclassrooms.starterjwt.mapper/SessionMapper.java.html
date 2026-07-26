@@ -7,7 +7,6 @@ import com.openclassrooms.starterjwt.services.TeacherService;
 import com.openclassrooms.starterjwt.services.UserService;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.mapstruct.Mappings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -17,7 +16,8 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Component
-@Mapper(componentModel = &quot;spring&quot;, uses = {UserService.class}, imports = {Arrays.class, Collectors.class, Session.class, User.class, Collections.class, Optional.class})
+@Mapper(componentModel = &quot;spring&quot;, uses = { UserService.class }, imports = { Arrays.class, Collectors.class,
+        Session.class, User.class, Collections.class, Optional.class })
 <span class="fc" id="L21">public abstract class SessionMapper implements EntityMapper&lt;SessionDto, Session&gt; {</span>
 
     @Autowired
@@ -25,19 +25,14 @@ import java.util.stream.Collectors;
     @Autowired
     UserService userService;
 
-    @Mappings({
-            @Mapping(source = &quot;description&quot;, target = &quot;description&quot;),
-            @Mapping(target = &quot;teacher&quot;, expression = &quot;java(sessionDto.getTeacher_id() != null ? this.teacherService.findById(sessionDto.getTeacher_id()) : null)&quot;),
-            @Mapping(target = &quot;users&quot;, expression = &quot;java(Optional.ofNullable(sessionDto.getUsers()).orElseGet(Collections::emptyList).stream().map(user_id -&gt; { User user = this.userService.findById(user_id); if (user != null) { return user; } return null; }).collect(Collectors.toList()))&quot;),
-    })
+    @Mapping(source = &quot;description&quot;, target = &quot;description&quot;)
+    @Mapping(target = &quot;teacher&quot;, expression = &quot;java(sessionDto.getTeacher_id() != null ? this.teacherService.findById(sessionDto.getTeacher_id()) : null)&quot;)
+    @Mapping(target = &quot;users&quot;, expression = &quot;java(Optional.ofNullable(sessionDto.getUsers()).orElseGet(Collections::emptyList).stream().map(user_id -&gt; { User user = this.userService.findById(user_id); if (user != null) { return user; } return null; }).collect(Collectors.toList()))&quot;)
     public abstract Session toEntity(SessionDto sessionDto);
 
-
-    @Mappings({
-            @Mapping(source = &quot;description&quot;, target = &quot;description&quot;),
-            @Mapping(source = &quot;session.teacher.id&quot;, target = &quot;teacher_id&quot;),
-            @Mapping(target = &quot;users&quot;, expression = &quot;java(Optional.ofNullable(session.getUsers()).orElseGet(Collections::emptyList).stream().map(u -&gt; u.getId()).collect(Collectors.toList()))&quot;),
-    })
+    @Mapping(source = &quot;description&quot;, target = &quot;description&quot;)
+    @Mapping(source = &quot;session.teacher.id&quot;, target = &quot;teacher_id&quot;)
+    @Mapping(target = &quot;users&quot;, expression = &quot;java(Optional.ofNullable(session.getUsers()).orElseGet(Collections::emptyList).stream().map(u -&gt; u.getId()).collect(Collectors.toList()))&quot;)
     public abstract SessionDto toDto(Session session);
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

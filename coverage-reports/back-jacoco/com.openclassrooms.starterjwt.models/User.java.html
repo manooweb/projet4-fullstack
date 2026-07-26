@@ -16,13 +16,11 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
 
 import java.time.LocalDateTime;
 
@@ -30,51 +28,63 @@ import java.time.LocalDateTime;
 @Table(name = &quot;users&quot;, uniqueConstraints = {
         @UniqueConstraint(columnNames = &quot;email&quot;)
 })
-<span class="nc bnc" id="L33" title="All 8 branches missed.">@Data</span>
+<span class="nc bnc" id="L31" title="All 8 branches missed.">@Data</span>
 @Accessors(chain = true)
 @EntityListeners(AuditingEntityListener.class)
-<span class="nc bnc" id="L36" title="All 14 branches missed.">@EqualsAndHashCode(of = {&quot;id&quot;})</span>
-<span class="nc bnc" id="L37" title="All 8 branches missed.">@Builder</span>
-<span class="fc" id="L38">@NoArgsConstructor</span>
-<span class="nc bnc" id="L39" title="All 8 branches missed.">@RequiredArgsConstructor</span>
-<span class="nc bnc" id="L40" title="All 8 branches missed.">@AllArgsConstructor</span>
-<span class="nc" id="L41">@ToString</span>
+<span class="nc bnc" id="L34" title="All 14 branches missed.">@EqualsAndHashCode(of = { &quot;id&quot; })</span>
+<span class="nc bnc" id="L35" title="All 8 branches missed.">@Builder</span>
+<span class="fc" id="L36">@NoArgsConstructor</span>
+<span class="nc bnc" id="L37" title="All 8 branches missed.">@AllArgsConstructor</span>
+<span class="nc" id="L38">@ToString</span>
 public class User {
+
+    public User(
+            String email,
+            String lastName,
+            String firstName,
+            String password,
+<span class="nc" id="L46">            boolean admin) {</span>
+<span class="nc" id="L47">        this.email = email;</span>
+<span class="nc" id="L48">        this.lastName = lastName;</span>
+<span class="nc" id="L49">        this.firstName = firstName;</span>
+<span class="nc" id="L50">        this.password = password;</span>
+<span class="nc" id="L51">        this.admin = admin;</span>
+<span class="nc" id="L52">    }</span>
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-<span class="nc" id="L45">    private Long id;</span>
+<span class="nc" id="L56">    private Long id;</span>
 
     @NonNull
     @Size(max = 50)
     @Email
     @Column(nullable = false)
-<span class="nc" id="L51">    private String email;</span>
+<span class="nc" id="L62">    private String email;</span>
 
     @NonNull
     @Size(max = 20)
     @Column(nullable = false)
-<span class="nc" id="L56">    private String lastName;</span>
+<span class="nc" id="L67">    private String lastName;</span>
 
     @NonNull
     @Size(max = 20)
     @Column(nullable = false)
-<span class="nc" id="L61">    private String firstName;</span>
+<span class="nc" id="L72">    private String firstName;</span>
 
     @NonNull
     @Size(max = 120)
     @Column(nullable = false)
-<span class="nc" id="L66">    private String password;</span>
+<span class="nc" id="L77">    private String password;</span>
 
-    @NonNull
-<span class="nc" id="L69">    private boolean admin;</span>
+<span class="nc" id="L79">    private boolean admin;</span>
 
     @CreatedDate
-    @Column(updatable = false, columnDefinition=&quot;TIMESTAMP DEFAULT CURRENT_TIMESTAMP&quot;)
-<span class="nc" id="L73">    private LocalDateTime createdAt;</span>
+    @Column(updatable = false, columnDefinition = &quot;TIMESTAMP DEFAULT CURRENT_TIMESTAMP&quot;)
+<span class="nc" id="L83">    private LocalDateTime createdAt;</span>
 
     @UpdateTimestamp
-    @Column(columnDefinition=&quot;TIMESTAMP DEFAULT CURRENT_TIMESTAMP&quot;)
-<span class="nc" id="L77">    private LocalDateTime updatedAt;</span>
+    @Column(columnDefinition = &quot;TIMESTAMP DEFAULT CURRENT_TIMESTAMP&quot;)
+<span class="nc" id="L87">    private LocalDateTime updatedAt;</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>
