@@ -1,4 +1,4 @@
-package com.openclassrooms.starterjwt;
+package com.openclassrooms.starterjwt.integration;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,7 +13,7 @@ import org.testcontainers.mysql.MySQLContainer;
         "oc.app.jwtSecret=B05rhIFhM+X6AeloFsPDBWdau6FuUwXK7sk08rjUN1lKEUdpXWHkOBHzXO8xYHyc98L2z78uu6h+W3+urd2Nlw==",
         "spring.docker.compose.enabled=false"
 })
-class SpringBootSecurityJwtApplicationTests {
+class SpringBootSecurityJwtApplicationIT {
 
     @Container
     static final MySQLContainer MYSQL = new MySQLContainer("mysql:9.7")
