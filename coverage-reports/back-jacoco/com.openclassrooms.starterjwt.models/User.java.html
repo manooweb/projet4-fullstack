@@ -28,10 +28,10 @@ import java.time.LocalDateTime;
 @Table(name = &quot;users&quot;, uniqueConstraints = {
         @UniqueConstraint(columnNames = &quot;email&quot;)
 })
-<span class="nc bnc" id="L31" title="All 8 branches missed.">@Data</span>
+<span class="pc bpc" id="L31" title="5 of 8 branches missed.">@Data</span>
 @Accessors(chain = true)
 @EntityListeners(AuditingEntityListener.class)
-<span class="nc bnc" id="L34" title="All 14 branches missed.">@EqualsAndHashCode(of = { &quot;id&quot; })</span>
+<span class="pc bpc" id="L34" title="13 of 14 branches missed.">@EqualsAndHashCode(of = { &quot;id&quot; })</span>
 <span class="nc bnc" id="L35" title="All 8 branches missed.">@Builder</span>
 <span class="fc" id="L36">@NoArgsConstructor</span>
 <span class="nc bnc" id="L37" title="All 8 branches missed.">@AllArgsConstructor</span>
@@ -59,7 +59,7 @@ public class User {
     @Size(max = 50)
     @Email
     @Column(nullable = false)
-<span class="nc" id="L62">    private String email;</span>
+<span class="fc" id="L62">    private String email;</span>
 
     @NonNull
     @Size(max = 20)

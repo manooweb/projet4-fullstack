@@ -23,21 +23,21 @@ public class UserService {
 <span class="fc" id="L23">    }</span>
 
     public void delete(Long id) {
-<span class="nc" id="L26">        User user = findById(id);</span>
+<span class="fc" id="L26">        User user = findById(id);</span>
 
-<span class="nc" id="L28">        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();</span>
+<span class="fc" id="L28">        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();</span>
 
-<span class="nc bnc" id="L30" title="All 2 branches missed.">        if (!Objects.equals(userDetails.getUsername(), user.getEmail())) {</span>
-<span class="nc" id="L31">            throw new ForbiddenException(</span>
-<span class="nc" id="L32">                    yogaProperties.getMessages().getErrors().getUserDeletionForbidden());</span>
+<span class="fc bfc" id="L30" title="All 2 branches covered.">        if (!Objects.equals(userDetails.getUsername(), user.getEmail())) {</span>
+<span class="fc" id="L31">            throw new ForbiddenException(</span>
+<span class="fc" id="L32">                    yogaProperties.getMessages().getErrors().getUserDeletionForbidden());</span>
         }
-<span class="nc" id="L34">        this.userRepository.deleteById(id);</span>
-<span class="nc" id="L35">    }</span>
+<span class="fc" id="L34">        this.userRepository.deleteById(id);</span>
+<span class="fc" id="L35">    }</span>
 
     public User findById(Long id) {
-<span class="nc" id="L38">        return this.userRepository.findById(id)</span>
-<span class="nc" id="L39">                .orElseThrow(() -&gt; new NotFoundException(</span>
-<span class="nc" id="L40">                        yogaProperties.getMessages().getErrors().getUserNotFound().formatted(id)));</span>
+<span class="fc" id="L38">        return this.userRepository.findById(id)</span>
+<span class="fc" id="L39">                .orElseThrow(() -&gt; new NotFoundException(</span>
+<span class="fc" id="L40">                        yogaProperties.getMessages().getErrors().getUserNotFound().formatted(id)));</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>
