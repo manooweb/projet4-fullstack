@@ -20,6 +20,8 @@
         <mapstruct.version>1.6.3</mapstruct.version>
         <lombok.version>1.18.32</lombok.version>
         <testcontainers.version>2.0.5</testcontainers.version>
+        <minimum.integration.test.ratio>0.30</minimum.integration.test.ratio>
+        <minimum.coverage.ratio>0.80</minimum.coverage.ratio>
     </properties>
 
     <dependencies>
@@ -158,6 +160,30 @@
                 </executions>
             </plugin>
             <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.6.3</version>
+                <executions>
+                    <execution>
+                        <id>report-integration-test-ratio</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                        <configuration>
+                            <mainClass>com.openclassrooms.starterjwt.testing.TestRatioReporter</mainClass>
+                            <classpathScope>test</classpathScope>
+                            <arguments>
+                                <argument>${project.build.directory}/surefire-reports</argument>
+                                <argument>${project.build.directory}/failsafe-reports</argument>
+                                <argument>${minimum.integration.test.ratio}</argument>
+                                <argument>${project.basedir}/../coverage-reports/back-jacoco/index.html</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.14</version>
@@ -175,7 +201,7 @@
                     </execution>
                     <execution>
                         <id>jacoco-report</id>
-                        <phase>verify</phase>
+                        <phase>post-integration-test</phase>
                         <goals>
                             <goal>report</goal>
                         </goals>
@@ -195,9 +221,34 @@
                                     <element>BUNDLE</element>
                                     <limits>
                                         <limit>
+                                            <counter>INSTRUCTION</counter>
+                                            <value>COVEREDRATIO</value>
+                                            <minimum>${minimum.coverage.ratio}</minimum>
+                                        </limit>
+                                        <limit>
+                                            <counter>BRANCH</counter>
+                                            <value>COVEREDRATIO</value>
+                                            <minimum>${minimum.coverage.ratio}</minimum>
+                                        </limit>
+                                        <limit>
                                             <counter>LINE</counter>
                                             <value>COVEREDRATIO</value>
-                                            <minimum>0.80</minimum>
+                                            <minimum>${minimum.coverage.ratio}</minimum>
+                                        </limit>
+                                        <limit>
+                                            <counter>COMPLEXITY</counter>
+                                            <value>COVEREDRATIO</value>
+                                            <minimum>${minimum.coverage.ratio}</minimum>
+                                        </limit>
+                                        <limit>
+                                            <counter>METHOD</counter>
+                                            <value>COVEREDRATIO</value>
+                                            <minimum>${minimum.coverage.ratio}</minimum>
+                                        </limit>
+                                        <limit>
+                                            <counter>CLASS</counter>
+                                            <value>COVEREDRATIO</value>
+                                            <minimum>${minimum.coverage.ratio}</minimum>
                                         </limit>
                                     </limits>
                                 </rule>
