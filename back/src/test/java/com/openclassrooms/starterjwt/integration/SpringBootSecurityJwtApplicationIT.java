@@ -1,34 +1,24 @@
 package com.openclassrooms.starterjwt.integration;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.DynamicPropertyRegistry;
-import org.springframework.test.context.DynamicPropertySource;
-import org.testcontainers.junit.jupiter.Container;
-import org.testcontainers.junit.jupiter.Testcontainers;
-import org.testcontainers.mysql.MySQLContainer;
+import static org.assertj.core.api.Assertions.assertThat;
 
-@Testcontainers
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationContext;
+
 @SpringBootTest(properties = {
         "oc.app.jwtSecret=B05rhIFhM+X6AeloFsPDBWdau6FuUwXK7sk08rjUN1lKEUdpXWHkOBHzXO8xYHyc98L2z78uu6h+W3+urd2Nlw==",
         "spring.docker.compose.enabled=false"
 })
-class SpringBootSecurityJwtApplicationIT {
+class SpringBootSecurityJwtApplicationIT extends IntegrationTestSupport {
 
-    @Container
-    static final MySQLContainer MYSQL = new MySQLContainer("mysql:9.7")
-            .withDatabaseName("yoga_test")
-            .withUsername("yoga_test")
-            .withPassword("yoga_test");
-
-    @DynamicPropertySource
-    static void configureDatasource(DynamicPropertyRegistry registry) {
-        registry.add("spring.datasource.url", MYSQL::getJdbcUrl);
-        registry.add("spring.datasource.username", MYSQL::getUsername);
-        registry.add("spring.datasource.password", MYSQL::getPassword);
-    }
+    @Autowired
+    private ApplicationContext applicationContext;
 
     @Test
     void contextLoads() {
+        // Vérifie que le contexte de l'application se charge correctement
+        assertThat(applicationContext).isNotNull();
     }
 }
