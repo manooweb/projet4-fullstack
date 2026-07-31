@@ -19,18 +19,18 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-<span class="nc" id="L22">        User user = userRepository.findByEmail(username)</span>
-<span class="nc" id="L23">                .orElseThrow(() -&gt; new UsernameNotFoundException(&quot;User Not Found with email: &quot; + username));</span>
+<span class="fc" id="L22">        User user = userRepository.findByEmail(username)</span>
+<span class="fc" id="L23">                .orElseThrow(() -&gt; new UsernameNotFoundException(&quot;User Not Found with email: &quot; + username));</span>
 
-<span class="nc" id="L25">        return UserDetailsImpl</span>
-<span class="nc" id="L26">                .builder()</span>
-<span class="nc" id="L27">                .id(user.getId())</span>
-<span class="nc" id="L28">                .username(user.getEmail())</span>
-<span class="nc" id="L29">                .lastName(user.getLastName())</span>
-<span class="nc" id="L30">                .firstName(user.getFirstName())</span>
-<span class="nc" id="L31">                .admin(user.isAdmin())</span>
-<span class="nc" id="L32">                .password(user.getPassword())</span>
-<span class="nc" id="L33">                .build();</span>
+<span class="fc" id="L25">        return UserDetailsImpl</span>
+<span class="fc" id="L26">                .builder()</span>
+<span class="fc" id="L27">                .id(user.getId())</span>
+<span class="fc" id="L28">                .username(user.getEmail())</span>
+<span class="fc" id="L29">                .lastName(user.getLastName())</span>
+<span class="fc" id="L30">                .firstName(user.getFirstName())</span>
+<span class="fc" id="L31">                .admin(user.isAdmin())</span>
+<span class="fc" id="L32">                .password(user.getPassword())</span>
+<span class="fc" id="L33">                .build();</span>
     }
 
 }

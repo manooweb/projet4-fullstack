@@ -24,7 +24,7 @@ public class AuthController {
 
     @PostMapping(&quot;/login&quot;)
     public ResponseEntity&lt;JwtResponse&gt; authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
-<span class="nc" id="L27">        return ResponseEntity.ok(authService.authenticateUser(loginRequest.getEmail(), loginRequest.getPassword()));</span>
+<span class="fc" id="L27">        return ResponseEntity.ok(authService.authenticateUser(loginRequest.getEmail(), loginRequest.getPassword()));</span>
     }
 
     @PostMapping(&quot;/register&quot;)

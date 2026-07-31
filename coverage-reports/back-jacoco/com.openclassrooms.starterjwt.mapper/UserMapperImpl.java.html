@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = &quot;org.mapstruct.ap.MappingProcessor&quot;,
-    date = &quot;2026-07-30T19:17:27+0200&quot;,
-    comments = &quot;version: 1.6.3, compiler: javac, environment: Java 21.0.11 (Eclipse Adoptium)&quot;
+    date = &quot;2026-07-31T11:49:47+0200&quot;,
+    comments = &quot;version: 1.6.3, compiler: Eclipse JDT (IDE) 3.46.100.v20260624-0231, environment: Java 21.0.11 (Eclipse Adoptium)&quot;
 )
 @Component
 <span class="fc" id="L16">public class UserMapperImpl implements UserMapper {</span>
@@ -23,13 +23,13 @@ import org.springframework.stereotype.Component;
 
 <span class="nc" id="L24">        User.UserBuilder user = User.builder();</span>
 
-<span class="nc" id="L26">        user.id( dto.getId() );</span>
-<span class="nc" id="L27">        user.email( dto.getEmail() );</span>
-<span class="nc" id="L28">        user.lastName( dto.getLastName() );</span>
+<span class="nc" id="L26">        user.admin( dto.isAdmin() );</span>
+<span class="nc" id="L27">        user.createdAt( dto.getCreatedAt() );</span>
+<span class="nc" id="L28">        user.email( dto.getEmail() );</span>
 <span class="nc" id="L29">        user.firstName( dto.getFirstName() );</span>
-<span class="nc" id="L30">        user.password( dto.getPassword() );</span>
-<span class="nc" id="L31">        user.admin( dto.isAdmin() );</span>
-<span class="nc" id="L32">        user.createdAt( dto.getCreatedAt() );</span>
+<span class="nc" id="L30">        user.id( dto.getId() );</span>
+<span class="nc" id="L31">        user.lastName( dto.getLastName() );</span>
+<span class="nc" id="L32">        user.password( dto.getPassword() );</span>
 <span class="nc" id="L33">        user.updatedAt( dto.getUpdatedAt() );</span>
 
 <span class="nc" id="L35">        return user.build();</span>
@@ -43,13 +43,13 @@ import org.springframework.stereotype.Component;
 
 <span class="nc" id="L44">        UserDto userDto = new UserDto();</span>
 
-<span class="nc" id="L46">        userDto.setId( entity.getId() );</span>
-<span class="nc" id="L47">        userDto.setEmail( entity.getEmail() );</span>
-<span class="nc" id="L48">        userDto.setLastName( entity.getLastName() );</span>
+<span class="nc" id="L46">        userDto.setAdmin( entity.isAdmin() );</span>
+<span class="nc" id="L47">        userDto.setCreatedAt( entity.getCreatedAt() );</span>
+<span class="nc" id="L48">        userDto.setEmail( entity.getEmail() );</span>
 <span class="nc" id="L49">        userDto.setFirstName( entity.getFirstName() );</span>
-<span class="nc" id="L50">        userDto.setAdmin( entity.isAdmin() );</span>
-<span class="nc" id="L51">        userDto.setPassword( entity.getPassword() );</span>
-<span class="nc" id="L52">        userDto.setCreatedAt( entity.getCreatedAt() );</span>
+<span class="nc" id="L50">        userDto.setId( entity.getId() );</span>
+<span class="nc" id="L51">        userDto.setLastName( entity.getLastName() );</span>
+<span class="nc" id="L52">        userDto.setPassword( entity.getPassword() );</span>
 <span class="nc" id="L53">        userDto.setUpdatedAt( entity.getUpdatedAt() );</span>
 
 <span class="nc" id="L55">        return userDto;</span>
@@ -64,7 +64,7 @@ import org.springframework.stereotype.Component;
 <span class="nc" id="L64">        List&lt;User&gt; list = new ArrayList&lt;User&gt;( dtoList.size() );</span>
 <span class="nc bnc" id="L65" title="All 2 branches missed.">        for ( UserDto userDto : dtoList ) {</span>
 <span class="nc" id="L66">            list.add( toEntity( userDto ) );</span>
-<span class="nc" id="L67">        }</span>
+        }
 
 <span class="nc" id="L69">        return list;</span>
     }
@@ -78,7 +78,7 @@ import org.springframework.stereotype.Component;
 <span class="nc" id="L78">        List&lt;UserDto&gt; list = new ArrayList&lt;UserDto&gt;( entityList.size() );</span>
 <span class="nc bnc" id="L79" title="All 2 branches missed.">        for ( User user : entityList ) {</span>
 <span class="nc" id="L80">            list.add( toDto( user ) );</span>
-<span class="nc" id="L81">        }</span>
+        }
 
 <span class="nc" id="L83">        return list;</span>
     }
