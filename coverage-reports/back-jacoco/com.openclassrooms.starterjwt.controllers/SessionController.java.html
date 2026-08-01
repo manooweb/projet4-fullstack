@@ -65,16 +65,16 @@ public class SessionController {
 
     @PostMapping(&quot;/{id}/participate/{userId}&quot;)
     public ResponseEntity&lt;Void&gt; participate(@PathVariable(&quot;id&quot;) Long id, @PathVariable(&quot;userId&quot;) Long userId) {
-<span class="nc" id="L68">        this.sessionService.participate(id, userId);</span>
+<span class="fc" id="L68">        this.sessionService.participate(id, userId);</span>
 
-<span class="nc" id="L70">        return ResponseEntity.ok().build();</span>
+<span class="fc" id="L70">        return ResponseEntity.ok().build();</span>
     }
 
     @DeleteMapping(&quot;/{id}/participate/{userId}&quot;)
     public ResponseEntity&lt;Void&gt; noLongerParticipate(@PathVariable(&quot;id&quot;) Long id, @PathVariable(&quot;userId&quot;) Long userId) {
-<span class="nc" id="L75">        this.sessionService.noLongerParticipate(id, userId);</span>
+<span class="fc" id="L75">        this.sessionService.noLongerParticipate(id, userId);</span>
 
-<span class="nc" id="L77">        return ResponseEntity.ok().build();</span>
+<span class="fc" id="L77">        return ResponseEntity.ok().build();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>
