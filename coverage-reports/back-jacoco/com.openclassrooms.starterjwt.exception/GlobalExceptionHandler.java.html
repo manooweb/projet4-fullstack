@@ -27,13 +27,13 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(BadRequestException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ApiErrorResponse handleBadRequestException(BadRequestException ex, HttpServletRequest request) {
-<span class="nc" id="L30">        return errorResponse(</span>
-<span class="nc" id="L31">                HttpStatus.BAD_REQUEST,</span>
-<span class="nc" id="L32">                yogaProperties.getMessages().getErrors().getBadRequest(),</span>
-<span class="nc bnc" id="L33" title="All 2 branches missed.">                ex.getMessage() != null</span>
-<span class="nc" id="L34">                        ? ex.getMessage()</span>
+<span class="fc" id="L30">        return errorResponse(</span>
+<span class="fc" id="L31">                HttpStatus.BAD_REQUEST,</span>
+<span class="fc" id="L32">                yogaProperties.getMessages().getErrors().getBadRequest(),</span>
+<span class="pc bpc" id="L33" title="1 of 2 branches missed.">                ex.getMessage() != null</span>
+<span class="fc" id="L34">                        ? ex.getMessage()</span>
 <span class="nc" id="L35">                        : yogaProperties.getMessages().getErrors().getInvalidRequest(),</span>
-<span class="nc" id="L36">                request.getRequestURI());</span>
+<span class="fc" id="L36">                request.getRequestURI());</span>
     }
 
     @ExceptionHandler(NotFoundException.class)

@@ -51,20 +51,20 @@ public class AuthService {
     }
 
     public MessageResponse registerUser(SignupRequest signUpRequest) {
-<span class="nc bnc" id="L54" title="All 2 branches missed.">        if (userRepository.existsByEmail(signUpRequest.getEmail())) {</span>
-<span class="nc" id="L55">            throw new BadRequestException(yogaProperties.getMessages().getErrors().getEmailAlreadyTaken());</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">        if (userRepository.existsByEmail(signUpRequest.getEmail())) {</span>
+<span class="fc" id="L55">            throw new BadRequestException(yogaProperties.getMessages().getErrors().getEmailAlreadyTaken());</span>
         }
 
         // Create new user's account
-<span class="nc" id="L59">        User user = new User(signUpRequest.getEmail(),</span>
-<span class="nc" id="L60">                signUpRequest.getLastName(),</span>
-<span class="nc" id="L61">                signUpRequest.getFirstName(),</span>
-<span class="nc" id="L62">                passwordEncoder.encode(signUpRequest.getPassword()),</span>
-<span class="nc" id="L63">                false);</span>
+<span class="fc" id="L59">        User user = new User(signUpRequest.getEmail(),</span>
+<span class="fc" id="L60">                signUpRequest.getLastName(),</span>
+<span class="fc" id="L61">                signUpRequest.getFirstName(),</span>
+<span class="fc" id="L62">                passwordEncoder.encode(signUpRequest.getPassword()),</span>
+<span class="fc" id="L63">                false);</span>
 
-<span class="nc" id="L65">        userRepository.save(user);</span>
+<span class="fc" id="L65">        userRepository.save(user);</span>
 
-<span class="nc" id="L67">        return new MessageResponse(yogaProperties.getMessages().getSuccess().getUserRegistered());</span>
+<span class="fc" id="L67">        return new MessageResponse(yogaProperties.getMessages().getSuccess().getUserRegistered());</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

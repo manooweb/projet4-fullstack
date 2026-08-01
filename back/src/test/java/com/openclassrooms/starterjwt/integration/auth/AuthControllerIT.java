@@ -18,6 +18,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.openclassrooms.starterjwt.integration.IntegrationTestSupport;
 import com.openclassrooms.starterjwt.models.User;
 import com.openclassrooms.starterjwt.payload.request.LoginRequest;
+import com.openclassrooms.starterjwt.payload.request.SignupRequest;
 import com.openclassrooms.starterjwt.repository.UserRepository;
 
 @AutoConfigureMockMvc
@@ -56,7 +57,7 @@ public class AuthControllerIT extends IntegrationTestSupport {
             mockMvc.perform(post("/api/auth/login")
                     .contentType(MediaType.APPLICATION_JSON)
                     .content(objectMapper.writeValueAsString(loginRequest)))
-            // Then the user should be logged in successfully
+                    // Then the user should be logged in successfully
                     .andExpect(status().isOk())
                     .andExpect(jsonPath("$.token").isNotEmpty())
                     .andExpect(jsonPath("$.type").value("Bearer"))
@@ -79,7 +80,7 @@ public class AuthControllerIT extends IntegrationTestSupport {
             mockMvc.perform(post("/api/auth/login")
                     .contentType(MediaType.APPLICATION_JSON)
                     .content(objectMapper.writeValueAsString(loginRequest)))
-            // Then the user should not be logged in (unauthorized)
+                    // Then the user should not be logged in (unauthorized)
                     .andExpect(status().isUnauthorized());
         }
 
@@ -97,18 +98,64 @@ public class AuthControllerIT extends IntegrationTestSupport {
             mockMvc.perform(post("/api/auth/login")
                     .contentType(MediaType.APPLICATION_JSON)
                     .content(objectMapper.writeValueAsString(loginRequest)))
-            // Then the user should not be logged in (unauthorized)
+                    // Then the user should not be logged in (unauthorized)
                     .andExpect(status().isUnauthorized());
+        }
+    }
+
+    @Nested
+    @DisplayName("Given that an user wants to register")
+    class RegisterTests {
+
+        @Test
+        @DisplayName("When the user provides valid registration data, then the user should be registered")
+        void shouldRegisterUserWithValidData() throws Exception {
+            // When the user attempts to register with valid data
+            SignupRequest signupRequest = new SignupRequest();
+            signupRequest.setEmail("test@example.com");
+            signupRequest.setPassword("password");
+            signupRequest.setFirstName("Test");
+            signupRequest.setLastName("Demo");
+
+            mockMvc.perform(post("/api/auth/register")
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .content(objectMapper.writeValueAsString(signupRequest)))
+                    // Then the user should be registered successfully
+                    .andExpect(status().isCreated())
+                    .andExpect(jsonPath("$.message").value("User registered successfully!"));
+        }
+
+        @Test
+        @DisplayName("When the user try to register with an existing email")
+        void shouldNotRegisterUserWithExistingEmail() throws Exception {
+            // Given an existing user
+            createTestUser("test@example.com", "password");
+
+            // When the user attempts to register with the same email
+            SignupRequest signupRequest = new SignupRequest();
+            signupRequest.setEmail("test@example.com");
+            signupRequest.setPassword("newpassword");
+            signupRequest.setFirstName("Test");
+            signupRequest.setLastName("Demo");
+
+            mockMvc.perform(post("/api/auth/register")
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .content(objectMapper.writeValueAsString(signupRequest)))
+                    // Then the user should not be registered (conflict)
+                    .andExpect(status().isBadRequest())
+                    .andExpect(jsonPath("$.status").value(400))
+                    .andExpect(jsonPath("$.message").value("Error: Email is already taken!"))
+                    .andExpect(jsonPath("$.path").value("/api/auth/register"));
         }
     }
 
     private void createTestUser(String email, String rawPassword) {
         User user = new User(
-            email, 
-            "Demo", 
-            "Test", 
-            passwordEncoder.encode(rawPassword), 
-            false);
+                email,
+                "Demo",
+                "Test",
+                passwordEncoder.encode(rawPassword),
+                false);
         userRepository.save(user);
     }
 }
