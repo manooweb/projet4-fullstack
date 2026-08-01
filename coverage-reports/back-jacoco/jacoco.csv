@@ -11,8 +11,8 @@ yoga-app,com.openclassrooms.starterjwt.security.jwt,AuthTokenFilter,9,80,2,6,4,2
 yoga-app,com.openclassrooms.starterjwt.security.jwt,JwtUtils,36,68,0,0,12,16,0,5,0,5
 yoga-app,com.openclassrooms.starterjwt.models,User,0,18,0,0,0,7,0,1,0,1
 yoga-app,com.openclassrooms.starterjwt.exception,NotFoundException,0,4,0,0,0,2,0,1,0,1
-yoga-app,com.openclassrooms.starterjwt.exception,GlobalExceptionHandler,45,116,1,1,8,33,3,9,2,9
-yoga-app,com.openclassrooms.starterjwt.exception,BadRequestException,3,4,0,0,2,2,1,1,1,1
+yoga-app,com.openclassrooms.starterjwt.exception,GlobalExceptionHandler,0,161,0,2,0,41,0,12,0,11
+yoga-app,com.openclassrooms.starterjwt.exception,BadRequestException,0,4,0,0,0,2,0,1,0,1
 yoga-app,com.openclassrooms.starterjwt.exception,ForbiddenException,0,4,0,0,0,2,0,1,0,1
 yoga-app,com.openclassrooms.starterjwt.controllers,UserController,0,29,0,0,0,8,0,3,0,3
 yoga-app,com.openclassrooms.starterjwt.controllers,TeacherController,0,33,0,0,0,8,0,3,0,3

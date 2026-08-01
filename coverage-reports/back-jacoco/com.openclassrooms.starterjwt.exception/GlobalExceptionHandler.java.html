@@ -30,9 +30,9 @@ public class GlobalExceptionHandler {
 <span class="fc" id="L30">        return errorResponse(</span>
                 HttpStatus.BAD_REQUEST,
 <span class="fc" id="L32">                yogaProperties.getMessages().getErrors().getBadRequest(),</span>
-<span class="pc bpc" id="L33" title="1 of 2 branches missed.">                ex.getMessage() != null</span>
+<span class="fc bfc" id="L33" title="All 2 branches covered.">                ex.getMessage() != null</span>
 <span class="fc" id="L34">                        ? ex.getMessage()</span>
-<span class="pc" id="L35">                        : yogaProperties.getMessages().getErrors().getInvalidRequest(),</span>
+<span class="fc" id="L35">                        : yogaProperties.getMessages().getErrors().getInvalidRequest(),</span>
 <span class="fc" id="L36">                request.getRequestURI());</span>
     }
 
@@ -50,11 +50,11 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ApiErrorResponse handleMethodArgumentTypeMismatchException(MethodArgumentTypeMismatchException ex,
             HttpServletRequest request) {
-<span class="nc" id="L53">        return errorResponse(</span>
+<span class="fc" id="L53">        return errorResponse(</span>
                 HttpStatus.BAD_REQUEST,
-<span class="nc" id="L55">                yogaProperties.getMessages().getErrors().getBadRequest(),</span>
-<span class="nc" id="L56">                yogaProperties.getMessages().getErrors().getInvalidParameter().formatted(ex.getName()),</span>
-<span class="nc" id="L57">                request.getRequestURI());</span>
+<span class="fc" id="L55">                yogaProperties.getMessages().getErrors().getBadRequest(),</span>
+<span class="fc" id="L56">                yogaProperties.getMessages().getErrors().getInvalidParameter().formatted(ex.getName()),</span>
+<span class="fc" id="L57">                request.getRequestURI());</span>
     }
 
     @ExceptionHandler(ForbiddenException.class)
@@ -90,11 +90,11 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(HttpMessageNotReadableException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ApiErrorResponse handleHttpMessageNotReadableException(HttpServletRequest request) {
-<span class="nc" id="L93">        return errorResponse(</span>
+<span class="fc" id="L93">        return errorResponse(</span>
                 HttpStatus.BAD_REQUEST,
-<span class="nc" id="L95">                yogaProperties.getMessages().getErrors().getBadRequest(),</span>
-<span class="nc" id="L96">                yogaProperties.getMessages().getErrors().getInvalidRequest(),</span>
-<span class="nc" id="L97">                request.getRequestURI());</span>
+<span class="fc" id="L95">                yogaProperties.getMessages().getErrors().getBadRequest(),</span>
+<span class="fc" id="L96">                yogaProperties.getMessages().getErrors().getInvalidRequest(),</span>
+<span class="fc" id="L97">                request.getRequestURI());</span>
     }
 
     @ExceptionHandler(Exception.class)
