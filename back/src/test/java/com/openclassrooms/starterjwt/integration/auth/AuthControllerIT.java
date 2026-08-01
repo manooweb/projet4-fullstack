@@ -4,6 +4,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -16,7 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.openclassrooms.starterjwt.integration.IntegrationTestSupport;
-import com.openclassrooms.starterjwt.models.User;
+import com.openclassrooms.starterjwt.integration.support.UserTestHelper;
 import com.openclassrooms.starterjwt.payload.request.LoginRequest;
 import com.openclassrooms.starterjwt.payload.request.SignupRequest;
 import com.openclassrooms.starterjwt.repository.UserRepository;
@@ -37,6 +38,13 @@ public class AuthControllerIT extends IntegrationTestSupport {
     @Autowired
     private ObjectMapper objectMapper;
 
+    private UserTestHelper userTestHelper;
+
+    @BeforeEach
+    void setUp() {
+        userTestHelper = new UserTestHelper(userRepository, passwordEncoder);
+    }
+
     @Nested
     @DisplayName("Given that a registered user wants to log in")
     class LoginTests {
@@ -47,7 +55,7 @@ public class AuthControllerIT extends IntegrationTestSupport {
             // Given a registered user
             String rawPassword = "password";
 
-            createTestUser("test@example.com", rawPassword);
+            userTestHelper.createTestUser("test@example.com", rawPassword);
 
             // When the user attempts to log in with valid credentials
             LoginRequest loginRequest = new LoginRequest();
@@ -70,7 +78,7 @@ public class AuthControllerIT extends IntegrationTestSupport {
         @DisplayName("When the user provides unknown email, then the user should not be logged in")
         void shouldNotLoginUserWithUnknownEmail() throws Exception {
             // Given a registered user
-            createTestUser("test@example.com", "password");
+            userTestHelper.createTestUser("test@example.com", "password");
 
             // When the user attempts to log in with unknown email
             LoginRequest loginRequest = new LoginRequest();
@@ -88,7 +96,7 @@ public class AuthControllerIT extends IntegrationTestSupport {
         @DisplayName("When the user provides invalid credentials, then the user should not be logged in")
         void shouldNotLoginUserWithInvalidCredentials() throws Exception {
             // Given a registered user
-            createTestUser("test@example.com", "password");
+            userTestHelper.createTestUser("test@example.com", "password");
 
             // When the user attempts to log in with invalid credentials
             LoginRequest loginRequest = new LoginRequest();
@@ -129,7 +137,7 @@ public class AuthControllerIT extends IntegrationTestSupport {
         @DisplayName("When the user try to register with an existing email")
         void shouldNotRegisterUserWithExistingEmail() throws Exception {
             // Given an existing user
-            createTestUser("test@example.com", "password");
+            userTestHelper.createTestUser("test@example.com", "password");
 
             // When the user attempts to register with the same email
             SignupRequest signupRequest = new SignupRequest();
@@ -149,13 +157,4 @@ public class AuthControllerIT extends IntegrationTestSupport {
         }
     }
 
-    private void createTestUser(String email, String rawPassword) {
-        User user = new User(
-                email,
-                "Demo",
-                "Test",
-                passwordEncoder.encode(rawPassword),
-                false);
-        userRepository.save(user);
-    }
 }
