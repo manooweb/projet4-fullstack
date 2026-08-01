@@ -28,22 +28,22 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ApiErrorResponse handleBadRequestException(BadRequestException ex, HttpServletRequest request) {
 <span class="fc" id="L30">        return errorResponse(</span>
-<span class="fc" id="L31">                HttpStatus.BAD_REQUEST,</span>
+                HttpStatus.BAD_REQUEST,
 <span class="fc" id="L32">                yogaProperties.getMessages().getErrors().getBadRequest(),</span>
 <span class="pc bpc" id="L33" title="1 of 2 branches missed.">                ex.getMessage() != null</span>
 <span class="fc" id="L34">                        ? ex.getMessage()</span>
-<span class="nc" id="L35">                        : yogaProperties.getMessages().getErrors().getInvalidRequest(),</span>
+<span class="pc" id="L35">                        : yogaProperties.getMessages().getErrors().getInvalidRequest(),</span>
 <span class="fc" id="L36">                request.getRequestURI());</span>
     }
 
     @ExceptionHandler(NotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ApiErrorResponse handleNotFoundException(NotFoundException ex, HttpServletRequest request) {
-<span class="nc" id="L42">        return errorResponse(</span>
-<span class="nc" id="L43">                HttpStatus.NOT_FOUND,</span>
-<span class="nc" id="L44">                yogaProperties.getMessages().getErrors().getNotFound(),</span>
-<span class="nc" id="L45">                ex.getMessage(),</span>
-<span class="nc" id="L46">                request.getRequestURI());</span>
+<span class="fc" id="L42">        return errorResponse(</span>
+                HttpStatus.NOT_FOUND,
+<span class="fc" id="L44">                yogaProperties.getMessages().getErrors().getNotFound(),</span>
+<span class="fc" id="L45">                ex.getMessage(),</span>
+<span class="fc" id="L46">                request.getRequestURI());</span>
     }
 
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
@@ -51,7 +51,7 @@ public class GlobalExceptionHandler {
     public ApiErrorResponse handleMethodArgumentTypeMismatchException(MethodArgumentTypeMismatchException ex,
             HttpServletRequest request) {
 <span class="nc" id="L53">        return errorResponse(</span>
-<span class="nc" id="L54">                HttpStatus.BAD_REQUEST,</span>
+                HttpStatus.BAD_REQUEST,
 <span class="nc" id="L55">                yogaProperties.getMessages().getErrors().getBadRequest(),</span>
 <span class="nc" id="L56">                yogaProperties.getMessages().getErrors().getInvalidParameter().formatted(ex.getName()),</span>
 <span class="nc" id="L57">                request.getRequestURI());</span>
@@ -60,18 +60,18 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(ForbiddenException.class)
     @ResponseStatus(HttpStatus.FORBIDDEN)
     public ApiErrorResponse handleForbiddenException(ForbiddenException ex, HttpServletRequest request) {
-<span class="nc" id="L63">        return errorResponse(</span>
-<span class="nc" id="L64">                HttpStatus.FORBIDDEN,</span>
-<span class="nc" id="L65">                yogaProperties.getMessages().getErrors().getForbidden(),</span>
-<span class="nc" id="L66">                ex.getMessage(),</span>
-<span class="nc" id="L67">                request.getRequestURI());</span>
+<span class="fc" id="L63">        return errorResponse(</span>
+                HttpStatus.FORBIDDEN,
+<span class="fc" id="L65">                yogaProperties.getMessages().getErrors().getForbidden(),</span>
+<span class="fc" id="L66">                ex.getMessage(),</span>
+<span class="fc" id="L67">                request.getRequestURI());</span>
     }
 
     @ExceptionHandler(BadCredentialsException.class)
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     public ApiErrorResponse handleBadCredentialsException(BadCredentialsException ex, HttpServletRequest request) {
 <span class="fc" id="L73">        return errorResponse(</span>
-<span class="fc" id="L74">                HttpStatus.UNAUTHORIZED,</span>
+                HttpStatus.UNAUTHORIZED,
 <span class="fc" id="L75">                yogaProperties.getMessages().getErrors().getUnauthorized(),</span>
 <span class="fc" id="L76">                yogaProperties.getMessages().getErrors().getInvalidCredentials(),</span>
 <span class="fc" id="L77">                request.getRequestURI());</span>
@@ -81,7 +81,7 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ApiErrorResponse handleMethodArgumentNotValidException(HttpServletRequest request) {
 <span class="nc" id="L83">        return errorResponse(</span>
-<span class="nc" id="L84">                HttpStatus.BAD_REQUEST,</span>
+                HttpStatus.BAD_REQUEST,
 <span class="nc" id="L85">                yogaProperties.getMessages().getErrors().getBadRequest(),</span>
 <span class="nc" id="L86">                yogaProperties.getMessages().getErrors().getInvalidRequest(),</span>
 <span class="nc" id="L87">                request.getRequestURI());</span>
@@ -91,7 +91,7 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ApiErrorResponse handleHttpMessageNotReadableException(HttpServletRequest request) {
 <span class="nc" id="L93">        return errorResponse(</span>
-<span class="nc" id="L94">                HttpStatus.BAD_REQUEST,</span>
+                HttpStatus.BAD_REQUEST,
 <span class="nc" id="L95">                yogaProperties.getMessages().getErrors().getBadRequest(),</span>
 <span class="nc" id="L96">                yogaProperties.getMessages().getErrors().getInvalidRequest(),</span>
 <span class="nc" id="L97">                request.getRequestURI());</span>
@@ -101,11 +101,11 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ApiErrorResponse handleException(Exception ex, HttpServletRequest request) {
 <span class="nc" id="L103">        log.error(</span>
-<span class="nc" id="L104">                &quot;Unexpected error while processing request {}&quot;,</span>
+                &quot;Unexpected error while processing request {}&quot;,
 <span class="nc" id="L105">                request.getRequestURI(),</span>
-<span class="nc" id="L106">                ex);</span>
+                ex);
 <span class="nc" id="L107">        return errorResponse(</span>
-<span class="nc" id="L108">                HttpStatus.INTERNAL_SERVER_ERROR,</span>
+                HttpStatus.INTERNAL_SERVER_ERROR,
 <span class="nc" id="L109">                yogaProperties.getMessages().getErrors().getInternalServerError(),</span>
 <span class="nc" id="L110">                yogaProperties.getMessages().getErrors().getUnexpected(),</span>
 <span class="nc" id="L111">                request.getRequestURI());</span>

@@ -35,23 +35,23 @@ public class AuthTokenFilter extends OncePerRequestFilter {
             throws ServletException, IOException {
         try {
 <span class="fc" id="L37">            String jwt = parseJwt(request);</span>
-<span class="pc bpc" id="L38" title="3 of 4 branches missed.">            if (jwt != null &amp;&amp; jwtUtils.validateJwtToken(jwt)) {</span>
-<span class="nc" id="L39">                String username = jwtUtils.getUserNameFromJwtToken(jwt);</span>
+<span class="pc bpc" id="L38" title="1 of 4 branches missed.">            if (jwt != null &amp;&amp; jwtUtils.validateJwtToken(jwt)) {</span>
+<span class="fc" id="L39">                String username = jwtUtils.getUserNameFromJwtToken(jwt);</span>
 
-<span class="nc" id="L41">                UserDetails userDetails = userDetailsService.loadUserByUsername(username);</span>
-<span class="nc" id="L42">                UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(</span>
-<span class="nc" id="L43">                        userDetails,</span>
-<span class="nc" id="L44">                        null,</span>
-<span class="nc" id="L45">                        userDetails.getAuthorities());</span>
-<span class="nc" id="L46">                authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));</span>
+<span class="fc" id="L41">                UserDetails userDetails = userDetailsService.loadUserByUsername(username);</span>
+<span class="fc" id="L42">                UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(</span>
+                        userDetails,
+                        null,
+<span class="fc" id="L45">                        userDetails.getAuthorities());</span>
+<span class="fc" id="L46">                authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));</span>
 
-<span class="nc" id="L48">                SecurityContextHolder.getContext().setAuthentication(authentication);</span>
+<span class="fc" id="L48">                SecurityContextHolder.getContext().setAuthentication(authentication);</span>
             }
 <span class="nc" id="L50">        } catch (AuthenticationException ex) {</span>
 <span class="nc" id="L51">            SecurityContextHolder.clearContext();</span>
 <span class="nc" id="L52">            authenticationEntryPoint.commence(request, response, ex);</span>
 <span class="nc" id="L53">            return;</span>
-        }
+<span class="fc" id="L54">        }</span>
 
 <span class="fc" id="L56">        filterChain.doFilter(request, response);</span>
 <span class="fc" id="L57">    }</span>
@@ -59,8 +59,8 @@ public class AuthTokenFilter extends OncePerRequestFilter {
     private String parseJwt(HttpServletRequest request) {
 <span class="fc" id="L60">        String headerAuth = request.getHeader(&quot;Authorization&quot;);</span>
 
-<span class="pc bpc" id="L62" title="3 of 4 branches missed.">        if (StringUtils.hasText(headerAuth) &amp;&amp; headerAuth.startsWith(&quot;Bearer &quot;)) {</span>
-<span class="nc" id="L63">            return headerAuth.substring(7, headerAuth.length());</span>
+<span class="pc bpc" id="L62" title="1 of 4 branches missed.">        if (StringUtils.hasText(headerAuth) &amp;&amp; headerAuth.startsWith(&quot;Bearer &quot;)) {</span>
+<span class="fc" id="L63">            return headerAuth.substring(7, headerAuth.length());</span>
         }
 
 <span class="fc" id="L66">        return null;</span>

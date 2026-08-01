@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = &quot;org.mapstruct.ap.MappingProcessor&quot;,
-    date = &quot;2026-07-31T11:49:47+0200&quot;,
-    comments = &quot;version: 1.6.3, compiler: Eclipse JDT (IDE) 3.46.100.v20260624-0231, environment: Java 21.0.11 (Eclipse Adoptium)&quot;
+    date = &quot;2026-08-01T11:45:33+0200&quot;,
+    comments = &quot;version: 1.6.3, compiler: javac, environment: Java 21.0.11 (Eclipse Adoptium)&quot;
 )
 @Component
 <span class="fc" id="L16">public class TeacherMapperImpl implements TeacherMapper {</span>
@@ -23,10 +23,10 @@ import org.springframework.stereotype.Component;
 
 <span class="nc" id="L24">        Teacher.TeacherBuilder teacher = Teacher.builder();</span>
 
-<span class="nc" id="L26">        teacher.createdAt( dto.getCreatedAt() );</span>
-<span class="nc" id="L27">        teacher.firstName( dto.getFirstName() );</span>
-<span class="nc" id="L28">        teacher.id( dto.getId() );</span>
-<span class="nc" id="L29">        teacher.lastName( dto.getLastName() );</span>
+<span class="nc" id="L26">        teacher.id( dto.getId() );</span>
+<span class="nc" id="L27">        teacher.lastName( dto.getLastName() );</span>
+<span class="nc" id="L28">        teacher.firstName( dto.getFirstName() );</span>
+<span class="nc" id="L29">        teacher.createdAt( dto.getCreatedAt() );</span>
 <span class="nc" id="L30">        teacher.updatedAt( dto.getUpdatedAt() );</span>
 
 <span class="nc" id="L32">        return teacher.build();</span>
@@ -40,10 +40,10 @@ import org.springframework.stereotype.Component;
 
 <span class="nc" id="L41">        TeacherDto teacherDto = new TeacherDto();</span>
 
-<span class="nc" id="L43">        teacherDto.setCreatedAt( entity.getCreatedAt() );</span>
-<span class="nc" id="L44">        teacherDto.setFirstName( entity.getFirstName() );</span>
-<span class="nc" id="L45">        teacherDto.setId( entity.getId() );</span>
-<span class="nc" id="L46">        teacherDto.setLastName( entity.getLastName() );</span>
+<span class="nc" id="L43">        teacherDto.setId( entity.getId() );</span>
+<span class="nc" id="L44">        teacherDto.setLastName( entity.getLastName() );</span>
+<span class="nc" id="L45">        teacherDto.setFirstName( entity.getFirstName() );</span>
+<span class="nc" id="L46">        teacherDto.setCreatedAt( entity.getCreatedAt() );</span>
 <span class="nc" id="L47">        teacherDto.setUpdatedAt( entity.getUpdatedAt() );</span>
 
 <span class="nc" id="L49">        return teacherDto;</span>

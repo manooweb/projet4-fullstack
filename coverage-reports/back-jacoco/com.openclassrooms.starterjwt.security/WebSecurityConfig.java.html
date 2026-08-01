@@ -25,10 +25,10 @@ public class WebSecurityConfig {
     private final UserDetailsServiceImpl userDetailsService;
     private final ApiAuthenticationEntryPoint apiAuthenticationEntryPoint;
 
-<span class="fc" id="L28">    public WebSecurityConfig(</span>
+    public WebSecurityConfig(
             JwtUtils jwtUtils,
             UserDetailsServiceImpl userDetailsService,
-            ApiAuthenticationEntryPoint apiAuthenticationEntryPoint) {
+<span class="fc" id="L31">            ApiAuthenticationEntryPoint apiAuthenticationEntryPoint) {</span>
 <span class="fc" id="L32">        this.jwtUtils = jwtUtils;</span>
 <span class="fc" id="L33">        this.userDetailsService = userDetailsService;</span>
 <span class="fc" id="L34">        this.apiAuthenticationEntryPoint = apiAuthenticationEntryPoint;</span>

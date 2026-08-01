@@ -26,8 +26,8 @@ public class AuthService {
     private final UserRepository userRepository;
     private final YogaProperties yogaProperties;
 
-<span class="fc" id="L29">    public AuthService(AuthenticationManager authenticationManager, JwtUtils jwtUtils, UserRepository userRepository,</span>
-            PasswordEncoder passwordEncoder, YogaProperties yogaProperties) {
+    public AuthService(AuthenticationManager authenticationManager, JwtUtils jwtUtils, UserRepository userRepository,
+<span class="fc" id="L30">            PasswordEncoder passwordEncoder, YogaProperties yogaProperties) {</span>
 <span class="fc" id="L31">        this.authenticationManager = authenticationManager;</span>
 <span class="fc" id="L32">        this.jwtUtils = jwtUtils;</span>
 <span class="fc" id="L33">        this.userRepository = userRepository;</span>
@@ -37,7 +37,7 @@ public class AuthService {
 
     public JwtResponse authenticateUser(String email, String password) {
 <span class="fc" id="L39">        Authentication authentication = authenticationManager.authenticate(</span>
-<span class="fc" id="L40">                new UsernamePasswordAuthenticationToken(email, password));</span>
+                new UsernamePasswordAuthenticationToken(email, password));
 <span class="fc" id="L41">        SecurityContextHolder.getContext().setAuthentication(authentication);</span>
 <span class="fc" id="L42">        String jwt = jwtUtils.generateJwtToken(authentication);</span>
 <span class="fc" id="L43">        UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();</span>
@@ -60,7 +60,7 @@ public class AuthService {
 <span class="fc" id="L60">                signUpRequest.getLastName(),</span>
 <span class="fc" id="L61">                signUpRequest.getFirstName(),</span>
 <span class="fc" id="L62">                passwordEncoder.encode(signUpRequest.getPassword()),</span>
-<span class="fc" id="L63">                false);</span>
+                false);
 
 <span class="fc" id="L65">        userRepository.save(user);</span>
 

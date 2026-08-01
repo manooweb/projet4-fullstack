@@ -23,8 +23,8 @@ public class SessionController {
     private final SessionMapper sessionMapper;
     private final SessionService sessionService;
 
-<span class="fc" id="L26">    public SessionController(SessionService sessionService,</span>
-            SessionMapper sessionMapper) {
+    public SessionController(SessionService sessionService,
+<span class="fc" id="L27">            SessionMapper sessionMapper) {</span>
 <span class="fc" id="L28">        this.sessionMapper = sessionMapper;</span>
 <span class="fc" id="L29">        this.sessionService = sessionService;</span>
 <span class="fc" id="L30">    }</span>
@@ -50,27 +50,27 @@ public class SessionController {
 <span class="nc" id="L50">        return ResponseEntity.ok().body(this.sessionMapper.toDto(session));</span>
     }
 
-    @PutMapping(&quot;{id}&quot;)
+    @PutMapping(&quot;/{id}&quot;)
     public ResponseEntity&lt;SessionDto&gt; update(@PathVariable(&quot;id&quot;) Long id, @Valid @RequestBody SessionDto sessionDto) {
 <span class="nc" id="L55">        Session session = this.sessionService.update(id, this.sessionMapper.toEntity(sessionDto));</span>
 
 <span class="nc" id="L57">        return ResponseEntity.ok().body(this.sessionMapper.toDto(session));</span>
     }
 
-    @DeleteMapping(&quot;{id}&quot;)
+    @DeleteMapping(&quot;/{id}&quot;)
     public ResponseEntity&lt;Void&gt; save(@PathVariable(&quot;id&quot;) Long id) {
 <span class="nc" id="L62">        this.sessionService.delete(id);</span>
 <span class="nc" id="L63">        return ResponseEntity.ok().build();</span>
     }
 
-    @PostMapping(&quot;{id}/participate/{userId}&quot;)
+    @PostMapping(&quot;/{id}/participate/{userId}&quot;)
     public ResponseEntity&lt;Void&gt; participate(@PathVariable(&quot;id&quot;) Long id, @PathVariable(&quot;userId&quot;) Long userId) {
 <span class="nc" id="L68">        this.sessionService.participate(id, userId);</span>
 
 <span class="nc" id="L70">        return ResponseEntity.ok().build();</span>
     }
 
-    @DeleteMapping(&quot;{id}/participate/{userId}&quot;)
+    @DeleteMapping(&quot;/{id}/participate/{userId}&quot;)
     public ResponseEntity&lt;Void&gt; noLongerParticipate(@PathVariable(&quot;id&quot;) Long id, @PathVariable(&quot;userId&quot;) Long userId) {
 <span class="nc" id="L75">        this.sessionService.noLongerParticipate(id, userId);</span>
 

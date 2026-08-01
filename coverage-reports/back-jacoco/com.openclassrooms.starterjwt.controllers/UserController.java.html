@@ -16,23 +16,23 @@ public class UserController {
     private final UserMapper userMapper;
     private final UserService userService;
 
-<span class="fc" id="L19">    public UserController(UserService userService,</span>
-            UserMapper userMapper) {
+    public UserController(UserService userService,
+<span class="fc" id="L20">            UserMapper userMapper) {</span>
 <span class="fc" id="L21">        this.userMapper = userMapper;</span>
 <span class="fc" id="L22">        this.userService = userService;</span>
 <span class="fc" id="L23">    }</span>
 
     @GetMapping(&quot;/{id}&quot;)
     public ResponseEntity&lt;?&gt; findById(@PathVariable(&quot;id&quot;) Long id) {
-<span class="nc" id="L27">        User user = this.userService.findById(id);</span>
+<span class="fc" id="L27">        User user = this.userService.findById(id);</span>
 
-<span class="nc" id="L29">        return ResponseEntity.ok().body(this.userMapper.toDto(user));</span>
+<span class="fc" id="L29">        return ResponseEntity.ok().body(this.userMapper.toDto(user));</span>
     }
 
-    @DeleteMapping(&quot;{id}&quot;)
-    public ResponseEntity&lt;?&gt; save(@PathVariable(&quot;id&quot;) Long id) {
-<span class="nc" id="L34">        this.userService.delete(id);</span>
-<span class="nc" id="L35">        return ResponseEntity.ok().build();</span>
+    @DeleteMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;?&gt; delete(@PathVariable(&quot;id&quot;) Long id) {
+<span class="fc" id="L34">        this.userService.delete(id);</span>
+<span class="fc" id="L35">        return ResponseEntity.ok().build();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

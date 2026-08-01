@@ -28,22 +28,22 @@ import java.time.LocalDateTime;
 @Table(name = &quot;users&quot;, uniqueConstraints = {
         @UniqueConstraint(columnNames = &quot;email&quot;)
 })
-@Data
+<span class="pc bpc" id="L31" title="5 of 8 branches missed.">@Data</span>
 @Accessors(chain = true)
 @EntityListeners(AuditingEntityListener.class)
-@EqualsAndHashCode(of = { &quot;id&quot; })
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
+<span class="pc bpc" id="L34" title="13 of 14 branches missed.">@EqualsAndHashCode(of = { &quot;id&quot; })</span>
+<span class="nc bnc" id="L35" title="All 8 branches missed.">@Builder</span>
+<span class="fc" id="L36">@NoArgsConstructor</span>
+<span class="nc bnc" id="L37" title="All 8 branches missed.">@AllArgsConstructor</span>
+<span class="nc" id="L38">@ToString</span>
 public class User {
 
-<span class="fc" id="L41">    public User(</span>
+    public User(
             String email,
             String lastName,
             String firstName,
             String password,
-            boolean admin) {
+<span class="fc" id="L46">            boolean admin) {</span>
 <span class="fc" id="L47">        this.email = email;</span>
 <span class="fc" id="L48">        this.lastName = lastName;</span>
 <span class="fc" id="L49">        this.firstName = firstName;</span>
@@ -53,38 +53,38 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+<span class="fc" id="L56">    private Long id;</span>
 
     @NonNull
     @Size(max = 50)
     @Email
     @Column(nullable = false)
-    private String email;
+<span class="fc" id="L62">    private String email;</span>
 
     @NonNull
     @Size(max = 20)
     @Column(nullable = false)
-    private String lastName;
+<span class="fc" id="L67">    private String lastName;</span>
 
     @NonNull
     @Size(max = 20)
     @Column(nullable = false)
-    private String firstName;
+<span class="fc" id="L72">    private String firstName;</span>
 
     @NonNull
     @Size(max = 120)
     @Column(nullable = false)
-    private String password;
+<span class="fc" id="L77">    private String password;</span>
 
-    private boolean admin;
+<span class="fc" id="L79">    private boolean admin;</span>
 
     @CreatedDate
     @Column(updatable = false, columnDefinition = &quot;TIMESTAMP DEFAULT CURRENT_TIMESTAMP&quot;)
-    private LocalDateTime createdAt;
+<span class="fc" id="L83">    private LocalDateTime createdAt;</span>
 
     @UpdateTimestamp
     @Column(columnDefinition = &quot;TIMESTAMP DEFAULT CURRENT_TIMESTAMP&quot;)
-    private LocalDateTime updatedAt;
+<span class="fc" id="L87">    private LocalDateTime updatedAt;</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>
