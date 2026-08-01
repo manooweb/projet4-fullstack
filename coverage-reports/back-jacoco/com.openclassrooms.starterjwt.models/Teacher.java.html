@@ -36,24 +36,24 @@ import java.time.LocalDateTime;
 public class Teacher {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-<span class="nc" id="L39">    private Long id;</span>
+<span class="fc" id="L39">    private Long id;</span>
 
     @NotBlank
     @Size(max = 20)
     @Column(nullable = false)
-<span class="nc" id="L44">    private String lastName;</span>
+<span class="fc" id="L44">    private String lastName;</span>
 
     @NotBlank
     @Size(max = 20)
     @Column(nullable = false)
-<span class="nc" id="L49">    private String firstName;</span>
+<span class="fc" id="L49">    private String firstName;</span>
 
     @CreatedDate
     @Column(updatable = false, columnDefinition=&quot;TIMESTAMP DEFAULT CURRENT_TIMESTAMP&quot;)
-<span class="nc" id="L53">    private LocalDateTime createdAt;</span>
+<span class="fc" id="L53">    private LocalDateTime createdAt;</span>
 
     @UpdateTimestamp
     @Column(columnDefinition=&quot;TIMESTAMP DEFAULT CURRENT_TIMESTAMP&quot;)
-<span class="nc" id="L57">    private LocalDateTime updatedAt;</span>
+<span class="fc" id="L57">    private LocalDateTime updatedAt;</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

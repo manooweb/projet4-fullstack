@@ -26,16 +26,16 @@ public class TeacherController {
 
     @GetMapping(&quot;/{id}&quot;)
     public ResponseEntity&lt;TeacherDto&gt; findById(@PathVariable(&quot;id&quot;) Long id) {
-<span class="nc" id="L29">        Teacher teacher = this.teacherService.findById(id);</span>
+<span class="fc" id="L29">        Teacher teacher = this.teacherService.findById(id);</span>
 
-<span class="nc" id="L31">        return ResponseEntity.ok().body(this.teacherMapper.toDto(teacher));</span>
+<span class="fc" id="L31">        return ResponseEntity.ok().body(this.teacherMapper.toDto(teacher));</span>
     }
 
     @GetMapping()
     public ResponseEntity&lt;List&lt;TeacherDto&gt;&gt; findAll() {
-<span class="nc" id="L36">        List&lt;Teacher&gt; teachers = this.teacherService.findAll();</span>
+<span class="fc" id="L36">        List&lt;Teacher&gt; teachers = this.teacherService.findAll();</span>
 
-<span class="nc" id="L38">        return ResponseEntity.ok().body(this.teacherMapper.toDto(teachers));</span>
+<span class="fc" id="L38">        return ResponseEntity.ok().body(this.teacherMapper.toDto(teachers));</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>
