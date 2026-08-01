@@ -1,5 +1,7 @@
 package com.openclassrooms.starterjwt.controllers;
 
+import static org.springframework.http.HttpStatus.CREATED;
+
 import com.openclassrooms.starterjwt.payload.request.LoginRequest;
 import com.openclassrooms.starterjwt.payload.request.SignupRequest;
 import com.openclassrooms.starterjwt.payload.response.JwtResponse;
@@ -29,6 +31,8 @@ public class AuthController {
 
     @PostMapping("/register")
     public ResponseEntity<MessageResponse> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
-        return ResponseEntity.ok(authService.registerUser(signUpRequest));
+        return ResponseEntity
+                .status(CREATED)
+                .body(authService.registerUser(signUpRequest));
     }
 }
