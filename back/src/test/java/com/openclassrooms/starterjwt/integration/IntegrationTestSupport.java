@@ -1,6 +1,5 @@
 package com.openclassrooms.starterjwt.integration;
 
-import org.junit.jupiter.api.AfterAll;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
@@ -31,12 +30,5 @@ public abstract class IntegrationTestSupport {
         registry.add("spring.datasource.url", MYSQL::getJdbcUrl);
         registry.add("spring.datasource.username", MYSQL::getUsername);
         registry.add("spring.datasource.password", MYSQL::getPassword);
-    }
-
-    @AfterAll
-    static void stopMySqlContainer() {
-        if (!USE_LOCAL_DATABASE) {
-            MYSQL.stop();
-        }
     }
 }
