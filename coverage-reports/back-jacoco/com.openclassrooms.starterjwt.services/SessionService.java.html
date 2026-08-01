@@ -84,7 +84,7 @@ public class SessionService {
         }
 
 <span class="fc" id="L86">        session.setUsers(</span>
-<span class="pc bpc" id="L87" title="1 of 2 branches missed.">                session.getUsers().stream().filter(user -&gt; !user.getId().equals(userId)).collect(Collectors.toList()));</span>
+<span class="fc bfc" id="L87" title="All 2 branches covered.">                session.getUsers().stream().filter(user -&gt; !user.getId().equals(userId)).collect(Collectors.toList()));</span>
 
 <span class="fc" id="L89">        this.sessionRepository.save(session);</span>
 <span class="fc" id="L90">    }</span>
