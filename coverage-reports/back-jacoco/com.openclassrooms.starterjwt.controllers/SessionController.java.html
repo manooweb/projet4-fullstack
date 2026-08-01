@@ -23,24 +23,24 @@ public class SessionController {
     private final SessionMapper sessionMapper;
     private final SessionService sessionService;
 
-    public SessionController(SessionService sessionService,
-<span class="fc" id="L27">            SessionMapper sessionMapper) {</span>
+<span class="fc" id="L26">    public SessionController(SessionService sessionService,</span>
+            SessionMapper sessionMapper) {
 <span class="fc" id="L28">        this.sessionMapper = sessionMapper;</span>
 <span class="fc" id="L29">        this.sessionService = sessionService;</span>
 <span class="fc" id="L30">    }</span>
 
     @GetMapping(&quot;/{id}&quot;)
     public ResponseEntity&lt;SessionDto&gt; findById(@PathVariable(&quot;id&quot;) Long id) {
-<span class="nc" id="L34">        Session session = this.sessionService.getById(id);</span>
+<span class="fc" id="L34">        Session session = this.sessionService.getById(id);</span>
 
-<span class="nc" id="L36">        return ResponseEntity.ok().body(this.sessionMapper.toDto(session));</span>
+<span class="fc" id="L36">        return ResponseEntity.ok().body(this.sessionMapper.toDto(session));</span>
     }
 
     @GetMapping()
     public ResponseEntity&lt;List&lt;SessionDto&gt;&gt; findAll() {
-<span class="nc" id="L41">        List&lt;Session&gt; sessions = this.sessionService.findAll();</span>
+<span class="fc" id="L41">        List&lt;Session&gt; sessions = this.sessionService.findAll();</span>
 
-<span class="nc" id="L43">        return ResponseEntity.ok().body(this.sessionMapper.toDto(sessions));</span>
+<span class="fc" id="L43">        return ResponseEntity.ok().body(this.sessionMapper.toDto(sessions));</span>
     }
 
     @PostMapping()
@@ -58,7 +58,7 @@ public class SessionController {
     }
 
     @DeleteMapping(&quot;/{id}&quot;)
-    public ResponseEntity&lt;Void&gt; save(@PathVariable(&quot;id&quot;) Long id) {
+    public ResponseEntity&lt;Void&gt; delete(@PathVariable(&quot;id&quot;) Long id) {
 <span class="nc" id="L62">        this.sessionService.delete(id);</span>
 <span class="nc" id="L63">        return ResponseEntity.ok().build();</span>
     }

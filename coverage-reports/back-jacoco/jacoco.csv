@@ -7,7 +7,7 @@ yoga-app,com.openclassrooms.starterjwt.configuration.properties,YogaMessagesProp
 yoga-app,com.openclassrooms.starterjwt.configuration.properties,YogaMessagesProperties.Success,47,28,13,1,0,2,10,4,3,4
 yoga-app,com.openclassrooms.starterjwt.configuration.properties,YogaMessagesProperties.Errors,404,351,132,18,0,19,78,38,3,38
 yoga-app,com.openclassrooms.starterjwt.configuration.properties,YogaProperties,0,9,0,0,0,2,0,2,0,2
-yoga-app,com.openclassrooms.starterjwt.services,SessionService,253,12,6,0,36,5,20,1,17,1
+yoga-app,com.openclassrooms.starterjwt.services,SessionService,219,46,6,0,32,9,16,5,13,5
 yoga-app,com.openclassrooms.starterjwt.services,UserService,0,64,0,2,0,14,0,5,0,4
 yoga-app,com.openclassrooms.starterjwt.services,AuthService,0,100,0,2,0,25,0,4,0,3
 yoga-app,com.openclassrooms.starterjwt.services,TeacherService,0,39,0,0,0,8,0,4,0,4
@@ -18,7 +18,7 @@ yoga-app,com.openclassrooms.starterjwt.models,User.UserBuilder,111,0,8,0,1,0,15,
 yoga-app,com.openclassrooms.starterjwt.models,Teacher.TeacherBuilder,56,0,0,0,1,0,8,0,8,0
 yoga-app,com.openclassrooms.starterjwt.models,Session.SessionBuilder,86,0,0,0,1,0,11,0,11,0
 yoga-app,com.openclassrooms.starterjwt.models,User,177,76,26,4,3,18,24,15,9,15
-yoga-app,com.openclassrooms.starterjwt.models,Session,179,3,14,0,13,1,29,1,22,1
+yoga-app,com.openclassrooms.starterjwt.models,Session,130,52,14,0,4,10,16,14,9,14
 yoga-app,com.openclassrooms.starterjwt.models,Teacher,102,38,13,1,3,8,14,10,7,10
 yoga-app,com.openclassrooms.starterjwt.exception,NotFoundException,0,4,0,0,0,2,0,1,0,1
 yoga-app,com.openclassrooms.starterjwt.exception,GlobalExceptionHandler,83,78,1,1,18,23,5,7,4,7
@@ -26,9 +26,9 @@ yoga-app,com.openclassrooms.starterjwt.exception,BadRequestException,3,4,0,0,2,2
 yoga-app,com.openclassrooms.starterjwt.exception,ForbiddenException,0,4,0,0,0,2,0,1,0,1
 yoga-app,com.openclassrooms.starterjwt.controllers,UserController,0,29,0,0,0,8,0,3,0,3
 yoga-app,com.openclassrooms.starterjwt.controllers,TeacherController,0,33,0,0,0,8,0,3,0,3
-yoga-app,com.openclassrooms.starterjwt.controllers,SessionController,77,9,0,0,14,4,7,1,7,1
+yoga-app,com.openclassrooms.starterjwt.controllers,SessionController,54,32,0,0,10,8,5,3,5,3
 yoga-app,com.openclassrooms.starterjwt.controllers,AuthController,0,23,0,0,0,7,0,3,0,3
-yoga-app,com.openclassrooms.starterjwt.mapper,SessionMapperImpl,203,3,18,0,40,1,16,1,7,1
+yoga-app,com.openclassrooms.starterjwt.mapper,SessionMapperImpl,117,89,13,5,21,20,12,5,4,4
 yoga-app,com.openclassrooms.starterjwt.mapper,TeacherMapperImpl,67,58,8,4,17,14,7,4,2,3
 yoga-app,com.openclassrooms.starterjwt.mapper,SessionMapper,0,3,0,0,0,1,0,1,0,1
 yoga-app,com.openclassrooms.starterjwt.mapper,UserMapperImpl,109,43,11,1,25,12,9,2,3,2

@@ -37,12 +37,12 @@ public class SessionService {
 <span class="nc" id="L37">    }</span>
 
     public List&lt;Session&gt; findAll() {
-<span class="nc" id="L40">        return this.sessionRepository.findAll();</span>
+<span class="fc" id="L40">        return this.sessionRepository.findAll();</span>
     }
 
     public Session getById(Long id) {
-<span class="nc" id="L44">        return this.sessionRepository.findById(id)</span>
-<span class="nc" id="L45">                .orElseThrow(() -&gt; new NotFoundException(sessionNotFoundMessage(id)));</span>
+<span class="fc" id="L44">        return this.sessionRepository.findById(id)</span>
+<span class="fc" id="L45">                .orElseThrow(() -&gt; new NotFoundException(sessionNotFoundMessage(id)));</span>
     }
 
     public Session update(Long id, Session session) {
@@ -90,7 +90,7 @@ public class SessionService {
 <span class="nc" id="L90">    }</span>
 
     private String sessionNotFoundMessage(Long id) {
-<span class="nc" id="L93">        return yogaProperties.getMessages().getErrors().getSessionNotFound().formatted(id);</span>
+<span class="fc" id="L93">        return yogaProperties.getMessages().getErrors().getSessionNotFound().formatted(id);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>
