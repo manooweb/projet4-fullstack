@@ -16,20 +16,24 @@ public final class TestRatioReporter {
 
     private static final String REPORT_MARKER_START = "<!-- test-ratio:start -->";
     private static final String REPORT_MARKER_END = "<!-- test-ratio:end -->";
+    private static final String NAVIGATION_MARKER_START = "<!-- coverage-navigation:start -->";
+    private static final String NAVIGATION_MARKER_END = "<!-- coverage-navigation:end -->";
 
     private TestRatioReporter() {
     }
 
     public static void main(String[] args) throws Exception {
-        if (args.length != 4) {
+        if (args.length != 6) {
             throw new IllegalArgumentException(
-                    "Expected the Surefire and Failsafe report directories, the minimum ratio and the JaCoCo index.");
+                    "Expected the Surefire and Failsafe report directories, the minimum ratio and three JaCoCo indexes.");
         }
 
         Path surefireReports = Path.of(args[0]);
         Path failsafeReports = Path.of(args[1]);
         BigDecimal minimumRatio = new BigDecimal(args[2]);
         Path jacocoIndex = Path.of(args[3]);
+        Path unitJacocoIndex = Path.of(args[4]);
+        Path integrationJacocoIndex = Path.of(args[5]);
 
         long unitTestCount = countTestCases(surefireReports);
         long integrationTestCount = countTestCases(failsafeReports);
@@ -58,6 +62,9 @@ public final class TestRatioReporter {
                 actualRatio,
                 minimumRatio,
                 targetReached);
+        addGlobalNavigation(jacocoIndex, unitJacocoIndex, integrationJacocoIndex);
+        addReturnLink(unitJacocoIndex, jacocoIndex);
+        addReturnLink(integrationJacocoIndex, jacocoIndex);
     }
 
     private static long countTestCases(Path reportDirectory) throws Exception {
@@ -128,6 +135,78 @@ public final class TestRatioReporter {
         }
 
         Files.writeString(jacocoIndex, report, StandardCharsets.UTF_8);
+    }
+
+    private static void addGlobalNavigation(
+            Path globalJacocoIndex,
+            Path unitJacocoIndex,
+            Path integrationJacocoIndex) throws Exception {
+        String navigationBlock = """
+                %s
+                <div style="margin: 1em 0;">
+                  <strong>Detailed coverage reports:</strong>
+                  <a href="%s">Unit tests</a> |
+                  <a href="%s">Integration tests</a>
+                </div>
+                %s
+                """.formatted(
+                NAVIGATION_MARKER_START,
+                relativeLink(globalJacocoIndex, unitJacocoIndex),
+                relativeLink(globalJacocoIndex, integrationJacocoIndex),
+                NAVIGATION_MARKER_END);
+
+        addOrReplaceNavigationBlock(globalJacocoIndex, navigationBlock);
+    }
+
+    private static void addReturnLink(Path secondaryJacocoIndex, Path globalJacocoIndex) throws Exception {
+        String navigationBlock = """
+                %s
+                <div style="margin: 1em 0;">
+                  <a href="%s">Back to global coverage</a>
+                </div>
+                %s
+                """.formatted(
+                NAVIGATION_MARKER_START,
+                relativeLink(secondaryJacocoIndex, globalJacocoIndex),
+                NAVIGATION_MARKER_END);
+
+        addOrReplaceNavigationBlock(secondaryJacocoIndex, navigationBlock);
+    }
+
+    private static void addOrReplaceNavigationBlock(Path jacocoIndex, String navigationBlock) throws Exception {
+        if (!Files.isRegularFile(jacocoIndex)) {
+            throw new IllegalStateException("JaCoCo report was not found at " + jacocoIndex);
+        }
+
+        String report = Files.readString(jacocoIndex, StandardCharsets.UTF_8);
+        int existingBlockStart = report.indexOf(NAVIGATION_MARKER_START);
+        int existingBlockEnd = report.indexOf(NAVIGATION_MARKER_END);
+
+        if (existingBlockStart >= 0 && existingBlockEnd >= existingBlockStart) {
+            int endAfterMarker = existingBlockEnd + NAVIGATION_MARKER_END.length();
+            report = report.substring(0, existingBlockStart)
+                    + navigationBlock
+                    + report.substring(endAfterMarker);
+        } else {
+            String tableEnd = "</table>";
+            int insertionPoint = report.indexOf(tableEnd);
+            if (insertionPoint < 0) {
+                throw new IllegalStateException("Unable to locate the JaCoCo coverage table in " + jacocoIndex);
+            }
+            insertionPoint += tableEnd.length();
+            report = report.substring(0, insertionPoint)
+                    + navigationBlock
+                    + report.substring(insertionPoint);
+        }
+
+        Files.writeString(jacocoIndex, report, StandardCharsets.UTF_8);
+    }
+
+    private static String relativeLink(Path sourceReport, Path targetReport) {
+        return sourceReport.getParent()
+                .relativize(targetReport)
+                .toString()
+                .replace('\\', '/');
     }
 
     private static boolean isXmlTestReport(Path report) {
