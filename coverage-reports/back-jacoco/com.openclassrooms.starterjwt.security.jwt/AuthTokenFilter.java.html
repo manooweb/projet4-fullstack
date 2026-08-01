@@ -35,7 +35,7 @@ public class AuthTokenFilter extends OncePerRequestFilter {
             throws ServletException, IOException {
         try {
 <span class="fc" id="L37">            String jwt = parseJwt(request);</span>
-<span class="pc bpc" id="L38" title="1 of 4 branches missed.">            if (jwt != null &amp;&amp; jwtUtils.validateJwtToken(jwt)) {</span>
+<span class="fc bfc" id="L38" title="All 4 branches covered.">            if (jwt != null &amp;&amp; jwtUtils.validateJwtToken(jwt)) {</span>
 <span class="fc" id="L39">                String username = jwtUtils.getUserNameFromJwtToken(jwt);</span>
 
 <span class="fc" id="L41">                UserDetails userDetails = userDetailsService.loadUserByUsername(username);</span>
@@ -47,10 +47,10 @@ public class AuthTokenFilter extends OncePerRequestFilter {
 
 <span class="fc" id="L48">                SecurityContextHolder.getContext().setAuthentication(authentication);</span>
             }
-<span class="nc" id="L50">        } catch (AuthenticationException ex) {</span>
-<span class="nc" id="L51">            SecurityContextHolder.clearContext();</span>
-<span class="nc" id="L52">            authenticationEntryPoint.commence(request, response, ex);</span>
-<span class="nc" id="L53">            return;</span>
+<span class="fc" id="L50">        } catch (AuthenticationException ex) {</span>
+<span class="fc" id="L51">            SecurityContextHolder.clearContext();</span>
+<span class="fc" id="L52">            authenticationEntryPoint.commence(request, response, ex);</span>
+<span class="fc" id="L53">            return;</span>
 <span class="fc" id="L54">        }</span>
 
 <span class="fc" id="L56">        filterChain.doFilter(request, response);</span>
@@ -59,7 +59,7 @@ public class AuthTokenFilter extends OncePerRequestFilter {
     private String parseJwt(HttpServletRequest request) {
 <span class="fc" id="L60">        String headerAuth = request.getHeader(&quot;Authorization&quot;);</span>
 
-<span class="pc bpc" id="L62" title="1 of 4 branches missed.">        if (StringUtils.hasText(headerAuth) &amp;&amp; headerAuth.startsWith(&quot;Bearer &quot;)) {</span>
+<span class="fc bfc" id="L62" title="All 4 branches covered.">        if (StringUtils.hasText(headerAuth) &amp;&amp; headerAuth.startsWith(&quot;Bearer &quot;)) {</span>
 <span class="fc" id="L63">            return headerAuth.substring(7, headerAuth.length());</span>
         }
 
