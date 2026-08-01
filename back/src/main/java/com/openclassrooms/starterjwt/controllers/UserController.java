@@ -29,7 +29,7 @@ public class UserController {
         return ResponseEntity.ok().body(this.userMapper.toDto(user));
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> save(@PathVariable("id") Long id) {
         this.userService.delete(id);
         return ResponseEntity.ok().build();
