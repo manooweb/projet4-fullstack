@@ -45,22 +45,22 @@ public class SessionController {
 
     @PostMapping()
     public ResponseEntity&lt;SessionDto&gt; create(@Valid @RequestBody SessionDto sessionDto) {
-<span class="nc" id="L48">        Session session = this.sessionService.create(this.sessionMapper.toEntity(sessionDto));</span>
+<span class="fc" id="L48">        Session session = this.sessionService.create(this.sessionMapper.toEntity(sessionDto));</span>
 
-<span class="nc" id="L50">        return ResponseEntity.ok().body(this.sessionMapper.toDto(session));</span>
+<span class="fc" id="L50">        return ResponseEntity.ok().body(this.sessionMapper.toDto(session));</span>
     }
 
     @PutMapping(&quot;/{id}&quot;)
     public ResponseEntity&lt;SessionDto&gt; update(@PathVariable(&quot;id&quot;) Long id, @Valid @RequestBody SessionDto sessionDto) {
-<span class="nc" id="L55">        Session session = this.sessionService.update(id, this.sessionMapper.toEntity(sessionDto));</span>
+<span class="fc" id="L55">        Session session = this.sessionService.update(id, this.sessionMapper.toEntity(sessionDto));</span>
 
-<span class="nc" id="L57">        return ResponseEntity.ok().body(this.sessionMapper.toDto(session));</span>
+<span class="fc" id="L57">        return ResponseEntity.ok().body(this.sessionMapper.toDto(session));</span>
     }
 
     @DeleteMapping(&quot;/{id}&quot;)
     public ResponseEntity&lt;Void&gt; delete(@PathVariable(&quot;id&quot;) Long id) {
-<span class="nc" id="L62">        this.sessionService.delete(id);</span>
-<span class="nc" id="L63">        return ResponseEntity.ok().build();</span>
+<span class="fc" id="L62">        this.sessionService.delete(id);</span>
+<span class="fc" id="L63">        return ResponseEntity.ok().build();</span>
     }
 
     @PostMapping(&quot;/{id}/participate/{userId}&quot;)

@@ -27,14 +27,14 @@ public class SessionService {
 <span class="fc" id="L27">    }</span>
 
     public Session create(Session session) {
-<span class="nc" id="L30">        return this.sessionRepository.save(session);</span>
+<span class="fc" id="L30">        return this.sessionRepository.save(session);</span>
     }
 
     public void delete(Long id) {
-<span class="nc" id="L34">        this.sessionRepository.findById(id)</span>
-<span class="nc" id="L35">                .orElseThrow(() -&gt; new NotFoundException(sessionNotFoundMessage(id)));</span>
-<span class="nc" id="L36">        this.sessionRepository.deleteById(id);</span>
-<span class="nc" id="L37">    }</span>
+<span class="fc" id="L34">        this.sessionRepository.findById(id)</span>
+<span class="fc" id="L35">                .orElseThrow(() -&gt; new NotFoundException(sessionNotFoundMessage(id)));</span>
+<span class="fc" id="L36">        this.sessionRepository.deleteById(id);</span>
+<span class="fc" id="L37">    }</span>
 
     public List&lt;Session&gt; findAll() {
 <span class="fc" id="L40">        return this.sessionRepository.findAll();</span>
@@ -46,13 +46,13 @@ public class SessionService {
     }
 
     public Session update(Long id, Session session) {
-<span class="nc" id="L49">        sessionRepository.findById(id)</span>
-<span class="nc" id="L50">            .orElseThrow(() -&gt; new NotFoundException(</span>
-<span class="nc" id="L51">                    sessionNotFoundMessage(id)</span>
+<span class="fc" id="L49">        sessionRepository.findById(id)</span>
+<span class="fc" id="L50">            .orElseThrow(() -&gt; new NotFoundException(</span>
+<span class="fc" id="L51">                    sessionNotFoundMessage(id)</span>
             ));
 
-<span class="nc" id="L54">        session.setId(id);</span>
-<span class="nc" id="L55">        return this.sessionRepository.save(session);</span>
+<span class="fc" id="L54">        session.setId(id);</span>
+<span class="fc" id="L55">        return this.sessionRepository.save(session);</span>
     }
 
     public void participate(Long id, Long userId) {

@@ -51,23 +51,23 @@ import org.springframework.stereotype.Component;
 
     @Override
     public Session toEntity(SessionDto sessionDto) {
-<span class="nc bnc" id="L54" title="All 2 branches missed.">        if ( sessionDto == null ) {</span>
+<span class="pc bpc" id="L54" title="1 of 2 branches missed.">        if ( sessionDto == null ) {</span>
 <span class="nc" id="L55">            return null;</span>
         }
 
-<span class="nc" id="L58">        Session.SessionBuilder session = Session.builder();</span>
+<span class="fc" id="L58">        Session.SessionBuilder session = Session.builder();</span>
 
-<span class="nc" id="L60">        session.description( sessionDto.getDescription() );</span>
-<span class="nc" id="L61">        session.id( sessionDto.getId() );</span>
-<span class="nc" id="L62">        session.name( sessionDto.getName() );</span>
-<span class="nc" id="L63">        session.date( sessionDto.getDate() );</span>
-<span class="nc" id="L64">        session.createdAt( sessionDto.getCreatedAt() );</span>
-<span class="nc" id="L65">        session.updatedAt( sessionDto.getUpdatedAt() );</span>
+<span class="fc" id="L60">        session.description( sessionDto.getDescription() );</span>
+<span class="fc" id="L61">        session.id( sessionDto.getId() );</span>
+<span class="fc" id="L62">        session.name( sessionDto.getName() );</span>
+<span class="fc" id="L63">        session.date( sessionDto.getDate() );</span>
+<span class="fc" id="L64">        session.createdAt( sessionDto.getCreatedAt() );</span>
+<span class="fc" id="L65">        session.updatedAt( sessionDto.getUpdatedAt() );</span>
 
-<span class="nc bnc" id="L67" title="All 2 branches missed.">        session.teacher( sessionDto.getTeacher_id() != null ? this.teacherService.findById(sessionDto.getTeacher_id()) : null );</span>
-<span class="nc bnc" id="L68" title="All 2 branches missed.">        session.users( Optional.ofNullable(sessionDto.getUsers()).orElseGet(Collections::emptyList).stream().map(user_id -&gt; { User user = this.userService.findById(user_id); if (user != null) { return user; } return null; }).collect(Collectors.toList()) );</span>
+<span class="pc bpc" id="L67" title="1 of 2 branches missed.">        session.teacher( sessionDto.getTeacher_id() != null ? this.teacherService.findById(sessionDto.getTeacher_id()) : null );</span>
+<span class="pc bnc" id="L68" title="All 2 branches missed.">        session.users( Optional.ofNullable(sessionDto.getUsers()).orElseGet(Collections::emptyList).stream().map(user_id -&gt; { User user = this.userService.findById(user_id); if (user != null) { return user; } return null; }).collect(Collectors.toList()) );</span>
 
-<span class="nc" id="L70">        return session.build();</span>
+<span class="fc" id="L70">        return session.build();</span>
     }
 
     @Override
