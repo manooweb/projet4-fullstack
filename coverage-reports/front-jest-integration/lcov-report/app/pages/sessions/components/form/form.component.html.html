@@ -3,15 +3,15 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for app/components/me/me.component.html</title>
+    <title>Code coverage report for app/pages/sessions/components/form/form.component.html</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../../prettify.css" />
-    <link rel="stylesheet" href="../../../base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.png" />
+    <link rel="stylesheet" href="../../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../../favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../../../sort-arrow-sprite.png);
+            background-image: url(../../../../../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../index.html">All files</a> / <a href="index.html">app/components/me</a> me.component.html</h1>
+        <h1><a href="../../../../../index.html">All files</a> / <a href="index.html">app/pages/sessions/components/form</a> form.component.html</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -99,7 +99,20 @@
 <a name='L34'></a><a href='#L34'>34</a>
 <a name='L35'></a><a href='#L35'>35</a>
 <a name='L36'></a><a href='#L36'>36</a>
-<a name='L37'></a><a href='#L37'>37</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -135,40 +148,66 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;div class="m3"&gt;
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;div class="create m3"&gt;
   &lt;mat-card&gt;
     &lt;mat-card-title&gt;
       &lt;div fxLayout="row" fxLayoutAlign="start center"&gt;
-        &lt;button mat-icon-button (click)="back()"&gt;
+        &lt;button mat-icon-button routerLink="/sessions"&gt;
           &lt;mat-icon&gt;arrow_back&lt;/mat-icon&gt;
         &lt;/button&gt;
-        &lt;h1&gt;User information&lt;/h1&gt;
+        @if(onUpdate){
+          &lt;h1&gt;Update session&lt;/h1&gt;
+        }@else{
+          &lt;h1&gt;Create session&lt;/h1&gt;
+        }
       &lt;/div&gt;
     &lt;/mat-card-title&gt;
+    @if (sessionForm){
     &lt;mat-card-content&gt;
-    @if (user) {
-      &lt;div fxLayout="column" fxLayoutAlign="start center"&gt;
-        &lt;p&gt;Name: {{ user.firstName }} {{ user.lastName | uppercase }}&lt;/p&gt;
-        &lt;p&gt;Email: {{ user.email }}&lt;/p&gt;
-        @if (user.admin) {
-        &lt;p class="my2"&gt;You are admin&lt;/p&gt;
-        } @else {
-          &lt;div fxLayout="column" class="my2" fxLayoutAlign="center center"&gt;
-            &lt;p&gt;Delete my account:&lt;/p&gt;
-            &lt;button mat-raised-button color="warn" (click)="delete()"&gt;
-              &lt;mat-icon&gt;delete&lt;/mat-icon&gt;
-              &lt;span class="ml1"&gt;Detail&lt;/span&gt;
-            &lt;/button&gt;
-          &lt;/div&gt;
-        }
-&nbsp;
-        &lt;div fxLayoutAlign="space-between center" class="p2 w100"&gt;
-          &lt;p&gt;&lt;i&gt;Create at: &lt;/i&gt; {{ user.createdAt | date: 'longDate'}}&lt;/p&gt;
-          &lt;p&gt;&lt;i&gt;Last update: &lt;/i&gt; {{ user.updatedAt| date: 'longDate'}}&lt;/p&gt;
+      &lt;form class="mt2" fxLayout="column" [formGroup]="sessionForm" (ngSubmit)="submit()"&gt;
+        &lt;mat-form-field appearance="outline" class="" fxFlex&gt;
+          &lt;mat-label&gt;Name&lt;/mat-label&gt;
+          &lt;input matInput formControlName="name"&gt;
+        &lt;/mat-form-field&gt;
+        &lt;mat-form-field appearance="outline" fxFlex&gt;
+          &lt;mat-label&gt;Date&lt;/mat-label&gt;
+          &lt;input matInput type="date" formControlName="date"&gt;
+        &lt;/mat-form-field&gt;
+        &lt;mat-form-field appearance="outline"&gt;
+          &lt;mat-label&gt;Teacher&lt;/mat-label&gt;
+          &lt;mat-select ngDefaultControl formControlName="teacher_id"&gt;
+            @for(teacher of teachers$ | async; track teacher.id){
+              &lt;mat-option [value]="teacher.id"&gt;
+                {{teacher.firstName}} {{teacher.lastName}}
+              &lt;/mat-option&gt;
+            }
+          &lt;/mat-select&gt;
+        &lt;/mat-form-field&gt;
+        &lt;mat-form-field appearance="outline" fxFlex&gt;
+          &lt;mat-label&gt;Description&lt;/mat-label&gt;
+          &lt;textarea matInput rows="8" formControlName="description"&gt;&lt;/textarea&gt;
+        &lt;/mat-form-field&gt;
+        &lt;div fxLayout="row" fxLayoutAlign="center center"&gt;
+          &lt;button mat-raised-button color="primary" type="submit" [disabled]="sessionForm.invalid"&gt;
+            Save
+          &lt;/button&gt;
         &lt;/div&gt;
-      &lt;/div&gt;
-    }
+      &lt;/form&gt;
     &lt;/mat-card-content&gt;
+    }
   &lt;/mat-card&gt;
 &lt;/div&gt;
 &nbsp;</pre></td></tr></table></pre>
@@ -178,16 +217,16 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-08-02T18:36:25.823Z
+                at 2026-08-02T18:36:19.992Z
             </div>
-        <script src="../../../prettify.js"></script>
+        <script src="../../../../../prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="../../../sorter.js"></script>
-        <script src="../../../block-navigation.js"></script>
+        <script src="../../../../../sorter.js"></script>
+        <script src="../../../../../block-navigation.js"></script>
     </body>
 </html>
     
