@@ -4,8 +4,12 @@
   "scripts": {
     "start": "ng serve",
     "test": "jest",
+    "test:unit": "jest --config jest.unit.config.js",
+    "test:integration": "jest --config jest.integration.config.js",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage --runInBand",
+    "test:coverage": "node scripts/generate-jest-coverage-reports.js",
+    "test:coverage:unit": "jest --config jest.unit.config.js --coverage --runInBand",
+    "test:coverage:integration": "jest --config jest.integration.config.js --coverage --runInBand",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "e2e:ci": "ng run yoga:e2e-ci",
