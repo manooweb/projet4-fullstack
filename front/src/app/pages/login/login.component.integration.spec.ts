@@ -8,24 +8,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Router } from '@angular/router';
 import { beforeEach, describe, expect, it, jest } from '@jest/globals';
 import { SessionService } from 'src/app/core/service/session.service';
+import { firstValueFrom, of, throwError } from 'rxjs';
 
 import { AuthService } from '../../core/service/auth.service';
-import { LoginComponent } from './login.component';
-import { of, throwError } from 'rxjs';
 import { LoginRequest } from 'src/app/core/models/loginRequest.interface';
 import { SessionInformation } from 'src/app/core/models/sessionInformation.interface';
-import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
+import { LoginComponent } from './login.component';
 
 describe('LoginComponent integration', () => {
-  let debugElement: DebugElement;
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
+  let sessionService: SessionService;
   const mockAuthService: jest.Mocked<Pick<AuthService, 'login'>> = {
     login: jest.fn<AuthService['login']>(),
-  };
-  const mockSessionService: jest.Mocked<Pick<SessionService, 'logIn'>> = {
-    logIn: jest.fn<SessionService['logIn']>(),
   };
   const mockRouter: jest.Mocked<Pick<Router, 'navigate'>> = {
     navigate: jest.fn<Router['navigate']>(),
@@ -33,13 +29,12 @@ describe('LoginComponent integration', () => {
 
   beforeEach(async () => {
     mockAuthService.login.mockReset();
-    mockSessionService.logIn.mockReset();
     mockRouter.navigate.mockReset();
 
     await TestBed.configureTestingModule({
       providers: [
         { provide: AuthService, useValue: mockAuthService },
-        { provide: SessionService, useValue: mockSessionService },
+        SessionService,
         { provide: Router, useValue: mockRouter },
       ],
       imports: [
@@ -55,6 +50,7 @@ describe('LoginComponent integration', () => {
 
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
+    sessionService = TestBed.inject(SessionService);
     fixture.detectChanges();
   });
 
@@ -71,7 +67,7 @@ describe('LoginComponent integration', () => {
       password: userPassword
     }
 
-    const mockSessionInformation: SessionInformation = {
+    const sessionInformation: SessionInformation = {
       token: 'mockToken',
       type: 'Bearer',
       id: 1,
@@ -81,7 +77,7 @@ describe('LoginComponent integration', () => {
       admin: false,
     };
 
-    mockAuthService.login.mockReturnValue(of(mockSessionInformation));
+    mockAuthService.login.mockReturnValue(of(sessionInformation));
 
     const form = component.form;
     form.patchValue(loginRequest);
@@ -89,7 +85,9 @@ describe('LoginComponent integration', () => {
     component.submit();
 
     expect(mockAuthService.login).toHaveBeenCalledWith(loginRequest);
-    expect(mockSessionService.logIn).toHaveBeenCalledWith(mockSessionInformation);
+    expect(sessionService.sessionInformation).toEqual(sessionInformation);
+    expect(sessionService.isLogged).toBe(true);
+    await expect(firstValueFrom(sessionService.$isLogged())).resolves.toBe(true);
     expect(mockRouter.navigate).toHaveBeenCalledWith(['/sessions']);
   });
 
@@ -110,7 +108,9 @@ describe('LoginComponent integration', () => {
     component.submit();
 
     expect(mockAuthService.login).toHaveBeenCalledWith(loginRequest);
-    expect(mockSessionService.logIn).not.toHaveBeenCalled();
+    expect(sessionService.sessionInformation).toBeUndefined();
+    expect(sessionService.isLogged).toBe(false);
+    await expect(firstValueFrom(sessionService.$isLogged())).resolves.toBe(false);
     expect(mockRouter.navigate).not.toHaveBeenCalled();
     expect(component.onError).toBe(true);
 

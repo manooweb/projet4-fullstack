@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">46.66% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>7/15</span>
+                <span class='fraction'>15/15</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">20% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/5</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">38.46% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/13</span>
+                <span class='fraction'>13/13</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -106,29 +106,29 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Injectable } from '@angular/core';
@@ -145,24 +145,24 @@ export class SessionService {
 &nbsp;
   private isLoggedSubject = new BehaviorSubject&lt;boolean&gt;(this.isLogged);
 &nbsp;
-  public <span class="fstat-no" title="function not covered" >$isLogged(</span>): Observable&lt;boolean&gt; {
-<span class="cstat-no" title="statement not covered" >    return this.isLoggedSubject.asObservable();</span>
+  public $isLogged(): Observable&lt;boolean&gt; {
+    return this.isLoggedSubject.asObservable();
   }
 &nbsp;
-  public <span class="fstat-no" title="function not covered" >logIn(</span>user: SessionInformation): void {
-<span class="cstat-no" title="statement not covered" >    this.sessionInformation = user;</span>
-<span class="cstat-no" title="statement not covered" >    this.isLogged = true;</span>
-<span class="cstat-no" title="statement not covered" >    this.next();</span>
+  public logIn(user: SessionInformation): void {
+    this.sessionInformation = user;
+    this.isLogged = true;
+    this.next();
   }
 &nbsp;
-  public <span class="fstat-no" title="function not covered" >logOut(</span>): void {
-<span class="cstat-no" title="statement not covered" >    this.sessionInformation = undefined;</span>
-<span class="cstat-no" title="statement not covered" >    this.isLogged = false;</span>
-<span class="cstat-no" title="statement not covered" >    this.next();</span>
+  public logOut(): void {
+    this.sessionInformation = undefined;
+    this.isLogged = false;
+    this.next();
   }
 &nbsp;
-  private <span class="fstat-no" title="function not covered" >next(</span>): void {
-<span class="cstat-no" title="statement not covered" >    this.isLoggedSubject.next(this.isLogged);</span>
+  private next(): void {
+    this.isLoggedSubject.next(this.isLogged);
   }
 }
 &nbsp;</pre></td></tr></table></pre>
@@ -172,7 +172,7 @@ export class SessionService {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-08-02T15:23:52.771Z
+                at 2026-08-02T16:10:30.451Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
