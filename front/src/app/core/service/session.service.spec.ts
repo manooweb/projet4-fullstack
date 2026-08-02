@@ -6,21 +6,19 @@ import { SessionInformation } from '../models/sessionInformation.interface';
 
 describe('SessionService', () => {
   let service: SessionService;
-  let user: SessionInformation;
+  const user: SessionInformation = {
+    token: 'mockToken',
+    type: 'Bearer',
+    id: 1,
+    username: 'Test User',
+    firstName: 'Test',
+    lastName: 'Demo',
+    admin: false,
+  };
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(SessionService);
-
-    user = {
-      token: 'mockToken',
-      type: 'Bearer',
-      id: 1,
-      username: 'Test User',
-      firstName: 'Test',
-      lastName: 'Demo',
-      admin: false,
-    };
   });
 
   it('should be created', () => {
