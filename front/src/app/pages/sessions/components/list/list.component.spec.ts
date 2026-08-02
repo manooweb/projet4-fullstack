@@ -45,4 +45,8 @@ describe('ListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should display the sessions page title', () => {
+    expect(fixture.nativeElement.textContent).toContain('Sessions available');
+  });
 });
