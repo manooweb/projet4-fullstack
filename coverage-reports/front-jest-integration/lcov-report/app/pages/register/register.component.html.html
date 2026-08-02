@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for app/core/service/user.service.ts</title>
+    <title>Code coverage report for app/pages/register/register.component.html</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../prettify.css" />
     <link rel="stylesheet" href="../../../base.css" />
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../index.html">All files</a> / <a href="index.html">app/core/service</a> user.service.ts</h1>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">app/pages/register</a> register.component.html</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>8/8</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
@@ -39,14 +39,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/3</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>7/7</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
@@ -85,50 +85,65 @@
 <a name='L20'></a><a href='#L20'>20</a>
 <a name='L21'></a><a href='#L21'>21</a>
 <a name='L22'></a><a href='#L22'>22</a>
-<a name='L23'></a><a href='#L23'>23</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { User } from '../models/user.interface';
-&nbsp;
-@Injectable({
-  providedIn: 'root'
-})
-export class UserService {
-&nbsp;
-  private pathService = '/api/user';
-&nbsp;
-  constructor(private httpClient: HttpClient) { }
-&nbsp;
-  public getById(id: string): Observable&lt;User&gt; {
-    return this.httpClient.get&lt;User&gt;(`${this.pathService}/${id}`);
-  }
-&nbsp;
-  public delete(id: string): Observable&lt;void&gt; {
-    return this.httpClient.delete&lt;void&gt;(`${this.pathService}/${id}`);
-  }
-}
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;div class="register" fxLayout="row" fxLayoutAlign="center center"&gt;
+    &lt;mat-card&gt;
+        &lt;mat-card-header fxLayoutAlign="center center"&gt;
+            &lt;mat-card-title&gt;Register&lt;/mat-card-title&gt;
+        &lt;/mat-card-header&gt;
+        &lt;form class="register-form" [formGroup]="form" (ngSubmit)="submit()"&gt;
+            &lt;mat-card-content fxLayout="column"&gt;
+                &lt;mat-form-field fxFlex&gt;
+                    &lt;input matInput placeholder="First name" formControlName="firstName"&gt;
+                &lt;/mat-form-field&gt;
+                &lt;mat-form-field fxFlex&gt;
+                    &lt;input matInput placeholder="Last name" formControlName="lastName"&gt;
+                &lt;/mat-form-field&gt;
+                &lt;mat-form-field fxFlex&gt;
+                    &lt;input matInput placeholder="Email" formControlName="email"&gt;
+                &lt;/mat-form-field&gt;
+                &lt;mat-form-field fxFlex&gt;
+                    &lt;input matInput placeholder="Password" formControlName="password"&gt;
+                &lt;/mat-form-field&gt;
+            &lt;/mat-card-content&gt;
+            &lt;button mat-raised-button color="primary" type="submit" [disabled]="form.invalid"&gt;Submit&lt;/button&gt;
+            @if(onError){
+                &lt;p class="error ml2"&gt;An error occurred&lt;/p&gt;
+            }
+        &lt;/form&gt;
+    &lt;/mat-card&gt;
+&lt;/div&gt;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -136,7 +151,7 @@ export class UserService {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-08-02T17:36:50.912Z
+                at 2026-08-02T17:36:45.328Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
