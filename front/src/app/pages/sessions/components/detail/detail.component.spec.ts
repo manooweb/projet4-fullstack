@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { RouterTestingModule, } from '@angular/router/testing';
-import { expect } from '@jest/globals';
+import { beforeEach, describe, expect, it } from '@jest/globals';
 import { SessionService } from '../../../../core/service/session.service';
 
 import { DetailComponent } from './detail.component';
@@ -41,4 +41,3 @@ describe('DetailComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-
