@@ -1,10 +1,12 @@
-import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { RouterTestingModule, } from '@angular/router/testing';
-import { beforeEach, describe, expect, it } from '@jest/globals';
+import { beforeEach, describe, expect, it, jest } from '@jest/globals';
+import { NEVER } from 'rxjs';
 import { SessionService } from '../../../../core/service/session.service';
+import { SessionApiService } from '../../../../core/service/session-api.service';
+import { TeacherService } from '../../../../core/service/teacher.service';
 
 import { DetailComponent } from './detail.component';
 
@@ -19,17 +21,26 @@ describe('DetailComponent', () => {
       id: 1
     }
   }
+  const mockSessionApiService = {
+    detail: jest.fn(() => NEVER),
+  };
+  const mockTeacherService = {
+    detail: jest.fn(() => NEVER),
+  };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        HttpClientModule,
         MatSnackBarModule,
         ReactiveFormsModule,
         DetailComponent
       ],
-      providers: [{ provide: SessionService, useValue: mockSessionService }],
+      providers: [
+        { provide: SessionService, useValue: mockSessionService },
+        { provide: SessionApiService, useValue: mockSessionApiService },
+        { provide: TeacherService, useValue: mockTeacherService },
+      ],
     })
       .compileComponents();
     fixture = TestBed.createComponent(DetailComponent);

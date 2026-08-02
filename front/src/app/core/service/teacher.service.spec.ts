@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 import { beforeEach, describe, expect, it } from '@jest/globals';
 
@@ -9,9 +9,9 @@ describe('TeacherService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports:[
-        HttpClientModule
-      ]
+      providers: [
+        { provide: HttpClient, useValue: {} },
+      ],
     });
     service = TestBed.inject(TeacherService);
   });

@@ -1,12 +1,13 @@
-import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
-import { beforeEach, describe, expect, it } from '@jest/globals';
+import { beforeEach, describe, expect, it, jest } from '@jest/globals';
+import { of } from 'rxjs';
 import { SessionService } from 'src/app/core/service/session.service';
 
 import { ListComponent } from './list.component';
 import { ActivatedRoute } from '@angular/router';
+import { SessionApiService } from '../../../../core/service/session-api.service';
 
 describe('ListComponent', () => {
   let component: ListComponent;
@@ -17,18 +18,22 @@ describe('ListComponent', () => {
       admin: true
     }
   }
+  const mockSessionApiService = {
+    all: jest.fn(() => of([])),
+  };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        HttpClientModule,
         MatCardModule,
         MatIconModule,
         ListComponent
       ],
       providers: [
         { provide: ActivatedRoute, useValue: {} },
-        { provide: SessionService, useValue: mockSessionService }]
+        { provide: SessionService, useValue: mockSessionService },
+        { provide: SessionApiService, useValue: mockSessionApiService },
+      ]
     })
       .compileComponents();
 
