@@ -1,6 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ActivatedRoute, Router, convertToParamMap } from '@angular/router';
+import { By } from '@angular/platform-browser';
+import {
+  ActivatedRoute,
+  Router,
+  RouterLink,
+  convertToParamMap,
+} from '@angular/router';
 import { beforeEach, describe, expect, it, jest } from '@jest/globals';
 import { of } from 'rxjs';
 
@@ -138,6 +144,15 @@ describe('FormComponent integration', () => {
       { duration: 3000 }
     );
     expect(mockRouter.navigate).toHaveBeenCalledWith(['sessions']);
+  });
+
+  it('should provide a link back to the sessions list', () => {
+    createComponent();
+
+    const backLink = fixture.debugElement.query(By.directive(RouterLink));
+
+    expect(backLink).not.toBeNull();
+    expect(backLink.attributes['routerLink']).toBe('/sessions');
   });
 
   it('should initialize a prefilled form when editing an existing session', () => {
