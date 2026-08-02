@@ -7,7 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterTestingModule } from '@angular/router/testing';
+import { provideRouter } from '@angular/router';
 import { beforeEach, describe, expect, it, jest } from '@jest/globals';
 import { of } from 'rxjs';
 import { SessionService } from 'src/app/core/service/session.service';
@@ -34,7 +34,6 @@ describe('FormComponent', () => {
     await TestBed.configureTestingModule({
 
       imports: [
-        RouterTestingModule,
         MatCardModule,
         MatIconModule,
         MatFormFieldModule,
@@ -46,6 +45,7 @@ describe('FormComponent', () => {
         FormComponent
       ],
       providers: [
+        provideRouter([]),
         { provide: SessionService, useValue: mockSessionService },
         { provide: SessionApiService, useValue: mockSessionApiService },
         { provide: TeacherService, useValue: mockTeacherService },

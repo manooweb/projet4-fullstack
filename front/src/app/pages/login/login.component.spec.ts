@@ -5,7 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterTestingModule } from '@angular/router/testing';
+import { provideRouter } from '@angular/router';
 import { beforeEach, describe, expect, it, jest } from '@jest/globals';
 import { SessionService } from 'src/app/core/service/session.service';
 
@@ -22,11 +22,11 @@ describe('LoginComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       providers: [
+        provideRouter([]),
         SessionService,
         { provide: AuthService, useValue: mockAuthService },
       ],
       imports: [
-        RouterTestingModule,
         BrowserAnimationsModule,
         MatCardModule,
         MatIconModule,

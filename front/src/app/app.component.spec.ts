@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { RouterTestingModule } from '@angular/router/testing';
+import { provideRouter } from '@angular/router';
 import { beforeEach, describe, expect, it } from '@jest/globals';
 
 import { AppComponent } from './app.component';
@@ -10,10 +10,10 @@ describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule,
         MatToolbarModule,
         AppComponent
       ],
+      providers: [provideRouter([])],
     }).compileComponents();
   });
 
