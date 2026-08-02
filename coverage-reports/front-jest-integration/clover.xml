@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1785675810135" clover="3.2.0">
-  <project timestamp="1785675810135" name="All files">
-    <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6" elements="20" coveredelements="20" complexity="0" loc="14" ncloc="14" packages="1" files="2" classes="2"/>
+<coverage generated="1785677100658" clover="3.2.0">
+  <project timestamp="1785677100658" name="All files">
+    <metrics statements="33" coveredstatements="33" conditionals="0" coveredconditionals="0" methods="17" coveredmethods="17" elements="50" coveredelements="50" complexity="0" loc="33" ncloc="33" packages="1" files="4" classes="4"/>
     <file name="auth.service.ts" path="/home/manu/Documents/Lead Developer Java Angular/projet4/projet4-fullstack/front/src/app/core/service/auth.service.ts">
       <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
       <line num="1" count="1" type="stmt"/>
@@ -12,7 +12,32 @@
       <line num="18" count="1" type="stmt"/>
       <line num="22" count="1" type="stmt"/>
     </file>
+    <file name="session-api.service.ts" path="/home/manu/Documents/Lead Developer Java Angular/projet4/projet4-fullstack/front/src/app/core/service/session-api.service.ts">
+      <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="8"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="9" count="1" type="stmt"/>
+      <line num="11" count="7" type="stmt"/>
+      <line num="13" count="7" type="stmt"/>
+      <line num="17" count="1" type="stmt"/>
+      <line num="21" count="1" type="stmt"/>
+      <line num="25" count="1" type="stmt"/>
+      <line num="29" count="1" type="stmt"/>
+      <line num="33" count="1" type="stmt"/>
+      <line num="37" count="1" type="stmt"/>
+      <line num="41" count="1" type="stmt"/>
+    </file>
     <file name="teacher.service.ts" path="/home/manu/Documents/Lead Developer Java Angular/projet4/projet4-fullstack/front/src/app/core/service/teacher.service.ts">
+      <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="9" count="1" type="stmt"/>
+      <line num="11" count="2" type="stmt"/>
+      <line num="13" count="2" type="stmt"/>
+      <line num="16" count="1" type="stmt"/>
+      <line num="20" count="1" type="stmt"/>
+    </file>
+    <file name="user.service.ts" path="/home/manu/Documents/Lead Developer Java Angular/projet4/projet4-fullstack/front/src/app/core/service/user.service.ts">
       <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
       <line num="1" count="1" type="stmt"/>
       <line num="2" count="1" type="stmt"/>

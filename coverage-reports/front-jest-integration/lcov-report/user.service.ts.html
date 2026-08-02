@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for teacher.service.ts</title>
+    <title>Code coverage report for user.service.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="prettify.css" />
     <link rel="stylesheet" href="base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="index.html">All files</a> teacher.service.ts</h1>
+        <h1><a href="index.html">All files</a> user.service.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -110,23 +110,23 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Teacher } from '../models/teacher.interface';
+import { User } from '../models/user.interface';
 &nbsp;
 @Injectable({
   providedIn: 'root'
 })
-export class TeacherService {
+export class UserService {
 &nbsp;
-  private pathService = '/api/teacher';
+  private pathService = '/api/user';
 &nbsp;
   constructor(private httpClient: HttpClient) { }
 &nbsp;
-  public all(): Observable&lt;Teacher[]&gt; {
-    return this.httpClient.get&lt;Teacher[]&gt;(this.pathService);
+  public getById(id: string): Observable&lt;User&gt; {
+    return this.httpClient.get&lt;User&gt;(`${this.pathService}/${id}`);
   }
 &nbsp;
-  public detail(id: string): Observable&lt;Teacher&gt; {
-    return this.httpClient.get&lt;Teacher&gt;(`${this.pathService}/${id}`);
+  public delete(id: string): Observable&lt;void&gt; {
+    return this.httpClient.delete&lt;void&gt;(`${this.pathService}/${id}`);
   }
 }
 &nbsp;</pre></td></tr></table></pre>

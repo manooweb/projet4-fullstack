@@ -8,7 +8,7 @@ import { Session } from '../models/session.interface';
 })
 export class SessionApiService {
 
-  private pathService = 'api/session';
+  private pathService = '/api/session';
 
   constructor(private httpClient: HttpClient) {
   }
