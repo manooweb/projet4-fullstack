@@ -20,6 +20,11 @@
   "private": true,
   "nyc": {
     "report-dir": "../coverage-reports/e2e",
+    "extension": [
+      ".js",
+      ".ts",
+      ".html"
+    ],
     "exclude": [
       "src/main.ts"
     ],
