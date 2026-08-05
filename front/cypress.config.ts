@@ -5,6 +5,11 @@ export default defineConfig({
   screenshotsFolder: 'cypress/screenshots',
   fixturesFolder: 'cypress/fixtures',
   video: false,
+  env: {
+    codeCoverage: {
+      exclude: ['src/main.ts'],
+    },
+  },
   e2e: {
     setupNodeEvents(on, config) {
       const registerCodeCoverageTasks = require('@cypress/code-coverage/task')

@@ -19,7 +19,11 @@
   },
   "private": true,
   "nyc": {
-    "report-dir": "../coverage-reports/e2e"
+    "report-dir": "../coverage-reports/e2e",
+    "exclude": [
+      "src/main.ts"
+    ],
+    "excludeAfterRemap": true
   },
   "dependencies": {
     "@angular/animations": "19.2.15",

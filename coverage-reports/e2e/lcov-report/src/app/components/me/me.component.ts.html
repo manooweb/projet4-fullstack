@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">14.28% </span>
+                <span class="strong">64.28% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>2/14</span>
+                <span class='fraction'>9/14</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">16.66% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/6</span>
+                <span class='fraction'>3/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">7.69% </span>
+                <span class="strong">61.53% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/13</span>
+                <span class='fraction'>8/13</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -130,21 +130,21 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -182,20 +182,20 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   styleUrls: ['./me.component.scss']
 })
 export class MeComponent implements OnInit {
-  private <span class="cstat-no" title="statement not covered" >router = inject(Router);</span>
-  private <span class="cstat-no" title="statement not covered" >sessionService = inject(SessionService);</span>
-  private <span class="cstat-no" title="statement not covered" >matSnackBar = inject(MatSnackBar);</span>
-  private <span class="cstat-no" title="statement not covered" >userService = inject(UserService);</span>
-  private readonly <span class="cstat-no" title="statement not covered" >destroyRef = inject(DestroyRef);</span>
+  private router = inject(Router);
+  private sessionService = inject(SessionService);
+  private matSnackBar = inject(MatSnackBar);
+  private userService = inject(UserService);
+  private readonly destroyRef = inject(DestroyRef);
   public user: User | undefined;
 &nbsp;
-<span class="fstat-no" title="function not covered" >  ngOnInit(</span>): void {
-<span class="cstat-no" title="statement not covered" >    this.userService</span>
+  ngOnInit(): void {
+    this.userService
       .getById(this.sessionService.sessionInformation!.id.toString())
       .pipe(
         takeUntilDestroyed(this.destroyRef)
       )
-      .subscribe((<span class="fstat-no" title="function not covered" >user: User)</span> =&gt; <span class="cstat-no" title="statement not covered" >this.user = user)</span>;
+      .subscribe((user: User) =&gt; this.user = user);
   }
 &nbsp;
   public <span class="fstat-no" title="function not covered" >back(</span>): void {
@@ -223,7 +223,7 @@ export class MeComponent implements OnInit {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-08-04T08:57:27.873Z
+                at 2026-08-05T16:36:08.010Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>
