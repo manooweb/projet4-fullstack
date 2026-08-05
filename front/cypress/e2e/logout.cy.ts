@@ -1,6 +1,6 @@
 describe('Logout spec', () => {
   it('Logout successfull', () => {
-    cy.visit('/login')
+    cy.visit('/login');
     
     cy.intercept('POST', '/api/auth/login', {
       body: {
@@ -10,19 +10,23 @@ describe('Logout spec', () => {
         lastName: 'lastName',
         admin: true
       },
-    })
+    });
     
     cy.intercept(
       {
         method: 'GET',
         url: '/api/session',
       },
-      []).as('session')
+      []);
     
+    cy.get('input[formControlName=email]').clear();
+    cy.get('input[formControlName=password]').clear();
     cy.get('input[formControlName=email]').type("yoga@studio.com")
-    cy.get('input[formControlName=password]').type(`${"test!1234"}{enter}{enter}`)
+    cy.get('input[formControlName=password]').type(`${"test!1234"}`)
+
+    cy.get('button[type=submit]').click();
     
-    cy.url().should('include', '/sessions')
+    cy.url().should('include', '/sessions');
     
     cy.contains('span.link', 'Logout').click();
 
