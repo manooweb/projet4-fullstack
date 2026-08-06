@@ -67,7 +67,7 @@ npm run test:unit
 npm run test:integration
 
 # Tests end-to-end Cypress
-npm run e2e
+npm run cypress:run
 ```
 
 Les fichiers `*.spec.ts` regroupent les tests unitaires et les fichiers `*.integration.spec.ts` les tests d’intégration Angular.
@@ -108,11 +108,13 @@ Le rapport global exige au minimum 80 % de couverture pour les statements, branc
 
 ### End-to-end — Cypress
 
-Après avoir lancé les tests end-to-end depuis `front/`, générer leur rapport avec :
+Depuis `front/`, lancer les tests E2E avec l’instrumentation de couverture :
 
 ```bash
-npm run e2e:coverage
+npm run e2e:ci
 ```
+
+`npm run e2e:ci` exécute les tests E2E et génère directement le rapport de couverture. Pour exécuter les E2E sans produire la couverture, utiliser `npm run cypress:run` (ou `npx cypress run`).
 
 Le rapport E2E est disponible dans [`coverage-reports/e2e/lcov-report/index.html`](coverage-reports/e2e/lcov-report/index.html).
 
