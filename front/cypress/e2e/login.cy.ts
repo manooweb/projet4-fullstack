@@ -53,7 +53,10 @@ describe('Login spec', () => {
 
     cy.wait('@login')
       .its('response')
-      .should('have.property', 'statusCode', 401);
+      .should( response => {
+        expect(response).to.have.property('statusCode', 401);
+        expect(response.body).to.have.property('message', 'Invalid credentials');
+      });
 
     cy.url().should('include', '/login');
     cy.contains('p.error', 'An error occurred').should('be.visible');
