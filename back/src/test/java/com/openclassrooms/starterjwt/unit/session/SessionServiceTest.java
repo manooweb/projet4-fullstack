@@ -148,14 +148,14 @@ class SessionServiceTest {
     class UpdateTests {
 
         @Test
-        @DisplayName("When the session exists, then the updated session should be saved with the requested ID")
-        void shouldUpdateExistingSession() {
+        @DisplayName("When the teacher is already assigned to the session being updated, then the update should succeed")
+        void shouldUpdateSessionWhenTeacherIsAlreadyAssignedToIt() {
             long sessionId = 1L;
             Teacher teacher = new Teacher().setId(1L);
             Session existingSession = session(sessionId).setTeacher(teacher);
             Session updatedSession = session(null).setTeacher(teacher).setName("Updated yoga");
-            when(sessionRepository.findByTeacherId(teacher.getId())).thenReturn(Optional.empty());
             when(sessionRepository.findById(sessionId)).thenReturn(Optional.of(existingSession));
+            when(sessionRepository.findByTeacherId(teacher.getId())).thenReturn(Optional.of(existingSession));
             when(sessionRepository.save(updatedSession)).thenReturn(updatedSession);
 
             Session result = sessionService.update(sessionId, updatedSession);
@@ -163,6 +163,27 @@ class SessionServiceTest {
             assertSame(updatedSession, result);
             assertEquals(sessionId, updatedSession.getId());
             verify(sessionRepository).save(updatedSession);
+        }
+
+        @Test
+        @DisplayName("When the teacher is assigned to another session, then a conflict exception should be thrown")
+        void shouldThrowConflictExceptionWhenUpdatingWithTeacherAssignedToAnotherSession() {
+            long sessionId = 1L;
+            Teacher teacher = new Teacher().setId(1L);
+            Session sessionToUpdate = session(sessionId).setTeacher(new Teacher().setId(2L));
+            Session otherSession = session(2L).setTeacher(teacher);
+            Session updatedSession = session(null).setTeacher(teacher);
+            when(sessionRepository.findById(sessionId)).thenReturn(Optional.of(sessionToUpdate));
+            when(sessionRepository.findByTeacherId(teacher.getId())).thenReturn(Optional.of(otherSession));
+
+            ConflictException exception = assertThrows(
+                    ConflictException.class,
+                    () -> sessionService.update(sessionId, updatedSession));
+
+            assertEquals(
+                    "Teacher with id 1 is already assigned to the session with id 2.",
+                    exception.getMessage());
+            verify(sessionRepository, never()).save(any());
         }
 
         @Test

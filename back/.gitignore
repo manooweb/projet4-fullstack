@@ -38,3 +38,5 @@ build/
 ## Work on Windows
 application-local.yml
 src/test/resources/
+!src/test/resources/
+!src/test/resources/logback-test.xml

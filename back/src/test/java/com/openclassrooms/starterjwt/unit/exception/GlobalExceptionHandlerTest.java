@@ -21,6 +21,8 @@ class GlobalExceptionHandlerTest {
 
     private static final String BAD_REQUEST = "Bad request";
     private static final String INVALID_REQUEST = "The request is invalid.";
+    private static final String INTERNAL_SERVER_ERROR = "Internal Server Error";
+    private static final String UNEXPECTED_ERROR = "An unexpected error occurred.";
 
     private GlobalExceptionHandler globalExceptionHandler;
 
@@ -30,6 +32,8 @@ class GlobalExceptionHandlerTest {
         messages.getErrors().setBadRequest(BAD_REQUEST);
         messages.getErrors().setInvalidParameter("Invalid parameter: %s.");
         messages.getErrors().setInvalidRequest(INVALID_REQUEST);
+        messages.getErrors().setInternalServerError(INTERNAL_SERVER_ERROR);
+        messages.getErrors().setUnexpected(UNEXPECTED_ERROR);
 
         globalExceptionHandler = new GlobalExceptionHandler(new YogaProperties(messages));
     }
@@ -69,6 +73,20 @@ class GlobalExceptionHandlerTest {
 
         assertEquals(
                 new ApiErrorResponse(400, BAD_REQUEST, INVALID_REQUEST, "/api/session/1/participate/2"),
+                response);
+    }
+
+    @Test
+    @DisplayName("When an unexpected exception occurs, then a generic internal server error is returned")
+    void shouldHandleUnexpectedException() {
+        MockHttpServletRequest request = requestFor("/api/session");
+
+        ApiErrorResponse response = globalExceptionHandler.handleException(
+                new RuntimeException("Unexpected test exception"),
+                request);
+
+        assertEquals(
+                new ApiErrorResponse(500, INTERNAL_SERVER_ERROR, UNEXPECTED_ERROR, "/api/session"),
                 response);
     }
 

@@ -110,15 +110,15 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ApiErrorResponse handleException(Exception ex, HttpServletRequest request) {
-<span class="nc" id="L113">        log.error(</span>
+<span class="fc" id="L113">        log.error(</span>
                 &quot;Unexpected error while processing request {}&quot;,
-<span class="nc" id="L115">                request.getRequestURI(),</span>
+<span class="fc" id="L115">                request.getRequestURI(),</span>
                 ex);
-<span class="nc" id="L117">        return errorResponse(</span>
+<span class="fc" id="L117">        return errorResponse(</span>
                 HttpStatus.INTERNAL_SERVER_ERROR,
-<span class="nc" id="L119">                yogaProperties.getMessages().getErrors().getInternalServerError(),</span>
-<span class="nc" id="L120">                yogaProperties.getMessages().getErrors().getUnexpected(),</span>
-<span class="nc" id="L121">                request.getRequestURI());</span>
+<span class="fc" id="L119">                yogaProperties.getMessages().getErrors().getInternalServerError(),</span>
+<span class="fc" id="L120">                yogaProperties.getMessages().getErrors().getUnexpected(),</span>
+<span class="fc" id="L121">                request.getRequestURI());</span>
     }
 
     private ApiErrorResponse errorResponse(HttpStatus status, String error, String message, String path) {

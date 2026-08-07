@@ -60,7 +60,7 @@ public class SessionService {
 
 <span class="fc" id="L61">        Long teacherId = session.getTeacher().getId();</span>
 <span class="fc" id="L62">        sessionRepository.findByTeacherId(teacherId)</span>
-<span class="pc bpc" id="L63" title="1 of 2 branches missed.">                .filter(existingSession -&gt; !existingSession.getId().equals(id))</span>
+<span class="fc bfc" id="L63" title="All 2 branches covered.">                .filter(existingSession -&gt; !existingSession.getId().equals(id))</span>
 <span class="fc" id="L64">                .ifPresent(existingSession -&gt; {</span>
 <span class="fc" id="L65">                    throw new ConflictException(</span>
 <span class="fc" id="L66">                            yogaProperties.getMessages().getErrors().getTeacherAlreadyAssigned()</span>
