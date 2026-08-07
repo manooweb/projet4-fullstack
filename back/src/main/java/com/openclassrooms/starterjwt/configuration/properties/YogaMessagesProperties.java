@@ -29,6 +29,7 @@ public class YogaMessagesProperties {
         private String sessionNotFound;
         private String userNotFound;
         private String teacherNotFound;
+        private String teacherAlreadyAssigned;
         private String alreadyParticipating;
         private String notParticipating;
         private String userDeletionForbidden;

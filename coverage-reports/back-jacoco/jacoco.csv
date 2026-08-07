@@ -2,7 +2,7 @@ GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_
 yoga-app,com.openclassrooms.starterjwt.security.services,UserDetailsServiceImpl,0,42,0,0,0,14,0,3,0,3
 yoga-app,com.openclassrooms.starterjwt.security.services,UserDetailsImpl,0,35,0,6,0,11,0,9,0,6
 yoga-app,com.openclassrooms.starterjwt.security.handler,ApiAuthenticationEntryPoint,0,47,0,0,0,15,0,2,0,2
-yoga-app,com.openclassrooms.starterjwt.services,SessionService,0,265,0,6,0,41,0,21,0,18
+yoga-app,com.openclassrooms.starterjwt.services,SessionService,1,342,1,7,0,54,1,24,0,21
 yoga-app,com.openclassrooms.starterjwt.services,UserService,0,64,0,2,0,14,0,5,0,4
 yoga-app,com.openclassrooms.starterjwt.services,AuthService,0,100,0,2,0,25,0,4,0,3
 yoga-app,com.openclassrooms.starterjwt.services,TeacherService,0,39,0,0,0,8,0,4,0,4
@@ -11,7 +11,8 @@ yoga-app,com.openclassrooms.starterjwt.security.jwt,AuthTokenFilter,0,89,0,8,0,2
 yoga-app,com.openclassrooms.starterjwt.security.jwt,JwtUtils,0,104,0,0,0,28,0,5,0,5
 yoga-app,com.openclassrooms.starterjwt.models,User,0,18,0,0,0,7,0,1,0,1
 yoga-app,com.openclassrooms.starterjwt.exception,NotFoundException,0,4,0,0,0,2,0,1,0,1
-yoga-app,com.openclassrooms.starterjwt.exception,GlobalExceptionHandler,0,161,0,2,0,41,0,12,0,11
+yoga-app,com.openclassrooms.starterjwt.exception,GlobalExceptionHandler,22,149,0,2,6,39,1,12,1,11
+yoga-app,com.openclassrooms.starterjwt.exception,ConflictException,0,4,0,0,0,2,0,1,0,1
 yoga-app,com.openclassrooms.starterjwt.exception,BadRequestException,0,4,0,0,0,2,0,1,0,1
 yoga-app,com.openclassrooms.starterjwt.exception,ForbiddenException,0,4,0,0,0,2,0,1,0,1
 yoga-app,com.openclassrooms.starterjwt.controllers,UserController,0,29,0,0,0,8,0,3,0,3

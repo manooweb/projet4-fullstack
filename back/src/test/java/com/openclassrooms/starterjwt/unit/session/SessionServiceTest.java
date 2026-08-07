@@ -25,8 +25,10 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import com.openclassrooms.starterjwt.configuration.properties.YogaMessagesProperties;
 import com.openclassrooms.starterjwt.configuration.properties.YogaProperties;
 import com.openclassrooms.starterjwt.exception.BadRequestException;
+import com.openclassrooms.starterjwt.exception.ConflictException;
 import com.openclassrooms.starterjwt.exception.NotFoundException;
 import com.openclassrooms.starterjwt.models.Session;
+import com.openclassrooms.starterjwt.models.Teacher;
 import com.openclassrooms.starterjwt.models.User;
 import com.openclassrooms.starterjwt.repository.SessionRepository;
 import com.openclassrooms.starterjwt.repository.UserRepository;
@@ -49,6 +51,8 @@ class SessionServiceTest {
         YogaMessagesProperties messages = new YogaMessagesProperties();
         messages.getErrors().setSessionNotFound("Session with id %d was not found.");
         messages.getErrors().setUserNotFound("User with id %d was not found.");
+        messages.getErrors().setTeacherAlreadyAssigned(
+                "Teacher with id %d is already assigned to the session with id %d.");
         messages.getErrors().setAlreadyParticipating(
                 "User with id %d already participate to the session with id %d.");
         messages.getErrors().setNotParticipating(
@@ -67,13 +71,33 @@ class SessionServiceTest {
         @Test
         @DisplayName("When the session is created, then the saved session should be returned")
         void shouldCreateSession() {
-            Session session = session(1L);
+            Teacher teacher = new Teacher().setId(1L);
+            Session session = session(1L).setTeacher(teacher);
+            when(sessionRepository.findByTeacherId(teacher.getId())).thenReturn(Optional.empty());
             when(sessionRepository.save(session)).thenReturn(session);
 
             Session createdSession = sessionService.create(session);
 
             assertSame(session, createdSession);
             verify(sessionRepository).save(session);
+        }
+
+        @Test
+        @DisplayName("When the teacher is already assigned to another session, then a conflict exception should be thrown")
+        void shouldThrowConflictExceptionWhenTeacherIsAlreadyAssigned() {
+            Teacher teacher = new Teacher().setId(1L);
+            Session existingSession = session(2L).setTeacher(teacher);
+            Session sessionToCreate = session(null).setTeacher(teacher);
+            when(sessionRepository.findByTeacherId(teacher.getId())).thenReturn(Optional.of(existingSession));
+
+            ConflictException exception = assertThrows(
+                    ConflictException.class,
+                    () -> sessionService.create(sessionToCreate));
+
+            assertEquals(
+                    "Teacher with id 1 is already assigned to the session with id 2.",
+                    exception.getMessage());
+            verify(sessionRepository, never()).save(any());
         }
     }
 
@@ -127,8 +151,10 @@ class SessionServiceTest {
         @DisplayName("When the session exists, then the updated session should be saved with the requested ID")
         void shouldUpdateExistingSession() {
             long sessionId = 1L;
-            Session existingSession = session(sessionId);
-            Session updatedSession = session(null).setName("Updated yoga");
+            Teacher teacher = new Teacher().setId(1L);
+            Session existingSession = session(sessionId).setTeacher(teacher);
+            Session updatedSession = session(null).setTeacher(teacher).setName("Updated yoga");
+            when(sessionRepository.findByTeacherId(teacher.getId())).thenReturn(Optional.empty());
             when(sessionRepository.findById(sessionId)).thenReturn(Optional.of(existingSession));
             when(sessionRepository.save(updatedSession)).thenReturn(updatedSession);
 

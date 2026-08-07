@@ -2,6 +2,7 @@ package com.openclassrooms.starterjwt.services;
 
 import com.openclassrooms.starterjwt.configuration.properties.YogaProperties;
 import com.openclassrooms.starterjwt.exception.BadRequestException;
+import com.openclassrooms.starterjwt.exception.ConflictException;
 import com.openclassrooms.starterjwt.exception.NotFoundException;
 import com.openclassrooms.starterjwt.models.Session;
 import com.openclassrooms.starterjwt.models.User;
@@ -27,6 +28,13 @@ public class SessionService {
     }
 
     public Session create(Session session) {
+        Long teacherId = session.getTeacher().getId();
+        sessionRepository.findByTeacherId(teacherId)
+                .ifPresent(existingSession -> {
+                    throw new ConflictException(
+                            yogaProperties.getMessages().getErrors().getTeacherAlreadyAssigned()
+                                    .formatted(teacherId, existingSession.getId()));
+                });
         return this.sessionRepository.save(session);
     }
 
@@ -47,9 +55,17 @@ public class SessionService {
 
     public Session update(Long id, Session session) {
         sessionRepository.findById(id)
-            .orElseThrow(() -> new NotFoundException(
-                    sessionNotFoundMessage(id)
-            ));
+                .orElseThrow(() -> new NotFoundException(
+                        sessionNotFoundMessage(id)));
+
+        Long teacherId = session.getTeacher().getId();
+        sessionRepository.findByTeacherId(teacherId)
+                .filter(existingSession -> !existingSession.getId().equals(id))
+                .ifPresent(existingSession -> {
+                    throw new ConflictException(
+                            yogaProperties.getMessages().getErrors().getTeacherAlreadyAssigned()
+                                    .formatted(teacherId, existingSession.getId()));
+                });
 
         session.setId(id);
         return this.sessionRepository.save(session);

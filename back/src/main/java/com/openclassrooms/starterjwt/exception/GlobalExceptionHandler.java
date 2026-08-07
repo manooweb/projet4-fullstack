@@ -67,6 +67,16 @@ public class GlobalExceptionHandler {
                 request.getRequestURI());
     }
 
+    @ExceptionHandler(ConflictException.class)
+    @ResponseStatus(HttpStatus.CONFLICT)
+    public ApiErrorResponse handleConflictException(ConflictException ex, HttpServletRequest request) {
+        return errorResponse(
+                HttpStatus.CONFLICT,
+                HttpStatus.CONFLICT.getReasonPhrase(),
+                ex.getMessage(),
+                request.getRequestURI());
+    }
+
     @ExceptionHandler(BadCredentialsException.class)
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     public ApiErrorResponse handleBadCredentialsException(BadCredentialsException ex, HttpServletRequest request) {
