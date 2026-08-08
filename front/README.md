@@ -23,6 +23,12 @@ Launch Front-end:
 
 ### Test
 
+Test files are grouped by category:
+
+- `*.spec.ts`: unit tests;
+- `*.integration.spec.ts`: Angular integration tests;
+- `*.cy.ts`: Cypress end-to-end scenarios.
+
 #### E2E
 
 Launching e2e test:
