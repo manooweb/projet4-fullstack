@@ -11,7 +11,7 @@ import org.testcontainers.mysql.MySQLContainer;
 })
 public abstract class IntegrationTestSupport {
 
-    private static final MySQLContainer MYSQL = new MySQLContainer("mysql:9.7")
+    private static final MySQLContainer MYSQL = new MySQLContainer("mysql:9.7.1")
             .withDatabaseName("yoga_test")
             .withUsername("yoga_test")
             .withPassword("yoga_test");
