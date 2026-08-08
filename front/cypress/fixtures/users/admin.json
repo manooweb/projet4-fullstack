@@ -1,0 +1,9 @@
+{
+  "token": "fake-jwt-admin",
+  "type": "Bearer",
+  "id": 1,
+  "username": "yoga@studio.com",
+  "firstName": "Yoga",
+  "lastName": "Studio",
+  "admin": true
+}
