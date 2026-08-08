@@ -1,468 +1,468 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1786018691071" clover="3.2.0">
-  <project timestamp="1786018691071" name="All files">
+<coverage generated="1786191965335" clover="3.2.0">
+  <project timestamp="1786191965335" name="All files">
     <metrics statements="346" coveredstatements="339" conditionals="82" coveredconditionals="79" methods="87" coveredmethods="83" elements="515" coveredelements="501" complexity="0" loc="346" ncloc="346" packages="12" files="27" classes="27"/>
     <package name="app">
       <metrics statements="21" coveredstatements="21" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4"/>
       <file name="app.component.html" path="/home/manu/Documents/Lead Developer Java Angular/projet4/projet4-fullstack/front/src/app/app.component.html">
         <metrics statements="13" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="3" count="23" type="stmt"/>
-        <line num="4" count="23" type="stmt"/>
-        <line num="5" count="1484" type="cond" truecount="2" falsecount="0"/>
-        <line num="6" count="15" type="stmt"/>
-        <line num="7" count="15" type="stmt"/>
-        <line num="8" count="15" type="stmt"/>
-        <line num="9" count="23" type="stmt"/>
-        <line num="10" count="25" type="stmt"/>
-        <line num="11" count="25" type="stmt"/>
-        <line num="14" count="23" type="stmt"/>
-        <line num="15" count="23" type="stmt"/>
-        <line num="16" count="23" type="stmt"/>
-        <line num="18" count="23" type="stmt"/>
+        <line num="3" count="44" type="stmt"/>
+        <line num="4" count="44" type="stmt"/>
+        <line num="5" count="2936" type="cond" truecount="2" falsecount="0"/>
+        <line num="6" count="28" type="stmt"/>
+        <line num="7" count="28" type="stmt"/>
+        <line num="8" count="28" type="stmt"/>
+        <line num="9" count="44" type="stmt"/>
+        <line num="10" count="48" type="stmt"/>
+        <line num="11" count="48" type="stmt"/>
+        <line num="14" count="44" type="stmt"/>
+        <line num="15" count="44" type="stmt"/>
+        <line num="16" count="44" type="stmt"/>
+        <line num="18" count="44" type="stmt"/>
       </file>
       <file name="app.component.ts" path="/home/manu/Documents/Lead Developer Java Angular/projet4/projet4-fullstack/front/src/app/app.component.ts">
         <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
-        <line num="14" count="46" type="cond" truecount="2" falsecount="0"/>
-        <line num="15" count="23" type="stmt"/>
-        <line num="16" count="23" type="stmt"/>
-        <line num="19" count="742" type="stmt"/>
-        <line num="23" count="1" type="stmt"/>
-        <line num="24" count="1" type="stmt"/>
+        <line num="14" count="88" type="cond" truecount="2" falsecount="0"/>
+        <line num="15" count="44" type="stmt"/>
+        <line num="16" count="44" type="stmt"/>
+        <line num="19" count="1468" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
       </file>
       <file name="app.config.ts" path="/home/manu/Documents/Lead Developer Java Angular/projet4/projet4-fullstack/front/src/app/app.config.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="7" count="23" type="stmt"/>
+        <line num="7" count="44" type="stmt"/>
       </file>
       <file name="app.routes.ts" path="/home/manu/Documents/Lead Developer Java Angular/projet4/projet4-fullstack/front/src/app/app.routes.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="12" count="23" type="stmt"/>
+        <line num="12" count="44" type="stmt"/>
       </file>
     </package>
     <package name="app.components.me">
       <metrics statements="34" coveredstatements="34" conditionals="6" coveredconditionals="6" methods="8" coveredmethods="8"/>
       <file name="me.component.html" path="/home/manu/Documents/Lead Developer Java Angular/projet4/projet4-fullstack/front/src/app/components/me/me.component.html">
         <metrics statements="21" coveredstatements="21" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
-        <line num="5" count="5" type="stmt"/>
-        <line num="6" count="5" type="stmt"/>
-        <line num="7" count="5" type="stmt"/>
-        <line num="8" count="5" type="stmt"/>
-        <line num="10" count="5" type="stmt"/>
-        <line num="11" count="5" type="stmt"/>
-        <line num="12" count="24" type="cond" truecount="2" falsecount="0"/>
-        <line num="14" count="19" type="stmt"/>
-        <line num="15" count="19" type="stmt"/>
-        <line num="16" count="14" type="cond" truecount="2" falsecount="0"/>
+        <line num="5" count="8" type="stmt"/>
+        <line num="6" count="8" type="stmt"/>
+        <line num="7" count="8" type="stmt"/>
+        <line num="8" count="8" type="stmt"/>
+        <line num="10" count="8" type="stmt"/>
+        <line num="11" count="8" type="stmt"/>
+        <line num="12" count="40" type="cond" truecount="2" falsecount="0"/>
+        <line num="14" count="32" type="stmt"/>
+        <line num="15" count="32" type="stmt"/>
+        <line num="16" count="24" type="cond" truecount="2" falsecount="0"/>
         <line num="17" count="2" type="stmt"/>
-        <line num="18" count="5" type="stmt"/>
-        <line num="20" count="3" type="stmt"/>
-        <line num="21" count="3" type="stmt"/>
-        <line num="22" count="3" type="stmt"/>
-        <line num="23" count="3" type="stmt"/>
-        <line num="25" count="3" type="stmt"/>
-        <line num="29" count="19" type="stmt"/>
-        <line num="30" count="19" type="stmt"/>
-        <line num="32" count="5" type="stmt"/>
-        <line num="36" count="5" type="stmt"/>
+        <line num="18" count="8" type="stmt"/>
+        <line num="20" count="6" type="stmt"/>
+        <line num="21" count="6" type="stmt"/>
+        <line num="22" count="6" type="stmt"/>
+        <line num="23" count="6" type="stmt"/>
+        <line num="25" count="6" type="stmt"/>
+        <line num="29" count="32" type="stmt"/>
+        <line num="30" count="32" type="stmt"/>
+        <line num="32" count="8" type="stmt"/>
+        <line num="36" count="8" type="stmt"/>
       </file>
       <file name="me.component.ts" path="/home/manu/Documents/Lead Developer Java Angular/projet4/projet4-fullstack/front/src/app/components/me/me.component.ts">
         <metrics statements="13" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="6" coveredmethods="6"/>
-        <line num="17" count="28" type="cond" truecount="2" falsecount="0"/>
-        <line num="18" count="5" type="stmt"/>
-        <line num="19" count="5" type="stmt"/>
-        <line num="20" count="5" type="stmt"/>
-        <line num="21" count="5" type="stmt"/>
-        <line num="22" count="5" type="stmt"/>
-        <line num="26" count="5" type="stmt"/>
-        <line num="31" count="5" type="stmt"/>
-        <line num="35" count="1" type="stmt"/>
-        <line num="39" count="1" type="stmt"/>
-        <line num="45" count="1" type="stmt"/>
-        <line num="46" count="1" type="stmt"/>
-        <line num="47" count="1" type="stmt"/>
+        <line num="17" count="52" type="cond" truecount="2" falsecount="0"/>
+        <line num="18" count="8" type="stmt"/>
+        <line num="19" count="8" type="stmt"/>
+        <line num="20" count="8" type="stmt"/>
+        <line num="21" count="8" type="stmt"/>
+        <line num="22" count="8" type="stmt"/>
+        <line num="26" count="8" type="stmt"/>
+        <line num="31" count="8" type="stmt"/>
+        <line num="35" count="2" type="stmt"/>
+        <line num="39" count="2" type="stmt"/>
+        <line num="45" count="2" type="stmt"/>
+        <line num="46" count="2" type="stmt"/>
+        <line num="47" count="2" type="stmt"/>
       </file>
     </package>
     <package name="app.core.service">
       <metrics statements="36" coveredstatements="35" conditionals="10" coveredconditionals="10" methods="26" coveredmethods="25"/>
       <file name="auth.service.ts" path="/home/manu/Documents/Lead Developer Java Angular/projet4/projet4-fullstack/front/src/app/core/service/auth.service.ts">
         <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
-        <line num="11" count="45" type="cond" truecount="2" falsecount="0"/>
-        <line num="13" count="22" type="stmt"/>
-        <line num="15" count="22" type="stmt"/>
-        <line num="18" count="2" type="stmt"/>
-        <line num="22" count="16" type="stmt"/>
+        <line num="11" count="86" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="42" type="stmt"/>
+        <line num="15" count="42" type="stmt"/>
+        <line num="18" count="4" type="stmt"/>
+        <line num="22" count="30" type="stmt"/>
       </file>
       <file name="session-api.service.ts" path="/home/manu/Documents/Lead Developer Java Angular/projet4/projet4-fullstack/front/src/app/core/service/session-api.service.ts">
         <metrics statements="10" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="9" coveredmethods="8"/>
-        <line num="9" count="38" type="cond" truecount="2" falsecount="0"/>
-        <line num="11" count="15" type="stmt"/>
-        <line num="13" count="15" type="stmt"/>
-        <line num="17" count="18" type="stmt"/>
-        <line num="21" count="9" type="stmt"/>
-        <line num="25" count="1" type="stmt"/>
+        <line num="9" count="72" type="cond" truecount="2" falsecount="0"/>
+        <line num="11" count="28" type="stmt"/>
+        <line num="13" count="28" type="stmt"/>
+        <line num="17" count="34" type="stmt"/>
+        <line num="21" count="18" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
         <line num="29" count="0" type="stmt"/>
-        <line num="33" count="1" type="stmt"/>
-        <line num="37" count="1" type="stmt"/>
-        <line num="41" count="1" type="stmt"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="37" count="2" type="stmt"/>
+        <line num="41" count="2" type="stmt"/>
       </file>
       <file name="session.service.ts" path="/home/manu/Documents/Lead Developer Java Angular/projet4/projet4-fullstack/front/src/app/core/service/session.service.ts">
         <metrics statements="11" coveredstatements="11" conditionals="2" coveredconditionals="2" methods="5" coveredmethods="5"/>
-        <line num="8" count="46" type="cond" truecount="2" falsecount="0"/>
-        <line num="10" count="23" type="stmt"/>
-        <line num="13" count="23" type="stmt"/>
-        <line num="16" count="742" type="stmt"/>
-        <line num="20" count="15" type="stmt"/>
-        <line num="21" count="15" type="stmt"/>
-        <line num="22" count="15" type="stmt"/>
-        <line num="26" count="2" type="stmt"/>
-        <line num="27" count="2" type="stmt"/>
-        <line num="28" count="2" type="stmt"/>
-        <line num="32" count="17" type="stmt"/>
+        <line num="8" count="88" type="cond" truecount="2" falsecount="0"/>
+        <line num="10" count="44" type="stmt"/>
+        <line num="13" count="44" type="stmt"/>
+        <line num="16" count="1468" type="stmt"/>
+        <line num="20" count="28" type="stmt"/>
+        <line num="21" count="28" type="stmt"/>
+        <line num="22" count="28" type="stmt"/>
+        <line num="26" count="4" type="stmt"/>
+        <line num="27" count="4" type="stmt"/>
+        <line num="28" count="4" type="stmt"/>
+        <line num="32" count="32" type="stmt"/>
       </file>
       <file name="teacher.service.ts" path="/home/manu/Documents/Lead Developer Java Angular/projet4/projet4-fullstack/front/src/app/core/service/teacher.service.ts">
         <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
-        <line num="9" count="31" type="cond" truecount="2" falsecount="0"/>
-        <line num="11" count="8" type="stmt"/>
-        <line num="13" count="8" type="stmt"/>
-        <line num="16" count="2" type="stmt"/>
-        <line num="20" count="8" type="stmt"/>
+        <line num="9" count="60" type="cond" truecount="2" falsecount="0"/>
+        <line num="11" count="16" type="stmt"/>
+        <line num="13" count="16" type="stmt"/>
+        <line num="16" count="4" type="stmt"/>
+        <line num="20" count="16" type="stmt"/>
       </file>
       <file name="user.service.ts" path="/home/manu/Documents/Lead Developer Java Angular/projet4/projet4-fullstack/front/src/app/core/service/user.service.ts">
         <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
-        <line num="9" count="28" type="cond" truecount="2" falsecount="0"/>
-        <line num="11" count="5" type="stmt"/>
-        <line num="13" count="5" type="stmt"/>
-        <line num="16" count="5" type="stmt"/>
-        <line num="20" count="1" type="stmt"/>
+        <line num="9" count="52" type="cond" truecount="2" falsecount="0"/>
+        <line num="11" count="8" type="stmt"/>
+        <line num="13" count="8" type="stmt"/>
+        <line num="16" count="8" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
       </file>
     </package>
     <package name="app.guards">
       <metrics statements="14" coveredstatements="12" conditionals="8" coveredconditionals="7" methods="6" coveredmethods="6"/>
       <file name="auth.guard.ts" path="/home/manu/Documents/Lead Developer Java Angular/projet4/projet4-fullstack/front/src/app/guards/auth.guard.ts">
         <metrics statements="7" coveredstatements="7" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
-        <line num="6" count="39" type="cond" truecount="2" falsecount="0"/>
-        <line num="9" count="16" type="stmt"/>
-        <line num="10" count="16" type="stmt"/>
-        <line num="15" count="22" type="cond" truecount="2" falsecount="0"/>
-        <line num="16" count="1" type="stmt"/>
-        <line num="17" count="1" type="stmt"/>
-        <line num="19" count="21" type="stmt"/>
+        <line num="6" count="74" type="cond" truecount="2" falsecount="0"/>
+        <line num="9" count="30" type="stmt"/>
+        <line num="10" count="30" type="stmt"/>
+        <line num="15" count="40" type="cond" truecount="2" falsecount="0"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="19" count="38" type="stmt"/>
       </file>
       <file name="unauth.guard.ts" path="/home/manu/Documents/Lead Developer Java Angular/projet4/projet4-fullstack/front/src/app/guards/unauth.guard.ts">
         <metrics statements="7" coveredstatements="5" conditionals="4" coveredconditionals="3" methods="3" coveredmethods="3"/>
-        <line num="6" count="45" type="cond" truecount="2" falsecount="0"/>
-        <line num="9" count="22" type="stmt"/>
-        <line num="10" count="22" type="stmt"/>
-        <line num="15" count="25" type="cond" truecount="1" falsecount="1"/>
+        <line num="6" count="86" type="cond" truecount="2" falsecount="0"/>
+        <line num="9" count="42" type="stmt"/>
+        <line num="10" count="42" type="stmt"/>
+        <line num="15" count="48" type="cond" truecount="1" falsecount="1"/>
         <line num="16" count="0" type="stmt"/>
         <line num="17" count="0" type="stmt"/>
-        <line num="19" count="25" type="stmt"/>
+        <line num="19" count="48" type="stmt"/>
       </file>
     </package>
     <package name="app.interceptors">
       <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
       <file name="customJwtInterceptorFn.ts" path="/home/manu/Documents/Lead Developer Java Angular/projet4/projet4-fullstack/front/src/app/interceptors/customJwtInterceptorFn.ts">
         <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="7" count="65" type="stmt"/>
-        <line num="8" count="65" type="cond" truecount="2" falsecount="0"/>
-        <line num="9" count="47" type="stmt"/>
-        <line num="15" count="65" type="stmt"/>
+        <line num="7" count="124" type="stmt"/>
+        <line num="8" count="124" type="cond" truecount="2" falsecount="0"/>
+        <line num="9" count="90" type="stmt"/>
+        <line num="15" count="124" type="stmt"/>
       </file>
     </package>
     <package name="app.pages.login">
       <metrics statements="29" coveredstatements="29" conditionals="8" coveredconditionals="8" methods="6" coveredmethods="6"/>
       <file name="login.component.html" path="/home/manu/Documents/Lead Developer Java Angular/projet4/projet4-fullstack/front/src/app/pages/login/login.component.html">
         <metrics statements="15" coveredstatements="15" conditionals="6" coveredconditionals="6" methods="2" coveredmethods="2"/>
-        <line num="4" count="22" type="stmt"/>
-        <line num="5" count="22" type="stmt"/>
-        <line num="6" count="1048" type="stmt"/>
-        <line num="8" count="22" type="stmt"/>
-        <line num="9" count="22" type="stmt"/>
-        <line num="10" count="22" type="stmt"/>
-        <line num="11" count="22" type="stmt"/>
-        <line num="12" count="1048" type="cond" truecount="2" falsecount="0"/>
-        <line num="14" count="524" type="stmt"/>
-        <line num="16" count="1070" type="cond" truecount="2" falsecount="0"/>
-        <line num="19" count="22" type="stmt"/>
-        <line num="20" count="1048" type="stmt"/>
-        <line num="21" count="1048" type="cond" truecount="2" falsecount="0"/>
-        <line num="22" count="1" type="stmt"/>
-        <line num="26" count="22" type="stmt"/>
+        <line num="4" count="42" type="stmt"/>
+        <line num="5" count="42" type="stmt"/>
+        <line num="6" count="2056" type="stmt"/>
+        <line num="8" count="42" type="stmt"/>
+        <line num="9" count="42" type="stmt"/>
+        <line num="10" count="42" type="stmt"/>
+        <line num="11" count="42" type="stmt"/>
+        <line num="12" count="2056" type="cond" truecount="2" falsecount="0"/>
+        <line num="14" count="1028" type="stmt"/>
+        <line num="16" count="2098" type="cond" truecount="2" falsecount="0"/>
+        <line num="19" count="42" type="stmt"/>
+        <line num="20" count="2056" type="stmt"/>
+        <line num="21" count="2056" type="cond" truecount="2" falsecount="0"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="26" count="42" type="stmt"/>
       </file>
       <file name="login.component.ts" path="/home/manu/Documents/Lead Developer Java Angular/projet4/projet4-fullstack/front/src/app/pages/login/login.component.ts">
         <metrics statements="14" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
-        <line num="18" count="45" type="cond" truecount="2" falsecount="0"/>
-        <line num="19" count="22" type="stmt"/>
-        <line num="20" count="22" type="stmt"/>
-        <line num="21" count="22" type="stmt"/>
-        <line num="22" count="22" type="stmt"/>
-        <line num="23" count="22" type="stmt"/>
-        <line num="25" count="22" type="stmt"/>
-        <line num="26" count="22" type="stmt"/>
-        <line num="28" count="22" type="stmt"/>
-        <line num="46" count="16" type="stmt"/>
-        <line num="47" count="16" type="stmt"/>
-        <line num="53" count="15" type="stmt"/>
-        <line num="54" count="15" type="stmt"/>
-        <line num="56" count="1" type="stmt"/>
+        <line num="18" count="86" type="cond" truecount="2" falsecount="0"/>
+        <line num="19" count="42" type="stmt"/>
+        <line num="20" count="42" type="stmt"/>
+        <line num="21" count="42" type="stmt"/>
+        <line num="22" count="42" type="stmt"/>
+        <line num="23" count="42" type="stmt"/>
+        <line num="25" count="42" type="stmt"/>
+        <line num="26" count="42" type="stmt"/>
+        <line num="28" count="42" type="stmt"/>
+        <line num="46" count="30" type="stmt"/>
+        <line num="47" count="30" type="stmt"/>
+        <line num="53" count="28" type="stmt"/>
+        <line num="54" count="28" type="stmt"/>
+        <line num="56" count="2" type="stmt"/>
       </file>
     </package>
     <package name="app.pages.not-found">
       <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
       <file name="not-found.component.html" path="/home/manu/Documents/Lead Developer Java Angular/projet4/projet4-fullstack/front/src/app/pages/not-found/not-found.component.html">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="3" count="1" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
       </file>
       <file name="not-found.component.ts" path="/home/manu/Documents/Lead Developer Java Angular/projet4/projet4-fullstack/front/src/app/pages/not-found/not-found.component.ts">
         <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="8" count="24" type="cond" truecount="2" falsecount="0"/>
+        <line num="8" count="46" type="cond" truecount="2" falsecount="0"/>
       </file>
     </package>
     <package name="app.pages.register">
       <metrics statements="30" coveredstatements="30" conditionals="4" coveredconditionals="4" methods="5" coveredmethods="5"/>
       <file name="register.component.html" path="/home/manu/Documents/Lead Developer Java Angular/projet4/projet4-fullstack/front/src/app/pages/register/register.component.html">
         <metrics statements="19" coveredstatements="19" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="4" count="3" type="stmt"/>
-        <line num="5" count="3" type="stmt"/>
-        <line num="6" count="212" type="stmt"/>
-        <line num="8" count="3" type="stmt"/>
-        <line num="9" count="3" type="stmt"/>
-        <line num="10" count="3" type="stmt"/>
-        <line num="11" count="3" type="stmt"/>
-        <line num="12" count="3" type="stmt"/>
-        <line num="13" count="3" type="stmt"/>
-        <line num="14" count="3" type="stmt"/>
-        <line num="15" count="3" type="stmt"/>
-        <line num="16" count="3" type="stmt"/>
-        <line num="17" count="3" type="stmt"/>
-        <line num="18" count="3" type="stmt"/>
-        <line num="20" count="3" type="stmt"/>
-        <line num="21" count="212" type="stmt"/>
-        <line num="22" count="212" type="cond" truecount="2" falsecount="0"/>
-        <line num="23" count="1" type="stmt"/>
-        <line num="27" count="3" type="stmt"/>
+        <line num="4" count="6" type="stmt"/>
+        <line num="5" count="6" type="stmt"/>
+        <line num="6" count="452" type="stmt"/>
+        <line num="8" count="6" type="stmt"/>
+        <line num="9" count="6" type="stmt"/>
+        <line num="10" count="6" type="stmt"/>
+        <line num="11" count="6" type="stmt"/>
+        <line num="12" count="6" type="stmt"/>
+        <line num="13" count="6" type="stmt"/>
+        <line num="14" count="6" type="stmt"/>
+        <line num="15" count="6" type="stmt"/>
+        <line num="16" count="6" type="stmt"/>
+        <line num="17" count="6" type="stmt"/>
+        <line num="18" count="6" type="stmt"/>
+        <line num="20" count="6" type="stmt"/>
+        <line num="21" count="452" type="stmt"/>
+        <line num="22" count="452" type="cond" truecount="2" falsecount="0"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="27" count="6" type="stmt"/>
       </file>
       <file name="register.component.ts" path="/home/manu/Documents/Lead Developer Java Angular/projet4/projet4-fullstack/front/src/app/pages/register/register.component.ts">
         <metrics statements="11" coveredstatements="11" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
-        <line num="16" count="26" type="cond" truecount="2" falsecount="0"/>
-        <line num="17" count="3" type="stmt"/>
-        <line num="18" count="3" type="stmt"/>
-        <line num="19" count="3" type="stmt"/>
-        <line num="20" count="3" type="stmt"/>
-        <line num="21" count="3" type="stmt"/>
-        <line num="23" count="3" type="stmt"/>
-        <line num="59" count="2" type="stmt"/>
-        <line num="60" count="2" type="stmt"/>
-        <line num="65" count="1" type="stmt"/>
-        <line num="66" count="1" type="stmt"/>
+        <line num="16" count="50" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="6" type="stmt"/>
+        <line num="18" count="6" type="stmt"/>
+        <line num="19" count="6" type="stmt"/>
+        <line num="20" count="6" type="stmt"/>
+        <line num="21" count="6" type="stmt"/>
+        <line num="23" count="6" type="stmt"/>
+        <line num="59" count="4" type="stmt"/>
+        <line num="60" count="4" type="stmt"/>
+        <line num="65" count="2" type="stmt"/>
+        <line num="66" count="2" type="stmt"/>
       </file>
     </package>
     <package name="app.pages.sessions.components.detail">
       <metrics statements="81" coveredstatements="80" conditionals="10" coveredconditionals="10" methods="18" coveredmethods="16"/>
       <file name="detail.component.html" path="/home/manu/Documents/Lead Developer Java Angular/projet4/projet4-fullstack/front/src/app/pages/sessions/components/detail/detail.component.html">
         <metrics statements="54" coveredstatements="54" conditionals="8" coveredconditionals="8" methods="4" coveredmethods="3"/>
-        <line num="1" count="6" type="stmt"/>
-        <line num="2" count="54" type="cond" truecount="2" falsecount="0"/>
-        <line num="8" count="6" type="stmt"/>
-        <line num="9" count="6" type="stmt"/>
-        <line num="10" count="6" type="stmt"/>
-        <line num="11" count="48" type="stmt"/>
-        <line num="12" count="6" type="stmt"/>
-        <line num="14" count="6" type="stmt"/>
-        <line num="15" count="42" type="cond" truecount="2" falsecount="0"/>
-        <line num="16" count="2" type="stmt"/>
-        <line num="17" count="2" type="stmt"/>
-        <line num="18" count="2" type="stmt"/>
-        <line num="19" count="2" type="stmt"/>
-        <line num="20" count="6" type="stmt"/>
-        <line num="21" count="4" type="stmt"/>
-        <line num="22" count="32" type="cond" truecount="2" falsecount="0"/>
-        <line num="23" count="3" type="stmt"/>
-        <line num="24" count="3" type="stmt"/>
-        <line num="25" count="3" type="stmt"/>
-        <line num="26" count="3" type="stmt"/>
-        <line num="27" count="4" type="stmt"/>
-        <line num="28" count="3" type="stmt"/>
-        <line num="29" count="3" type="stmt"/>
-        <line num="30" count="3" type="stmt"/>
-        <line num="31" count="3" type="stmt"/>
-        <line num="33" count="4" type="stmt"/>
-        <line num="38" count="6" type="stmt"/>
-        <line num="39" count="42" type="cond" truecount="2" falsecount="0"/>
-        <line num="42" count="6" type="stmt"/>
-        <line num="43" count="6" type="stmt"/>
-        <line num="44" count="6" type="stmt"/>
-        <line num="45" count="36" type="stmt"/>
-        <line num="47" count="6" type="stmt"/>
-        <line num="49" count="6" type="stmt"/>
-        <line num="50" count="6" type="stmt"/>
-        <line num="51" count="6" type="stmt"/>
-        <line num="55" count="6" type="stmt"/>
-        <line num="56" count="6" type="stmt"/>
-        <line num="57" count="6" type="stmt"/>
-        <line num="58" count="48" type="stmt"/>
-        <line num="59" count="6" type="stmt"/>
-        <line num="61" count="6" type="stmt"/>
-        <line num="62" count="6" type="stmt"/>
-        <line num="63" count="6" type="stmt"/>
-        <line num="64" count="48" type="stmt"/>
-        <line num="66" count="6" type="stmt"/>
-        <line num="68" count="6" type="stmt"/>
-        <line num="69" count="48" type="stmt"/>
-        <line num="70" count="6" type="stmt"/>
-        <line num="71" count="6" type="stmt"/>
-        <line num="73" count="48" type="stmt"/>
-        <line num="74" count="48" type="stmt"/>
-        <line num="77" count="6" type="stmt"/>
-        <line num="79" count="6" type="stmt"/>
-      </file>
-      <file name="detail.component.ts" path="/home/manu/Documents/Lead Developer Java Angular/projet4/projet4-fullstack/front/src/app/pages/sessions/components/detail/detail.component.ts">
-        <metrics statements="27" coveredstatements="26" conditionals="2" coveredconditionals="2" methods="14" coveredmethods="13"/>
-        <line num="19" count="29" type="cond" truecount="2" falsecount="0"/>
-        <line num="22" count="6" type="stmt"/>
+        <line num="1" count="12" type="stmt"/>
+        <line num="2" count="108" type="cond" truecount="2" falsecount="0"/>
+        <line num="8" count="12" type="stmt"/>
+        <line num="9" count="12" type="stmt"/>
+        <line num="10" count="12" type="stmt"/>
+        <line num="11" count="96" type="stmt"/>
+        <line num="12" count="12" type="stmt"/>
+        <line num="14" count="12" type="stmt"/>
+        <line num="15" count="84" type="cond" truecount="2" falsecount="0"/>
+        <line num="16" count="4" type="stmt"/>
+        <line num="17" count="4" type="stmt"/>
+        <line num="18" count="4" type="stmt"/>
+        <line num="19" count="4" type="stmt"/>
+        <line num="20" count="12" type="stmt"/>
+        <line num="21" count="8" type="stmt"/>
+        <line num="22" count="64" type="cond" truecount="2" falsecount="0"/>
         <line num="23" count="6" type="stmt"/>
-        <line num="27" count="6" type="stmt"/>
+        <line num="24" count="6" type="stmt"/>
+        <line num="25" count="6" type="stmt"/>
+        <line num="26" count="6" type="stmt"/>
+        <line num="27" count="8" type="stmt"/>
         <line num="28" count="6" type="stmt"/>
         <line num="29" count="6" type="stmt"/>
         <line num="30" count="6" type="stmt"/>
         <line num="31" count="6" type="stmt"/>
-        <line num="32" count="6" type="stmt"/>
-        <line num="33" count="6" type="stmt"/>
-        <line num="36" count="6" type="stmt"/>
-        <line num="37" count="6" type="stmt"/>
-        <line num="38" count="6" type="stmt"/>
-        <line num="42" count="6" type="stmt"/>
+        <line num="33" count="8" type="stmt"/>
+        <line num="38" count="12" type="stmt"/>
+        <line num="39" count="84" type="cond" truecount="2" falsecount="0"/>
+        <line num="42" count="12" type="stmt"/>
+        <line num="43" count="12" type="stmt"/>
+        <line num="44" count="12" type="stmt"/>
+        <line num="45" count="72" type="stmt"/>
+        <line num="47" count="12" type="stmt"/>
+        <line num="49" count="12" type="stmt"/>
+        <line num="50" count="12" type="stmt"/>
+        <line num="51" count="12" type="stmt"/>
+        <line num="55" count="12" type="stmt"/>
+        <line num="56" count="12" type="stmt"/>
+        <line num="57" count="12" type="stmt"/>
+        <line num="58" count="96" type="stmt"/>
+        <line num="59" count="12" type="stmt"/>
+        <line num="61" count="12" type="stmt"/>
+        <line num="62" count="12" type="stmt"/>
+        <line num="63" count="12" type="stmt"/>
+        <line num="64" count="96" type="stmt"/>
+        <line num="66" count="12" type="stmt"/>
+        <line num="68" count="12" type="stmt"/>
+        <line num="69" count="96" type="stmt"/>
+        <line num="70" count="12" type="stmt"/>
+        <line num="71" count="12" type="stmt"/>
+        <line num="73" count="96" type="stmt"/>
+        <line num="74" count="96" type="stmt"/>
+        <line num="77" count="12" type="stmt"/>
+        <line num="79" count="12" type="stmt"/>
+      </file>
+      <file name="detail.component.ts" path="/home/manu/Documents/Lead Developer Java Angular/projet4/projet4-fullstack/front/src/app/pages/sessions/components/detail/detail.component.ts">
+        <metrics statements="27" coveredstatements="26" conditionals="2" coveredconditionals="2" methods="14" coveredmethods="13"/>
+        <line num="19" count="56" type="cond" truecount="2" falsecount="0"/>
+        <line num="22" count="12" type="stmt"/>
+        <line num="23" count="12" type="stmt"/>
+        <line num="27" count="12" type="stmt"/>
+        <line num="28" count="12" type="stmt"/>
+        <line num="29" count="12" type="stmt"/>
+        <line num="30" count="12" type="stmt"/>
+        <line num="31" count="12" type="stmt"/>
+        <line num="32" count="12" type="stmt"/>
+        <line num="33" count="12" type="stmt"/>
+        <line num="36" count="12" type="stmt"/>
+        <line num="37" count="12" type="stmt"/>
+        <line num="38" count="12" type="stmt"/>
+        <line num="42" count="12" type="stmt"/>
         <line num="46" count="0" type="stmt"/>
-        <line num="50" count="1" type="stmt"/>
-        <line num="56" count="1" type="stmt"/>
-        <line num="57" count="1" type="stmt"/>
-        <line num="63" count="1" type="stmt"/>
-        <line num="67" count="1" type="stmt"/>
-        <line num="71" count="1" type="stmt"/>
-        <line num="75" count="1" type="stmt"/>
-        <line num="79" count="8" type="stmt"/>
-        <line num="85" count="8" type="stmt"/>
-        <line num="86" count="8" type="stmt"/>
-        <line num="87" count="8" type="stmt"/>
-        <line num="92" count="8" type="stmt"/>
+        <line num="50" count="2" type="stmt"/>
+        <line num="56" count="2" type="stmt"/>
+        <line num="57" count="2" type="stmt"/>
+        <line num="63" count="2" type="stmt"/>
+        <line num="67" count="2" type="stmt"/>
+        <line num="71" count="2" type="stmt"/>
+        <line num="75" count="2" type="stmt"/>
+        <line num="79" count="16" type="stmt"/>
+        <line num="85" count="16" type="stmt"/>
+        <line num="86" count="16" type="stmt"/>
+        <line num="87" count="16" type="stmt"/>
+        <line num="92" count="16" type="stmt"/>
       </file>
     </package>
     <package name="app.pages.sessions.components.form">
       <metrics statements="58" coveredstatements="55" conditionals="20" coveredconditionals="18" methods="9" coveredmethods="8"/>
       <file name="form.component.html" path="/home/manu/Documents/Lead Developer Java Angular/projet4/projet4-fullstack/front/src/app/pages/sessions/components/form/form.component.html">
         <metrics statements="29" coveredstatements="29" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
-        <line num="8" count="26" type="cond" truecount="2" falsecount="0"/>
-        <line num="9" count="1" type="stmt"/>
-        <line num="10" count="2" type="stmt"/>
-        <line num="11" count="1" type="stmt"/>
-        <line num="14" count="2" type="stmt"/>
-        <line num="15" count="26" type="cond" truecount="2" falsecount="0"/>
-        <line num="17" count="24" type="stmt"/>
-        <line num="19" count="2" type="stmt"/>
-        <line num="20" count="2" type="stmt"/>
-        <line num="21" count="2" type="stmt"/>
-        <line num="23" count="2" type="stmt"/>
-        <line num="24" count="2" type="stmt"/>
-        <line num="25" count="2" type="stmt"/>
-        <line num="27" count="2" type="stmt"/>
-        <line num="28" count="2" type="stmt"/>
-        <line num="29" count="26" type="stmt"/>
-        <line num="30" count="8" type="stmt"/>
-        <line num="31" count="18" type="stmt"/>
-        <line num="32" count="2" type="stmt"/>
-        <line num="35" count="2" type="stmt"/>
-        <line num="37" count="2" type="stmt"/>
-        <line num="38" count="2" type="stmt"/>
-        <line num="39" count="2" type="stmt"/>
-        <line num="41" count="24" type="stmt"/>
-        <line num="42" count="2" type="stmt"/>
-        <line num="46" count="2" type="stmt"/>
-        <line num="49" count="2" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="8" count="52" type="cond" truecount="2" falsecount="0"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="10" count="4" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="14" count="4" type="stmt"/>
+        <line num="15" count="52" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="48" type="stmt"/>
+        <line num="19" count="4" type="stmt"/>
+        <line num="20" count="4" type="stmt"/>
+        <line num="21" count="4" type="stmt"/>
+        <line num="23" count="4" type="stmt"/>
+        <line num="24" count="4" type="stmt"/>
+        <line num="25" count="4" type="stmt"/>
+        <line num="27" count="4" type="stmt"/>
+        <line num="28" count="4" type="stmt"/>
+        <line num="29" count="52" type="stmt"/>
+        <line num="30" count="16" type="stmt"/>
+        <line num="31" count="36" type="stmt"/>
+        <line num="32" count="4" type="stmt"/>
+        <line num="35" count="4" type="stmt"/>
+        <line num="37" count="4" type="stmt"/>
+        <line num="38" count="4" type="stmt"/>
+        <line num="39" count="4" type="stmt"/>
+        <line num="41" count="48" type="stmt"/>
+        <line num="42" count="4" type="stmt"/>
+        <line num="46" count="4" type="stmt"/>
+        <line num="49" count="4" type="stmt"/>
       </file>
       <file name="form.component.ts" path="/home/manu/Documents/Lead Developer Java Angular/projet4/projet4-fullstack/front/src/app/pages/sessions/components/form/form.component.ts">
         <metrics statements="29" coveredstatements="26" conditionals="16" coveredconditionals="14" methods="8" coveredmethods="7"/>
-        <line num="19" count="25" type="cond" truecount="2" falsecount="0"/>
-        <line num="20" count="2" type="stmt"/>
-        <line num="21" count="2" type="stmt"/>
-        <line num="22" count="2" type="stmt"/>
-        <line num="23" count="2" type="stmt"/>
-        <line num="24" count="2" type="stmt"/>
-        <line num="25" count="2" type="stmt"/>
-        <line num="26" count="2" type="stmt"/>
-        <line num="27" count="2" type="stmt"/>
-        <line num="30" count="2" type="stmt"/>
-        <line num="32" count="2" type="stmt"/>
-        <line num="36" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="19" count="48" type="cond" truecount="2" falsecount="0"/>
+        <line num="20" count="4" type="stmt"/>
+        <line num="21" count="4" type="stmt"/>
+        <line num="22" count="4" type="stmt"/>
+        <line num="23" count="4" type="stmt"/>
+        <line num="24" count="4" type="stmt"/>
+        <line num="25" count="4" type="stmt"/>
+        <line num="26" count="4" type="stmt"/>
+        <line num="27" count="4" type="stmt"/>
+        <line num="30" count="4" type="stmt"/>
+        <line num="32" count="4" type="stmt"/>
+        <line num="36" count="4" type="cond" truecount="1" falsecount="1"/>
         <line num="37" count="0" type="stmt"/>
-        <line num="39" count="2" type="stmt"/>
-        <line num="40" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="41" count="1" type="stmt"/>
-        <line num="42" count="1" type="stmt"/>
-        <line num="43" count="1" type="stmt"/>
-        <line num="48" count="1" type="stmt"/>
-        <line num="50" count="1" type="stmt"/>
-        <line num="55" count="1" type="stmt"/>
-        <line num="57" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="39" count="4" type="stmt"/>
+        <line num="40" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="41" count="2" type="stmt"/>
+        <line num="42" count="2" type="stmt"/>
+        <line num="43" count="2" type="stmt"/>
+        <line num="48" count="2" type="stmt"/>
+        <line num="50" count="2" type="stmt"/>
+        <line num="55" count="2" type="stmt"/>
+        <line num="57" count="2" type="cond" truecount="1" falsecount="1"/>
         <line num="58" count="0" type="stmt"/>
         <line num="63" count="0" type="stmt"/>
-        <line num="65" count="1" type="stmt"/>
-        <line num="70" count="1" type="stmt"/>
-        <line num="75" count="2" type="stmt"/>
-        <line num="99" count="1" type="stmt"/>
-        <line num="100" count="1" type="stmt"/>
+        <line num="65" count="2" type="stmt"/>
+        <line num="70" count="2" type="stmt"/>
+        <line num="75" count="4" type="stmt"/>
+        <line num="99" count="2" type="stmt"/>
+        <line num="100" count="2" type="stmt"/>
       </file>
     </package>
     <package name="app.pages.sessions.components.list">
       <metrics statements="34" coveredstatements="34" conditionals="6" coveredconditionals="6" methods="2" coveredmethods="2"/>
       <file name="list.component.html" path="/home/manu/Documents/Lead Developer Java Angular/projet4/projet4-fullstack/front/src/app/pages/sessions/components/list/list.component.html">
         <metrics statements="29" coveredstatements="29" conditionals="4" coveredconditionals="4" methods="0" coveredmethods="0"/>
-        <line num="4" count="18" type="stmt"/>
-        <line num="5" count="72" type="cond" truecount="2" falsecount="0"/>
-        <line num="7" count="10" type="stmt"/>
-        <line num="8" count="10" type="stmt"/>
-        <line num="9" count="10" type="stmt"/>
-        <line num="11" count="18" type="stmt"/>
-        <line num="12" count="18" type="stmt"/>
-        <line num="13" count="90" type="stmt"/>
-        <line num="16" count="33" type="stmt"/>
-        <line num="17" count="11" type="stmt"/>
-        <line num="18" count="33" type="stmt"/>
-        <line num="20" count="11" type="stmt"/>
-        <line num="21" count="11" type="stmt"/>
-        <line num="22" count="11" type="stmt"/>
-        <line num="23" count="11" type="stmt"/>
-        <line num="25" count="11" type="stmt"/>
-        <line num="26" count="33" type="stmt"/>
-        <line num="28" count="11" type="stmt"/>
-        <line num="30" count="22" type="stmt"/>
-        <line num="31" count="11" type="stmt"/>
-        <line num="32" count="11" type="stmt"/>
-        <line num="33" count="11" type="stmt"/>
-        <line num="34" count="22" type="cond" truecount="2" falsecount="0"/>
-        <line num="36" count="7" type="stmt"/>
-        <line num="37" count="7" type="stmt"/>
-        <line num="38" count="7" type="stmt"/>
-        <line num="39" count="7" type="stmt"/>
-        <line num="42" count="11" type="stmt"/>
-        <line num="46" count="18" type="stmt"/>
+        <line num="4" count="34" type="stmt"/>
+        <line num="5" count="136" type="cond" truecount="2" falsecount="0"/>
+        <line num="7" count="14" type="stmt"/>
+        <line num="8" count="14" type="stmt"/>
+        <line num="9" count="14" type="stmt"/>
+        <line num="11" count="34" type="stmt"/>
+        <line num="12" count="34" type="stmt"/>
+        <line num="13" count="170" type="stmt"/>
+        <line num="16" count="66" type="stmt"/>
+        <line num="17" count="22" type="stmt"/>
+        <line num="18" count="66" type="stmt"/>
+        <line num="20" count="22" type="stmt"/>
+        <line num="21" count="22" type="stmt"/>
+        <line num="22" count="22" type="stmt"/>
+        <line num="23" count="22" type="stmt"/>
+        <line num="25" count="22" type="stmt"/>
+        <line num="26" count="66" type="stmt"/>
+        <line num="28" count="22" type="stmt"/>
+        <line num="30" count="44" type="stmt"/>
+        <line num="31" count="22" type="stmt"/>
+        <line num="32" count="22" type="stmt"/>
+        <line num="33" count="22" type="stmt"/>
+        <line num="34" count="44" type="cond" truecount="2" falsecount="0"/>
+        <line num="36" count="14" type="stmt"/>
+        <line num="37" count="14" type="stmt"/>
+        <line num="38" count="14" type="stmt"/>
+        <line num="39" count="14" type="stmt"/>
+        <line num="42" count="22" type="stmt"/>
+        <line num="46" count="34" type="stmt"/>
       </file>
       <file name="list.component.ts" path="/home/manu/Documents/Lead Developer Java Angular/projet4/projet4-fullstack/front/src/app/pages/sessions/components/list/list.component.ts">
         <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
-        <line num="17" count="41" type="cond" truecount="2" falsecount="0"/>
-        <line num="18" count="18" type="stmt"/>
-        <line num="19" count="18" type="stmt"/>
-        <line num="21" count="18" type="stmt"/>
-        <line num="24" count="47" type="stmt"/>
+        <line num="17" count="78" type="cond" truecount="2" falsecount="0"/>
+        <line num="18" count="34" type="stmt"/>
+        <line num="19" count="34" type="stmt"/>
+        <line num="21" count="34" type="stmt"/>
+        <line num="24" count="90" type="stmt"/>
       </file>
     </package>
     <package name="app.shared">
       <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
       <file name="material.module.ts" path="/home/manu/Documents/Lead Developer Java Angular/projet4/projet4-fullstack/front/src/app/shared/material.module.ts">
         <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="32" count="23" type="stmt"/>
-        <line num="71" count="97" type="cond" truecount="2" falsecount="0"/>
+        <line num="32" count="44" type="stmt"/>
+        <line num="71" count="184" type="cond" truecount="2" falsecount="0"/>
       </file>
     </package>
   </project>
