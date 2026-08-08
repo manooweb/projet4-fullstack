@@ -1,22 +1,5 @@
 const MEMBER_ID = 2
 const ADMIN_ID = 1
-const LOGIN_PASSWORD = 'test!1234'
-
-function loginAs(userFixture: string, email: string): void {
-  cy.intercept('POST', '/api/auth/login', {
-    fixture: userFixture,
-  }).as('login')
-  cy.intercept('GET', '/api/session', []).as('sessions')
-
-  cy.visit('/login')
-  cy.get('input[formControlName=email]').clear().type(email)
-  cy.get('input[formControlName=password]').clear().type(LOGIN_PASSWORD)
-  cy.get('button[type=submit]').click()
-
-  cy.wait('@login')
-  cy.wait('@sessions')
-  cy.url().should('include', '/sessions')
-}
 
 function openAccount(userId: number, accountFixture: string): void {
   cy.intercept('GET', `/api/user/${userId}`, {
@@ -30,7 +13,7 @@ function openAccount(userId: number, accountFixture: string): void {
 
 describe('Account spec', () => {
   it('Should display user information correctly when the user is authenticated as a regular user', () => {
-    loginAs('users/member.json', 'member@studio.com')
+    cy.loginAs('users/member.json', 'member@studio.com')
     openAccount(MEMBER_ID, 'accounts/member.json')
 
     cy.contains('h1', 'User information').should('be.visible')
@@ -41,7 +24,7 @@ describe('Account spec', () => {
   })
 
   it('Should not display delete button when the user is authenticated as an admin user', () => {
-    loginAs('users/admin.json', 'yoga@studio.com')
+    cy.loginAs('users/admin.json', 'yoga@studio.com')
     openAccount(ADMIN_ID, 'accounts/admin.json')
 
     cy.contains('h1', 'User information').should('be.visible')
@@ -53,7 +36,7 @@ describe('Account spec', () => {
   })
 
   it('Should user be able to delete itself when the user is authenticated as a regular user', () => {
-    loginAs('users/member.json', 'member@studio.com')
+    cy.loginAs('users/member.json', 'member@studio.com')
     openAccount(MEMBER_ID, 'accounts/member.json')
     cy.intercept('DELETE', `/api/user/${MEMBER_ID}`, {
       statusCode: 200,
@@ -67,7 +50,7 @@ describe('Account spec', () => {
   })
 
   it('Should return back to sessions list when clicking the back button on account page', () => {
-    loginAs('users/member.json', 'member@studio.com')
+    cy.loginAs('users/member.json', 'member@studio.com')
     openAccount(MEMBER_ID, 'accounts/member.json')
 
     cy.contains('button mat-icon', 'arrow_back').click()

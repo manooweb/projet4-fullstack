@@ -1,4 +1,4 @@
-const LOGIN_EMAIL = 'yoga@studio.com'
+const LOGIN_EMAIL = 'member@studio.com'
 const VALID_PASSWORD = 'test!1234'
 
 function fillLoginForm(password: string): void {
@@ -8,19 +8,7 @@ function fillLoginForm(password: string): void {
 
 describe('Login spec', () => {
   it('Login successfull', () => {
-    cy.intercept('POST', '/api/auth/login', {
-      fixture: 'users/member.json',
-    }).as('login')
-    cy.intercept('GET', '/api/session', []).as('sessions')
-
-    cy.visit('/login')
-    fillLoginForm(VALID_PASSWORD)
-
-    cy.get('button[type=submit]').click()
-
-    cy.wait('@login')
-    cy.wait('@sessions')
-    cy.url().should('include', '/sessions')
+    cy.loginAs('users/member.json', LOGIN_EMAIL)
   });
 
   it('Login fails', () => {
