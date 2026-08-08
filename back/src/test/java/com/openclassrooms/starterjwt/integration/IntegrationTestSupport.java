@@ -11,10 +11,6 @@ import org.testcontainers.mysql.MySQLContainer;
 })
 public abstract class IntegrationTestSupport {
 
-    private static final boolean USE_LOCAL_DATABASE = "local".equalsIgnoreCase(
-            System.getProperty("it.database", "container")
-    );
-
     private static final MySQLContainer MYSQL = new MySQLContainer("mysql:9.7")
             .withDatabaseName("yoga_test")
             .withUsername("yoga_test")
@@ -22,10 +18,6 @@ public abstract class IntegrationTestSupport {
 
     @DynamicPropertySource
     static void configureDatasource(DynamicPropertyRegistry registry) {
-        if (USE_LOCAL_DATABASE) {
-            return;
-        }
-
         MYSQL.start();
         registry.add("spring.datasource.url", MYSQL::getJdbcUrl);
         registry.add("spring.datasource.username", MYSQL::getUsername);

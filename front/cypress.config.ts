@@ -16,6 +16,6 @@ export default defineConfig({
 
       return registerCodeCoverageTasks(on, config)
     },
-    baseUrl: 'http://localhost:4201',
+    baseUrl: 'http://localhost:4200',
   },
 })
